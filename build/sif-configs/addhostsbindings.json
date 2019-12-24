@@ -1,0 +1,22 @@
+{
+    "Parameters": {
+        "SitecoreSiteName": {
+            "Type": "string",
+            "DefaultValue": "urlmapper2.dev.local",
+            "Description": "The name of the default site."
+        }
+    },
+    "Register":{
+        "Tasks": {
+            "RemoveItem": "Remove-Item",
+            "WriteInformation": "Write-Information"
+        },
+        "ConfigFunction": {
+            "ConvertToSecureString": "ConvertTo-SecureString"
+        }
+    },
+    "Tasks": {
+    },
+    "UninstallTasks": {
+    }
+}

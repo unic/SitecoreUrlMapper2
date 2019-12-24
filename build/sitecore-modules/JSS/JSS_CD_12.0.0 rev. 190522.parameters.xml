@@ -1,0 +1,5 @@
+<parameters>
+    <parameter name="IIS Web Application Name" tags="iisapp">
+        <parameterEntry type="ProviderPath" scope="iisapp" match="WebSite" />
+    </parameter>
+</parameters>

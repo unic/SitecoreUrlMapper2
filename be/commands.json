@@ -1,0 +1,14 @@
+{
+  "commands": {
+    "Initialize-DockerEnvironment": {
+      "fileName": "powershell.exe",
+      "workingDirectory": ".",
+      "arguments": "-ExecutionPolicy Bypass -NonInteractive -NoProfile -File ./scripts/Initialize-DockerEnvironment.ps1"
+    },
+    "Start-DockerEnvironment": {
+      "fileName": "powershell.exe",
+      "workingDirectory": ".",
+      "arguments": "-ExecutionPolicy Bypass -NonInteractive -NoProfile -Command \"& { . ./scripts/Start-DockerEnvironment.ps1; Start-DockerEnvironment }\""
+    }
+  }
+}

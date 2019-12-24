@@ -1,0 +1,44 @@
+<Project>
+
+  <PropertyGroup>
+    <!-- Set WebRootPath property to your local web root path (e.g. c:\web\urlmapper2.dev.local) -->
+    <PublishUrl Condition="'$(WebRootPath)' != ''">$(WebRootPath)</PublishUrl>
+
+    <!-- By default AutoPublish is enabled in Visual Studio Build for WebApplication project if WebRootPath/PublishUrl is set
+          set to True to enable AutoPublish for a manual msbuild run
+          set to False to disable AutoPublish in Visual Studio
+    -->
+    <AutoPublish Condition="$(ProjectTypeGuids.Contains('349c5851-65df-11da-9384-00065b846f21')) == 'False'">False</AutoPublish>
+    <AutoPublish Condition="'$(AutoPublish)' == '' And '$(BuildingInsideVisualStudio)' == 'True' And '$(PublishUrl)' != ''">True</AutoPublish>
+
+    <!-- WebPublishMethod must be set to FileSystem for the WebFileSystemPublish to run -->
+    <WebPublishMethod>FileSystem</WebPublishMethod>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <SerializationConfigFile>App_Config\Include\Foundation\Foundation.Serialization.config</SerializationConfigFile>
+  </PropertyGroup>
+
+  <!-- Hooks in after regular Build target and triggers WebFileSystemPublish -->
+  <Target Name="AutoPublish" Condition="'$(AutoPublish)' == 'True'" AfterTargets="Build" DependsOnTargets="WebFileSystemPublish">
+    <Message Text="WebFileSystemPublish finished: $(PublishUrl)" />
+
+    <CallTarget Targets="SetSourceFolder" Condition="%(Content.Identity) == $(SerializationConfigFile)" />
+  </Target>
+
+  <!-- Checks for existance of SerializationConfigFile in Content ItemGroup and updates sourceFolder value for Standalone -->
+  <Target Name="SetSourceFolder">
+    <PropertyGroup>
+      <Namespace>
+          <Namespace Prefix="set" Uri="http://www.sitecore.net/xmlconfig/set/" />
+          <Namespace Prefix="role" Uri="http://www.sitecore.net/xmlconfig/role/" />
+      </Namespace>
+    </PropertyGroup>
+    <XmlPoke XmlInputPath="$(PublishUrl)\$(SerializationConfigFile)"
+             Query="/configuration/sitecore/sc.variable[@name='sourceFolder' and @role:require='Standalone']/@set:value"
+             Value="$(SolutionDir)src"
+             Namespaces="$(Namespace)" />
+    <Message Text="Updated sourceFolder variable in $(PublishUrl)\$(SerializationConfigFile) (Set to $(SolutionDir))" />
+  </Target>
+
+</Project>
