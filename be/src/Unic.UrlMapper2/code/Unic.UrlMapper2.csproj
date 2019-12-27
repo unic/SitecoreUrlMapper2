@@ -59,20 +59,35 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContentSearch\ComputedFields\InheritedTemplatesComputedField.cs" />
+    <Compile Include="Abstractions\Context.cs" />
+    <Compile Include="Abstractions\IContext.cs" />
     <Compile Include="ContentSearch\ComputedFields\SiteNameComputedField.cs" />
     <Compile Include="ContentSearch\ComputedFields\SourceTermComputedField.cs" />
     <Compile Include="ContentSearch\ComputedFields\TargetUrlComputedField.cs" />
+    <Compile Include="ContentSearch\SearchResults\RedirectSearchResultItem.cs" />
     <Compile Include="Definitions\Constants.cs" />
     <Compile Include="DependencyInjection\Container.cs" />
     <Compile Include="DependencyInjection\ServicesConfigurator.cs" />
+    <Compile Include="Models\Redirect.cs" />
+    <Compile Include="Models\RedirectSearchData.cs" />
+    <Compile Include="Models\RedirectType.cs" />
+    <Compile Include="Models\SourceProtocol.cs" />
+    <Compile Include="Pipelines\HttpRequestBegin\PerformRedirectIfPossible.cs" />
+    <Compile Include="Pipelines\ProcessorBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IRedirectionService.cs" />
+    <Compile Include="Services\IRedirectSearcher.cs" />
+    <Compile Include="Services\ISiteExecutionFilter.cs" />
     <Compile Include="Services\RedirectionService.cs" />
+    <Compile Include="Services\RedirectSearcher.cs" />
+    <Compile Include="Services\SiteExecutionFilter.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
       <Version>2.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="morelinq">
+      <Version>3.3.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -85,7 +100,13 @@
     <Content Include="App_Config\Include\UrlMapper2\UrlMapper2.DependencyInjection.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pipelines\HttpRequestBegin\" />
+    <Content Include="App_Config\Include\UrlMapper2\UrlMapper2.Settings.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Config\Include\UrlMapper2\UrlMapper2.Pipelines.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.lock.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -189,6 +189,14 @@
         "resolved": "2.1.1",
         "contentHash": "MgYpU5cwZohUMKKg3sbPhvGG+eAZ/59E9UwPwlrUkyXU+PGzqwZg9yyQNjhxuAWmoNoFReoemeCku50prYSGzA=="
       },
+      "morelinq": {
+        "type": "Transitive",
+        "resolved": "3.3.2",
+        "contentHash": "MQc8GppZJLmjvcpEdf3EkC6ovsp7gRWt2e5mC7dcIOrgwSc+yjFd3JQ0iRqr3XrUT6rb/phv0IkEmBtbfVA7AQ==",
+        "dependencies": {
+          "System.ValueTuple": "4.5.0"
+        }
+      },
       "Mvp.Xml": {
         "type": "Transitive",
         "resolved": "2.3.0",
@@ -364,6 +372,11 @@
         "resolved": "4.5.0",
         "contentHash": "U77HfRXlZlOeIXd//Yoj6Jnk8AXlbeisf1oq1os+hxOGVnuG+lGSfGqTwTZBoORFF6j/0q7HXIl8cqwQ9aUGqQ=="
       },
+      "System.ValueTuple": {
+        "type": "Transitive",
+        "resolved": "4.5.0",
+        "contentHash": "okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ=="
+      },
       "Unicorn.Core": {
         "type": "Transitive",
         "resolved": "4.1.1",
@@ -386,7 +399,8 @@
           "Sitecore.Annotations": "9.2.0",
           "Sitecore.ContentSearch": "9.2.0",
           "Sitecore.Kernel": "9.2.0",
-          "Synthesis": "9.1.0.2"
+          "Synthesis": "9.1.0.2",
+          "morelinq": "3.3.2"
         }
       }
     },

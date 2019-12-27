@@ -3,6 +3,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Sitecore.Annotations;
     using Sitecore.DependencyInjection;
+    using Unic.UrlMapper2.Abstractions;
     using Unic.UrlMapper2.Services;
 
     [UsedImplicitly]
@@ -10,6 +11,10 @@
     {
         public void Configure(IServiceCollection serviceCollection)
         {
+            serviceCollection.AddTransient<IContext, Context>();
+            serviceCollection.AddTransient<ISiteExecutionFilter, SiteExecutionFilter>();
+
+            serviceCollection.AddTransient<IRedirectSearcher, RedirectSearcher>();
             serviceCollection.AddTransient<IRedirectionService, RedirectionService>();
         }
     }
