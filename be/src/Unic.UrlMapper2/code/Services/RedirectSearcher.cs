@@ -71,7 +71,8 @@
             var queryable = searchContext.GetQueryable<RedirectSearchResultItem>()
                 .Filter(this.GetVersionPredicate(redirectSearchData))
                 .Filter(this.GetTemplatePredicate(redirectSearchData))
-                .Filter(this.GetSitePredicate(redirectSearchData));
+                .Filter(this.GetSitePredicate(redirectSearchData))
+                .Filter(this.GetTermPredicate(redirectSearchData));
 
             return queryable;
         }
@@ -84,6 +85,11 @@
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetSitePredicate(RedirectSearchData redirectSearchData) =>
             r => r.SiteName == redirectSearchData.SiteName || r.SiteName == Constants.Markers.GlobalSiteMarker;
+
+        private Expression<Func<RedirectSearchResultItem, bool>> GetTermPredicate(RedirectSearchData redirectSearchData)
+        {
+            return r => r.SourceTerm == redirectSearchData.SourceTerm;
+        }
 
         protected virtual string GetIndexName() => this.settings.GetSetting(Constants.Settings.ActiveIndex);
 

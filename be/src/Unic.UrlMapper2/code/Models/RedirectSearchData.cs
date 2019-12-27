@@ -2,13 +2,13 @@
 {
     public class RedirectSearchData
     {
-        public string SourceTerm { get; }
+        public string SourceTerm { get; set;  }
 
-        public string Language { get; }
+        public string Language { get; set;  }
 
-        public string SiteName { get; }
+        public string SiteName { get; set;  }
 
-        public string EmbeddedLanguage { get; }
+        public string EmbeddedLanguage { get; set;  }
 
         public RedirectSearchData(
             string sourceTerm,

@@ -3,6 +3,8 @@
     using Sitecore;
     using Sitecore.ContentSearch;
     using Sitecore.ContentSearch.ComputedFields;
+    using Unic.UrlMapper2.DependencyInjection;
+    using Unic.UrlMapper2.Services;
     using Constants = Definitions.Constants;
 
     [Sitecore.Annotations.UsedImplicitly]
@@ -17,17 +19,9 @@
 
             return string.IsNullOrWhiteSpace(value)
                 ? null
-                : this.SanitizeValue(value);
+                : this.ResolveDependency<IRedirectionService>()?.SanitizeTerm(value);
         }
 
-        protected virtual string SanitizeValue(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value)) return null;
-
-            value = StringUtil.RemovePrefix('/', value);
-            value = StringUtil.RemovePostfix('/', value);
-
-            return value;
-        }
+        protected virtual T ResolveDependency<T>() where T : class => Container.Resolve<T>();
     }
 }
