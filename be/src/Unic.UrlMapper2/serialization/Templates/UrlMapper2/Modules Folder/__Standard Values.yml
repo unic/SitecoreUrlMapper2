@@ -1,0 +1,23 @@
+﻿---
+ID: "01c9a8b5-2685-4026-9e74-0e6833c9bd7f"
+Parent: "fa333865-3007-4a7e-8993-0e79ccb2b19c"
+Template: "fa333865-3007-4a7e-8993-0e79ccb2b19c"
+Path: /sitecore/templates/Modules/UrlMapper2/Modules Folder/__Standard Values
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: "{E05B6914-FC7A-4583-8317-6E4D921C012F}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191227T131158Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

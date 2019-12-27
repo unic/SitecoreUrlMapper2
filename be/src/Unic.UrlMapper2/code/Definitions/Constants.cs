@@ -20,7 +20,7 @@
         {
             public static readonly ID Redirect = ID.Parse("{91B6672E-51A2-48DB-9A17-D9E8744EE490}");
 
-            public static readonly ID RedirectShared = ID.Parse("{DBDEE63A-98BC-4BF0-84EF-D955329FE680}");
+            public static readonly ID SharedRedirect = ID.Parse("{DBDEE63A-98BC-4BF0-84EF-D955329FE680}");
         }
 
         public struct Settings

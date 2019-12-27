@@ -62,7 +62,7 @@
                 RedirectType = redirectType,
                 TargetUrl = redirectSearchResultItem.TargetUrl,
                 SourceProtocol = sourceProtocol,
-                IncludeEmbeddedLanguage = redirectSearchResultItem.IncludeEmbeddedLanguage
+                IncludeEmbeddedLanguage = redirectSearchResultItem.AllowEmbeddedLanguage
             };
         }
 
@@ -80,7 +80,7 @@
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetVersionPredicate(RedirectSearchData redirectSearchData) => r => r.IsLatestVersion;
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetTemplatePredicate(RedirectSearchData redirectSearchData) =>
-            r => r.TemplateId == this.GetRedirectSharedTemplateId
+            r => r.TemplateId == this.GetSharedRedirectTemplateId
                  || (r.TemplateId == this.GetRedirectTemplateId && r.Language == redirectSearchData.Language);
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetSitePredicate(RedirectSearchData redirectSearchData) =>
@@ -95,6 +95,6 @@
 
         protected virtual ID GetRedirectTemplateId => Constants.Templates.Redirect;
 
-        protected virtual ID GetRedirectSharedTemplateId => Constants.Templates.RedirectShared;
+        protected virtual ID GetSharedRedirectTemplateId => Constants.Templates.SharedRedirect;
     }
 }

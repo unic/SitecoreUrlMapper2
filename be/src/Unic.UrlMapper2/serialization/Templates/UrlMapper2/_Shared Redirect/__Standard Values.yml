@@ -2,7 +2,7 @@
 ID: "fbd0c558-cc3d-429b-9d40-2c4d82d16c08"
 Parent: "096f42e6-cc9b-452c-8033-5cfefaf80536"
 Template: "096f42e6-cc9b-452c-8033-5cfefaf80536"
-Path: /sitecore/templates/Modules/UrlMapper2/_Redirect Shared/__Standard Values
+Path: /sitecore/templates/Modules/UrlMapper2/_Shared Redirect/__Standard Values
 DB: master
 Languages:
 - Language: en

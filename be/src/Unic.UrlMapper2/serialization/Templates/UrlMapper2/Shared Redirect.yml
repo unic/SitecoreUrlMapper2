@@ -2,7 +2,7 @@
 ID: "dbdee63a-98bc-4bf0-84ef-d955329fe680"
 Parent: "0fc0cb44-5fd3-4aa6-b44a-c92225885867"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: /sitecore/templates/Modules/UrlMapper2/Redirect Shared
+Path: /sitecore/templates/Modules/UrlMapper2/Shared Redirect
 DB: master
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"

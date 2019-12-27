@@ -1,0 +1,18 @@
+﻿---
+ID: "e5f41a3d-49fb-43e4-939a-c833c986a390"
+Parent: "89eafcf4-89d9-4e0a-943c-596fd5a14dca"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Modules/UrlMapper2/Shared Specification/Specification
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191227T130308Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

@@ -1,8 +1,8 @@
 ﻿---
-ID: "f6077be5-bded-41b7-892e-b76670ba1c58"
-Parent: "096f42e6-cc9b-452c-8033-5cfefaf80536"
-Template: "e269fbb5-3750-427a-9149-7aa950b49301"
-Path: /sitecore/templates/Modules/UrlMapper2/_Redirect Shared/Redirect Configuration
+ID: "ba0032a3-3e31-41df-8407-54476a961a40"
+Parent: "89eafcf4-89d9-4e0a-943c-596fd5a14dca"
+Template: "89eafcf4-89d9-4e0a-943c-596fd5a14dca"
+Path: /sitecore/templates/Modules/UrlMapper2/Shared Specification/__Standard Values
 DB: master
 Languages:
 - Language: en
@@ -11,7 +11,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20191227T073539Z
+      Value: 20191227T130836Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

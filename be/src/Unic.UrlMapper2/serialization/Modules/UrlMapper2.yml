@@ -1,0 +1,14 @@
+﻿---
+ID: "e52330c4-6b07-42be-bcb0-77ba6dce7407"
+Parent: "08477468-d438-43d4-9d6a-6d84a611971c"
+Template: "fa333865-3007-4a7e-8993-0e79ccb2b19c"
+Path: /sitecore/system/Modules/UrlMapper2
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191227T132623Z
