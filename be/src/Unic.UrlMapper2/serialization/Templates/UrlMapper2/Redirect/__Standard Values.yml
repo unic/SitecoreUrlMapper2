@@ -1,0 +1,23 @@
+﻿---
+ID: "81f6e77b-7dbb-42ea-ba97-0a47c8573da4"
+Parent: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Path: /sitecore/templates/Modules/UrlMapper2/Redirect/__Standard Values
+DB: master
+SharedFields:
+- ID: "c9283d9e-7c29-4419-9c28-5a5c8ff53e84"
+  Hint: __Bucketable
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191227T073356Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

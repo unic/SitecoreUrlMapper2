@@ -96,9 +96,6 @@
     <Content Include="App_Config\Include\Unicorn\Unicorn.zSharedSecret.config.example" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\UrlMapper2\Unicorn.Configs.Default.example" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_Config\Include\UrlMapper2.Integration.Website\UrlMapper2.Integration.Website.Serialization.config" />
   </ItemGroup>
   <PropertyGroup>
