@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <SerializationConfigFile>App_Config\Include\Foundation\Foundation.Serialization.config</SerializationConfigFile>
+    <SerializationConfigFile>App_Config\Include\UrlMapper2.Integration.Website\UrlMapper2.Integration.Website.Serialization.config</SerializationConfigFile>
   </PropertyGroup>
 
   <!-- Hooks in after regular Build target and triggers WebFileSystemPublish -->
