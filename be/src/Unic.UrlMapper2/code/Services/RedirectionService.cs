@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Sitecore.Web;
     using Unic.UrlMapper2.Models;
 
     public class RedirectionService : IRedirectionService
@@ -34,7 +35,9 @@
 
         protected virtual void PerformRedirect(Redirect redirect)
         {
-            throw new NotImplementedException();
+            // TODO: Add logging about performing redirect
+
+            WebUtil.Redirect(redirect.TargetUrl);
         }
     }
 }
