@@ -13,7 +13,7 @@
         {
             serviceCollection.AddTransient<IContext, Context>();
             serviceCollection.AddTransient<ISiteExecutionFilter, SiteExecutionFilter>();
-
+            serviceCollection.AddTransient<ISpecificationService, SpecificationService>();
             serviceCollection.AddTransient<IRedirectSearcher, RedirectSearcher>();
             serviceCollection.AddTransient<IRedirectionService, RedirectionService>();
         }

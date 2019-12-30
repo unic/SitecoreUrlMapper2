@@ -7,5 +7,7 @@
         void PerformRedirect(RedirectSearchData redirectSearchData);
         
         string SanitizeTerm(string value);
+
+        string SanitizeSiteName(string value);
     }
 }

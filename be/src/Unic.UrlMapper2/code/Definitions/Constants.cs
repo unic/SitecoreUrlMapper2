@@ -9,11 +9,27 @@
             public const string GlobalSiteMarker = "any";
         }
 
-        public struct FieldNames
+        public struct Fields
         {
-            public const string SourceTerm = "Source Term";
+            public struct Redirect
+            {
+                public const string SourceTerm = "Source Term";
 
-            public const string TargetUrl = "Target Url";
+                public const string TargetUrl = "Target Url";
+
+                public const string RedirectType = "Redirect Type";
+
+                public const string SourceProtocol = "Source Protocol";
+
+                public const string AllowEmbeddedLanguage = "Allow Embedded Language";
+
+                public const string WildcardEnabled = "Wildcard enabled";
+            }
+
+            public struct Specification
+            {
+                public const string Value = "Value";
+            }
         }
 
         public struct Templates

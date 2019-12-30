@@ -2,15 +2,11 @@
 {
     using Sitecore.Annotations;
     using Sitecore.ContentSearch;
-    using Sitecore.ContentSearch.ComputedFields;
     using Unic.UrlMapper2.Definitions;
 
     [UsedImplicitly]
-    public class TargetUrlComputedField : IComputedIndexField
+    public class TargetUrlComputedField : ComputedFieldBase
     {
-        public string FieldName { get; set; }
-        public string ReturnType { get; set; }
-
-        public virtual object ComputeFieldValue(IIndexable indexable) => indexable?.GetFieldByName(Constants.FieldNames.TargetUrl)?.Value;
+        public override object ComputeFieldValue(IIndexable indexable) => indexable?.GetFieldByName(Constants.Fields.Redirect.TargetUrl)?.Value;
     }
 }

@@ -61,9 +61,14 @@
   <ItemGroup>
     <Compile Include="Abstractions\Context.cs" />
     <Compile Include="Abstractions\IContext.cs" />
+    <Compile Include="ContentSearch\ComputedFields\AllowEmbeddedLanguageComputedField.cs" />
+    <Compile Include="ContentSearch\ComputedFields\ComputedFieldBase.cs" />
+    <Compile Include="ContentSearch\ComputedFields\SourceProtocolComputedField.cs" />
+    <Compile Include="ContentSearch\ComputedFields\RedirectTypeComputedField.cs" />
     <Compile Include="ContentSearch\ComputedFields\SiteNameComputedField.cs" />
     <Compile Include="ContentSearch\ComputedFields\SourceTermComputedField.cs" />
     <Compile Include="ContentSearch\ComputedFields\TargetUrlComputedField.cs" />
+    <Compile Include="ContentSearch\ComputedFields\WildcardEnabledComputedField.cs" />
     <Compile Include="ContentSearch\SearchResults\RedirectSearchResultItem.cs" />
     <Compile Include="Definitions\Constants.cs" />
     <Compile Include="DependencyInjection\Container.cs" />
@@ -78,9 +83,11 @@
     <Compile Include="Services\IRedirectionService.cs" />
     <Compile Include="Services\IRedirectSearcher.cs" />
     <Compile Include="Services\ISiteExecutionFilter.cs" />
+    <Compile Include="Services\ISpecificationService.cs" />
     <Compile Include="Services\RedirectionService.cs" />
     <Compile Include="Services\RedirectSearcher.cs" />
     <Compile Include="Services\SiteExecutionFilter.cs" />
+    <Compile Include="Services\SpecificationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">

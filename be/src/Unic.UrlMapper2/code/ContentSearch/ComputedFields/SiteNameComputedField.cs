@@ -5,18 +5,15 @@
     using System.Linq;
     using Sitecore;
     using Sitecore.ContentSearch;
-    using Sitecore.ContentSearch.ComputedFields;
     using Sitecore.Data.Items;
     using Sitecore.Sites;
     using Sitecore.Web;
+    using Unic.UrlMapper2.Services;
 
     [Sitecore.Annotations.UsedImplicitly]
-    public class SiteNameComputedField : IComputedIndexField
+    public class SiteNameComputedField : ComputedFieldBase
     {
-        public string FieldName { get; set; }
-        public string ReturnType { get; set; }
-
-        public virtual object ComputeFieldValue(IIndexable indexable)
+        public override object ComputeFieldValue(IIndexable indexable)
         {
             var siteInfo = this.GetSiteInfo(indexable as SitecoreIndexableItem);
 
@@ -24,13 +21,14 @@
 
             return this.GetBlacklistedSiteNames().Contains(siteInfo.Name, StringComparer.InvariantCultureIgnoreCase)
                 ? Definitions.Constants.Markers.GlobalSiteMarker
-                : siteInfo.Name.ToLower();
+                : this.ResolveDependency<IRedirectionService>()?.SanitizeSiteName(siteInfo.Name);
         }
 
         protected virtual SiteInfo GetSiteInfo(Item item)
         {
             if (item == null) return null;
 
+            // TODO: Check if this doesn't change default Sitecore site resolving behaviour (order)
             return SiteContextFactory.Sites
                 .Where(s => !string.IsNullOrWhiteSpace(s.RootPath) && item.Paths.Path.StartsWith(s.RootPath, StringComparison.OrdinalIgnoreCase))
                 .OrderByDescending(s => s.RootPath.Length)
