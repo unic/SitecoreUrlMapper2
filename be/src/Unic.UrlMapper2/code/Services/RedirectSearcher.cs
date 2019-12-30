@@ -62,7 +62,9 @@
                 RedirectType = redirectType,
                 TargetUrl = redirectSearchResultItem.TargetUrl,
                 SourceProtocol = sourceProtocol,
-                IncludeEmbeddedLanguage = redirectSearchResultItem.AllowEmbeddedLanguage
+                IncludeEmbeddedLanguage = redirectSearchResultItem.AllowEmbeddedLanguage,
+                WildcardEnabled = redirectSearchResultItem.WildcardEnabled,
+                Term = redirectSearchResultItem.SourceTerm
             };
         }
 
@@ -80,15 +82,18 @@
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetVersionPredicate(RedirectSearchData redirectSearchData) => r => r.IsLatestVersion;
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetTemplatePredicate(RedirectSearchData redirectSearchData) =>
-            r => r.TemplateId == this.GetSharedRedirectTemplateId
-                 || (r.TemplateId == this.GetRedirectTemplateId && r.Language == redirectSearchData.Language);
+            r => r.TemplateId == this.GetSharedRedirectTemplateId || r.TemplateId == this.GetRedirectTemplateId;
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetSitePredicate(RedirectSearchData redirectSearchData) =>
             r => r.SiteName == redirectSearchData.SiteName || r.SiteName == Constants.Markers.GlobalSiteMarker;
 
         private Expression<Func<RedirectSearchResultItem, bool>> GetTermPredicate(RedirectSearchData redirectSearchData)
         {
-            return r => r.SourceTerm == redirectSearchData.SourceTerm;
+            // It would be great to use predicate like the following for the wildcard matches:
+            // r.WildcardEnabled && redirectSearchData.SourceTerm.StartsWith(r.SourceTerm)
+            // However, this seems to cause some really weird SolR queries. Therefore we have to
+            // load all entries being a wildcard redirect and then do the filtering in memory.
+            return r => !r.WildcardEnabled && r.SourceTerm == redirectSearchData.SourceTerm || r.WildcardEnabled;
         }
 
         protected virtual string GetIndexName() => this.settings.GetSetting(Constants.Settings.ActiveIndex);

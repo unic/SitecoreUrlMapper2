@@ -11,5 +11,9 @@
         public bool IncludeEmbeddedLanguage { get; set; }
 
         public RedirectSearchData RedirectSearchData { get; set; }
+        
+        public bool WildcardEnabled { get; set; }
+
+        public string Term { get; set; }
     }
 }
