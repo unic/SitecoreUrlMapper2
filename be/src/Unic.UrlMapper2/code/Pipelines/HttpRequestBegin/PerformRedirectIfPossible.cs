@@ -16,7 +16,7 @@
             if (redirectSearchData == null) return;
 
             var redirectionService = this.ResolveDependency<IRedirectionService>();
-            redirectionService?.PerformRedirect(redirectSearchData);
+            redirectionService?.PerformRedirect(redirectSearchData, args.HttpContext);
         }
     }
 }

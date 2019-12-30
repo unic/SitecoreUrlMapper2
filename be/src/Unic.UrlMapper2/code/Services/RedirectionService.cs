@@ -1,7 +1,9 @@
 ﻿namespace Unic.UrlMapper2.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Web;
     using Sitecore.Web;
     using Unic.UrlMapper2.Models;
 
@@ -16,7 +18,7 @@
             this.sanitizer = sanitizer;
         }
 
-        public virtual void PerformRedirect(RedirectSearchData redirectSearchData)
+        public virtual void PerformRedirect(RedirectSearchData redirectSearchData, HttpContextBase httpContext)
         {
             if (redirectSearchData == null) return;
             this.sanitizer.SanitizeRedirectSearchData(redirectSearchData);
@@ -27,7 +29,7 @@
             var redirect = this.FilterRedirects(redirects, redirectSearchData);
             if (redirect == null) return;
 
-            this.PerformRedirect(redirect);
+            this.PerformRedirect(redirect, httpContext);
         }
 
         protected virtual Redirect FilterRedirects(IEnumerable<Redirect> redirects, RedirectSearchData redirectSearchData)
@@ -54,11 +56,27 @@
             return wildcardMatch;
         }
 
-        protected virtual void PerformRedirect(Redirect redirect)
+        protected virtual void PerformRedirect(Redirect redirect, HttpContextBase httpContext)
         {
+            if (redirect == null || string.IsNullOrWhiteSpace(redirect.TargetUrl))
+            {
+                // TODO: Add logging about null arg
+                return;
+            }
+
             // TODO: Add logging about performing temporary and permanent redirect
 
-            WebUtil.Redirect(redirect.TargetUrl);
+            switch (redirect.RedirectType)
+            {
+                case RedirectType.Temporary:
+                    httpContext.Response.Redirect(redirect.TargetUrl, true);
+                    break;
+                case RedirectType.Permanent:
+                    httpContext.Response.RedirectPermanent(redirect.TargetUrl, true);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }
