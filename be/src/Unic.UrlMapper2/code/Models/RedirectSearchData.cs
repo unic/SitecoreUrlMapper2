@@ -10,6 +10,8 @@
 
         public string EmbeddedLanguage { get; set;  }
 
+        public bool ContainsEmbeddedLanguage => !string.IsNullOrWhiteSpace(this.EmbeddedLanguage);
+
         public string SourceProtocol { get; set; }
 
         public RedirectSearchData(

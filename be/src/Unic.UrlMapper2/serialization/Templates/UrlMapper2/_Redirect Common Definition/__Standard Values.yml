@@ -8,6 +8,10 @@ SharedFields:
 - ID: "31983352-ffdd-4261-a0d3-8f98bdc09411"
   Hint: Source Protocol
   Value: "{4FA60EAE-166F-4C2A-9983-16D916360965}"
+- ID: "6374afc3-6c32-4f58-a039-38e4700ec1e2"
+  Hint: Allow Embedded Language
+  Type: Checkbox
+  Value: 1
 - ID: "bf7e3537-859e-4bf4-a186-9c6e81bfba33"
   Hint: Redirect Type
   Value: "{3742D841-C7E8-4282-9C35-5C58696264EF}"
