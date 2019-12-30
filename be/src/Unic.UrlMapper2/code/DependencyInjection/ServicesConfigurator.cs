@@ -14,7 +14,9 @@
             serviceCollection.AddTransient<IContext, Context>();
             serviceCollection.AddTransient<ISiteExecutionFilter, SiteExecutionFilter>();
             serviceCollection.AddTransient<ISpecificationService, SpecificationService>();
+            serviceCollection.AddTransient<ISanitizer, Sanitizer>();
             serviceCollection.AddTransient<IRedirectSearcher, RedirectSearcher>();
+            serviceCollection.AddTransient<IRedirectSearchDataService, RedirectSearchDataService>();
             serviceCollection.AddTransient<IRedirectionService, RedirectionService>();
         }
     }

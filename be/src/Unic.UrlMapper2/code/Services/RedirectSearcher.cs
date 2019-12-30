@@ -74,6 +74,7 @@
                 .Filter(this.GetVersionPredicate(redirectSearchData))
                 .Filter(this.GetTemplatePredicate(redirectSearchData))
                 .Filter(this.GetSitePredicate(redirectSearchData))
+                .Filter(this.GetProtocolPredicate(redirectSearchData))
                 .Filter(this.GetTermPredicate(redirectSearchData));
 
             return queryable;
@@ -84,15 +85,20 @@
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetTemplatePredicate(RedirectSearchData redirectSearchData) =>
             r => r.TemplateId == this.GetSharedRedirectTemplateId || r.TemplateId == this.GetRedirectTemplateId;
 
+        protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetProtocolPredicate(RedirectSearchData redirectSearchData)
+        {
+            return r => r.SourceProtocol == redirectSearchData.SourceProtocol || r.SourceProtocol == Constants.Markers.AnyProtocolMarker;
+        }
+
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetSitePredicate(RedirectSearchData redirectSearchData) =>
             r => r.SiteName == redirectSearchData.SiteName || r.SiteName == Constants.Markers.GlobalSiteMarker;
 
         private Expression<Func<RedirectSearchResultItem, bool>> GetTermPredicate(RedirectSearchData redirectSearchData)
         {
-            // It would be great to use predicate like the following for the wildcard matches:
+            // It would be great to use a predicate like the following for the wildcard matches:
             // r.WildcardEnabled && redirectSearchData.SourceTerm.StartsWith(r.SourceTerm)
-            // However, this seems to cause some really weird SolR queries. Therefore we have to
-            // load all entries being a wildcard redirect and then do the filtering in memory.
+            // However, this seems to generate some really weird SolR queries, resulting in no matches.
+            // Therefore we have to load all entries being a wildcard redirect and then do the filtering in memory.
             return r => !r.WildcardEnabled && r.SourceTerm == redirectSearchData.SourceTerm || r.WildcardEnabled;
         }
 

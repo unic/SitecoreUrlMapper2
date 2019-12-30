@@ -14,7 +14,7 @@
 
             return string.IsNullOrWhiteSpace(value)
                 ? null
-                : this.ResolveDependency<IRedirectionService>()?.SanitizeTerm(value);
+                : this.ResolveDependency<ISanitizer>()?.SanitizeTerm(value);
         }
     }
 }

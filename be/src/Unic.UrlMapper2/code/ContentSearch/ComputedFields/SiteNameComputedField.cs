@@ -21,7 +21,7 @@
 
             return this.GetBlacklistedSiteNames().Contains(siteInfo.Name, StringComparer.InvariantCultureIgnoreCase)
                 ? Definitions.Constants.Markers.GlobalSiteMarker
-                : this.ResolveDependency<IRedirectionService>()?.SanitizeSiteName(siteInfo.Name);
+                : this.ResolveDependency<ISanitizer>()?.SanitizeSiteName(siteInfo.Name);
         }
 
         protected virtual SiteInfo GetSiteInfo(Item item)

@@ -17,7 +17,8 @@
             var value = indexable?.GetFieldByName(Constants.Fields.Redirect.SourceProtocol)?.Value;
             if (ID.TryParse(value, out var specificationId))
             {
-                return this.ResolveDependency<ISpecificationService>().GetSharedSpecification(item.Database, specificationId);
+                var protocol = this.ResolveDependency<ISpecificationService>().GetSharedSpecification(item.Database, specificationId);
+                return this.ResolveDependency<ISanitizer>().SanitizeProtocol(protocol);
             }
 
             // TODO: Add logging

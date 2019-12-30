@@ -7,6 +7,8 @@
         public struct Markers
         {
             public const string GlobalSiteMarker = "any";
+
+            public const string AnyProtocolMarker = "any";
         }
 
         public struct Fields
@@ -42,6 +44,14 @@
         public struct Settings
         {
             public const string ActiveIndex = "UrlMapper2.ActiveIndex";
+
+            public const string UseProtocolHeaderForDefaultProcessor = "UrlMapper2.UseProtocolHeaderForDefaultProcessor";
+
+            public const string ProtocolHeaderForDefaultProcessor = "UrlMapper2.ProtocolHeaderForDefaultProcessor";
+
+            public const string UseProtocolHeaderForJssProcessor = "UrlMapper2.UseProtocolHeaderForJssProcessor";
+
+            public const string ProtocolHeaderForJssProcessor = "UrlMapper2.ProtocolHeaderForJssProcessor";
         }
     }
 }

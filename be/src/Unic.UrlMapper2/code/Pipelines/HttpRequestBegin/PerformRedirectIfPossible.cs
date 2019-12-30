@@ -3,7 +3,6 @@
     using Sitecore.Annotations;
     using Sitecore.Pipelines.HttpRequest;
     using Unic.UrlMapper2.Abstractions;
-    using Unic.UrlMapper2.Models;
     using Unic.UrlMapper2.Services;
 
     [UsedImplicitly]
@@ -13,23 +12,11 @@
 
         protected override void Execute(HttpRequestArgs args)
         {
-            var redirectSearchData = this.GetRedirectSearchData(args);
+            var redirectSearchData = this.ResolveDependency<IRedirectSearchDataService>().GetDefaultRedirectSearchData(args);
             if (redirectSearchData == null) return;
 
             var redirectionService = this.ResolveDependency<IRedirectionService>();
             redirectionService?.PerformRedirect(redirectSearchData);
-        }
-
-        protected virtual RedirectSearchData GetRedirectSearchData(HttpRequestArgs args)
-        {
-            var context = this.ResolveDependency<IContext>();
-            if (context == null) return null;
-
-            return new RedirectSearchData(
-                sourceTerm: args.LocalPath,
-                language: context.Language?.Name,
-                siteName: context.Site?.Name?.ToLower(),
-                embeddedLanguage: context.FilePathLanguage?.Name);
         }
     }
 }

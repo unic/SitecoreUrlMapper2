@@ -10,16 +10,20 @@
 
         public string EmbeddedLanguage { get; set;  }
 
+        public string SourceProtocol { get; set; }
+
         public RedirectSearchData(
             string sourceTerm,
             string language,
             string siteName,
-            string embeddedLanguage)
+            string embeddedLanguage,
+            string sourceProtocol)
         {
             this.SourceTerm = sourceTerm;
             this.Language = language;
             this.SiteName = siteName;
             this.EmbeddedLanguage = embeddedLanguage;
+            this.SourceProtocol = sourceProtocol;
         }
     }
 }
