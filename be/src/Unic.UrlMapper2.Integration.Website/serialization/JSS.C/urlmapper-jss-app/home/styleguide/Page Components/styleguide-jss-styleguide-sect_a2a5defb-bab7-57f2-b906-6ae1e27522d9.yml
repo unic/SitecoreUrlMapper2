@@ -1,0 +1,52 @@
+﻿---
+ID: "a2a5defb-bab7-57f2-b906-6ae1e27522d9"
+Parent: "90060e36-56e2-59b9-9267-e08b85bd4f4a"
+Template: "fac1d821-3490-5772-b2e3-dcad9fcc24a6"
+Path: "/sitecore/content/urlmapper-jss-app/home/styleguide/Page Components/styleguide-jss-styleguide-section-B7985C8DEA10AB2C5CC77ABC90CF4126F21840592E09B2C6DB07D84D314CDCE0D4"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Styleguide-FieldUsage-ContentList-11"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1d0988d8-0aac-5270-97a3-dab0682f42f4"
+      Hint: heading
+      Value: Content List
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191231T071527Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+    - ID: "6e5c60c1-f116-553d-8bd9-d4692f4c47cd"
+      Hint: sharedContentList
+      Type: Treelist
+      Value: |
+        {8D6CBE7A-34EE-5BD5-BE73-4E792FC892D6}
+        {7D3A8CF6-FC75-52C1-A664-FFCB1A8FC49F}
+    - ID: "7474b9b1-6306-5869-8245-934740dfeecb"
+      Hint: localContentList
+      Type: Treelist
+      Value: |
+        {81CDB8BF-733B-5F67-AF9C-04565467CC1F}
+        {D4A85116-57F5-5170-9F97-341F804A1C56}
+    - ID: "baab9f43-a919-52a0-bd60-cba82d05516c"
+      Hint: description
+      Value: |
+        <p>
+          <small>
+            Content Lists are a way to reference zero or more other content items.
+            Referenced items may be shared.
+            To reference a single content item, use an <em>Item Link</em> field.<br />
+            <strong>Note:</strong> Sitecore does not support inline editing of Content List fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
+          </small>
+        </p>
+        

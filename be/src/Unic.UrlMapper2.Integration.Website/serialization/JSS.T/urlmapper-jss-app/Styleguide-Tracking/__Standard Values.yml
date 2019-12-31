@@ -1,0 +1,22 @@
+﻿---
+ID: "0cc81ba0-329e-57cc-9e4b-e7a5f6edbba7"
+Parent: "faae3989-66a9-57bd-9667-d0f47bd6087e"
+Template: "faae3989-66a9-57bd-9667-d0f47bd6087e"
+Path: "/sitecore/templates/Project/urlmapper-jss-app/Styleguide-Tracking/__Standard Values"
+DB: master
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191231T071520Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport

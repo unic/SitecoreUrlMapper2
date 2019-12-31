@@ -78,7 +78,9 @@
   <ItemGroup>
     <Content Include="packages.lock.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="App_Config\Include\UrlMapper2.Integration.Website\urlmapper-jss-app.config" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Unicorn\Unicorn.AutoPublish.config" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.config" />
@@ -97,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\UrlMapper2.Integration.Website\UrlMapper2.Integration.Website.Serialization.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Config\Include\UrlMapper2.Integration.Website\urlmapper-jss-app.deploysecret.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

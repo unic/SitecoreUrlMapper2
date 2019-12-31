@@ -1,0 +1,22 @@
+﻿---
+ID: "050a08f0-4451-5127-9ee7-5313c0f9e940"
+Parent: "c61ab8c4-7872-5bef-b78b-ec0c45f3c7b4"
+Template: "c61ab8c4-7872-5bef-b78b-ec0c45f3c7b4"
+Path: "/sitecore/templates/Project/urlmapper-jss-app/Styleguide-ItemLink-Item-Template/__Standard Values"
+DB: master
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191231T071516Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport

@@ -18,6 +18,4 @@
 # Log files
 *.log
 
-scjssconfig.json
-*.deploysecret.config
 /build-rendering-host

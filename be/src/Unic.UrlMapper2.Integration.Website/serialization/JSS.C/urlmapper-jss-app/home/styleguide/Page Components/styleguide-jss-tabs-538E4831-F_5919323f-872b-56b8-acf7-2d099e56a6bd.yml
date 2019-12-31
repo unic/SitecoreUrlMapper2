@@ -1,0 +1,31 @@
+﻿---
+ID: "5919323f-872b-56b8-acf7-2d099e56a6bd"
+Parent: "90060e36-56e2-59b9-9267-e08b85bd4f4a"
+Template: "b18b4b81-bbc0-5933-80f8-caae67ce278b"
+Path: "/sitecore/content/urlmapper-jss-app/home/styleguide/Page Components/styleguide-jss-tabs-538E4831-F157-50BB-AC74-277FCAC9FDDB-0-Styleguide-Layout-Tabs-Tab-2"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Styleguide-Layout-Tabs-Tab-2"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191231T071527Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+    - ID: "7798a164-4e56-59b9-a8b1-2e7829f20301"
+      Hint: content
+      Value: "<p>Tab 2 contents!</p>"
+    - ID: "b86125e3-9d8e-51b1-a663-be5580b5d8b7"
+      Hint: title
+      Value: Tab 2

@@ -1,0 +1,34 @@
+﻿---
+ID: "b987e390-71db-52f9-b3cf-255ba0313af8"
+Parent: "bfa97607-5ff6-5ab4-a5ff-243d34296ff0"
+Template: "dd9df9e0-e5d4-5bc6-8df8-3491bfa656b0"
+Path: "/sitecore/content/urlmapper-jss-app/home/graphql/Page Components/graphql-jss-main-ContentBlock-1"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "ContentBlock-1"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1f8854f8-4dce-5040-ae69-5b228f9cc01c"
+      Hint: content
+      Value: |
+        <p>This is a live example of using Integrated GraphQL and Connected GraphQL with a JSS app.
+        For more information on GraphQL use in JSS, please see <a href="https://jss.sitecore.net" target="_blank" rel="noopener noreferrer">the documentation</a>.</p>
+        
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191231T071525Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+    - ID: "8a203eda-7c8e-51fc-8dd5-ec840b3768ff"
+      Hint: heading
+      Value: Using GraphQL with JSS

@@ -1,0 +1,38 @@
+﻿---
+ID: "2abb7522-9fa2-5c4c-8dad-f9e52ce90040"
+Parent: "d97ac325-8f2c-55b8-bf5f-79fbed45641b"
+Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
+Path: "/sitecore/layout/Placeholder Settings/Project/urlmapper-jss-app/jss-main"
+DB: master
+SharedFields:
+- ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
+  Hint: Placeholder Key
+  Value: "jss-main"
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
+  Type: Checkbox
+  Value: 1
+- ID: "e391b526-d0c5-439d-803e-17512eae6222"
+  Hint: Allowed Controls
+  Type: TreelistEx
+  Value: |
+    {9876E244-AE8A-549E-8292-112C357616CB}
+    {0C550646-0FE6-5699-8882-FDC808F8B54A}
+    {27EBBAB5-B373-52E3-BA82-62828F360DD0}
+    {59F578C7-5987-56F0-805A-0C57AB2EADA9}
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Main
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191231T071520Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport

@@ -1,0 +1,28 @@
+﻿---
+ID: "bd164667-bff9-56ac-91b5-f43acaa4b289"
+Parent: "7e710450-7e05-5783-9eb7-472f1ecb9209"
+Template: "c61ab8c4-7872-5bef-b78b-ec0c45f3c7b4"
+Path: "/sitecore/content/urlmapper-jss-app/Content/Styleguide/ItemLinkField/Item1"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Styleguide Item Link Item 1 (Shared)
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191231T071524Z
+    - ID: "38051d54-4bc4-57be-9345-8f26aa6aed95"
+      Hint: textField
+      Value: ItemLink Demo (Shared) Item 1 Text Field
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
