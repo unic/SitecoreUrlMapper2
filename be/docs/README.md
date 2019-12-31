@@ -92,7 +92,12 @@ install-xp0.ps1:146
 1. [Rebuild](https://doc.sitecore.net/sitecore_experience_platform/setting_up_and_maintaining/search_and_indexing/indexing/rebuild_search_indexes) all search indexes through the *Indexing manager* in the *Control Panel*.  
 *This is required for search-based features to work properly*
 
+### 5. Install JSS assets
+
+1. Run the `Insatll-Frontend` task from within Visual Studio's Task Runner Explorer
+
 ### Helper tasks (in Visual Studio)
 
 * The `Initialize-DockerEnvironment` task invokes a docker build, pulls all the latest images, runs *docker-compose up* and installs all self-signed certificates into the local store.
 * The `Start-DockerEnvironment` task pulls all the latest images and runs *docker-compose up*
+* The `Insatll-Frontend` task will build the JSS app and deploy the generated assets into the webroot and to the headless proxy directory (and replace the urls within the assets in order to work with a headless setup)
