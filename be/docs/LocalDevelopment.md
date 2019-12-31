@@ -14,3 +14,16 @@
 Resources:
 - [Configure Azure Search](https://doc.sitecore.com/developers/92/platform-administration-and-architecture/en/configure-azure-search.html)
 - [Configure a search and indexing provider](https://doc.sitecore.com/developers/92/platform-administration-and-architecture/en/configure-a-search-and-indexing-provider.html)
+
+## Using JSS
+
+A sample component has been scaffolded and can be found in the `/fe` folder of the solution root. The API key used for the Layout service has been serialized for the integration website and is as follows: `{F02CC0B5-BF7B-41B0-B570-C398A59FEC19}`.
+
+To connect the JSS app to the integration environment use these steps:
+1) Run `jss setup` and provide the correct values
+1) Run `jss deploy config`
+1) Run `jss deploy app -c -d`. You might get an exception here, in that case please use the following workaround: https://kb.sitecore.net/articles/650791
+
+Resources:
+- [App Deployment](https://jss.sitecore.com/docs/getting-started/app-deployment)
+- [Errors when importing JSS application on Azure](https://kb.sitecore.net/articles/650791)
