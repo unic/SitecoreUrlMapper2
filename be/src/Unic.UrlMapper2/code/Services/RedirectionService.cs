@@ -50,7 +50,7 @@
         protected virtual Redirect GetWildcardMatch(RedirectSearchData redirectSearchData, IEnumerable<Redirect> enumerableRedirects)
         {
             // We are going to take the one wildcard redirect which has the longest match within the term
-            var wildcardMatches = enumerableRedirects.Where(r => r.WildcardEnabled && redirectSearchData.SourceTerm.StartsWith(r.Term));
+            var wildcardMatches = enumerableRedirects.Where(r => r.WildcardEnabled && (redirectSearchData.SourceTerm?.StartsWith(r.Term) ?? false));
             var wildcardMatch = wildcardMatches.OrderByDescending(r => r.Term.Length).FirstOrDefault();
 
             return wildcardMatch;

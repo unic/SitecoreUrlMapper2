@@ -22,4 +22,4 @@ All required content for the jss app (such as renderings, placeholder settings, 
 
 Additionally, a headless proxy based on the [official documentation](https://jss.sitecore.com/docs/techniques/ssr/headless-mode-ssr) has been added and configured in the `/fe/node-headless-ssr-proxy` folder.
 
-In order to start the headless proxy, run the following commands in the `\fe\node-headless-ssr-proxy` directory: `npm install` and then `npm start`
+In order to start the headless proxy, run the following commands in the `/fe/node-headless-ssr-proxy` directory: `npm install` and then `npm start`.
