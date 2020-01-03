@@ -1,0 +1,19 @@
+﻿---
+ID: "ba5572d8-187b-4a2f-82b6-cae94eeed64f"
+Parent: "1f0f2c14-3132-414b-8e52-5d3665480e1f"
+Template: "3bae66e5-fa45-498f-bc5e-7802a63fbb6a"
+Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects"
+DB: master
+BranchID: "a0f7503c-2a9a-45e8-8651-b825e17d16ac"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{42D6C936-BD8A-4A06-996B-14AE84345706}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200103T110047Z

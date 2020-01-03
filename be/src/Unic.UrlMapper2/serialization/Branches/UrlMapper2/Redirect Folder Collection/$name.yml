@@ -1,0 +1,14 @@
+﻿---
+ID: "d9f2c6dc-2abc-405a-a4ab-e03045e240f7"
+Parent: "a0f7503c-2a9a-45e8-8651-b825e17d16ac"
+Template: "40fd6640-f468-45d0-a816-4898e25219ce"
+Path: /sitecore/templates/Branches/UrlMapper2/Redirect Folder Collection/$name
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200103T105232Z

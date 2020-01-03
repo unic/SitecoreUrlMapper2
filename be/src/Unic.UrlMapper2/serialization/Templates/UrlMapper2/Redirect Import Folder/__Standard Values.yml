@@ -1,0 +1,27 @@
+﻿---
+ID: "3db9de77-9b3e-404a-9ebb-ec9d1d50d1fb"
+Parent: "3bae66e5-fa45-498f-bc5e-7802a63fbb6a"
+Template: "3bae66e5-fa45-498f-bc5e-7802a63fbb6a"
+Path: /sitecore/templates/Modules/UrlMapper2/Redirect Import Folder/__Standard Values
+DB: master
+SharedFields:
+- ID: "a0cb3965-8884-4c7a-8815-b6b2e5ced162"
+  Hint: __Editors
+  Type: TreelistEx
+  Value: "{59F53BBB-D1F5-4E38-8EBA-0D73109BB59B}"
+- ID: "d312103c-b36c-4ca5-864a-c85f9abda503"
+  Hint: __Is Bucket
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200103T103627Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
