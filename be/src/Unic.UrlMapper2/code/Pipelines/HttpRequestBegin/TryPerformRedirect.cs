@@ -6,7 +6,7 @@
     using Unic.UrlMapper2.Services;
 
     [UsedImplicitly]
-    public class PerformRedirectIfPossible : ProcessorBase<HttpRequestArgs>
+    public class TryPerformRedirect : ProcessorBase<HttpRequestArgs>
     {
         protected override bool ShouldExecute(HttpRequestArgs args) => base.ShouldExecute(args) && this.ResolveDependency<IContext>()?.Item == null;
 
