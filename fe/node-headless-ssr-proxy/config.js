@@ -118,6 +118,12 @@ const config = {
    * so the app can render a 404 route.
    */
   onError: (err, response) => {
+    if (response.statusCode === 301 || response.statusCode === 302) {
+      return {
+        statusCode: response.statusCode
+      }
+    }
+
     // http 200 = an error in rendering; http 500 = an error on layout service
     if (response.statusCode !== 500 && response.statusCode !== 200) return null;
 
