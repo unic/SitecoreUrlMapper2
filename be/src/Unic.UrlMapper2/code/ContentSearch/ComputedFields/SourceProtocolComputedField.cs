@@ -8,9 +8,9 @@
     using Unic.UrlMapper2.Services;
 
     [UsedImplicitly]
-    public class SourceProtocolComputedField : ComputedFieldBase
+    public class SourceProtocolComputedField : UrlMapperComputedFieldBase
     {
-        public override object ComputeFieldValue(IIndexable indexable)
+        protected override object Compute(IIndexable indexable)
         {
             var item = (Item)(indexable as SitecoreIndexableItem);
 

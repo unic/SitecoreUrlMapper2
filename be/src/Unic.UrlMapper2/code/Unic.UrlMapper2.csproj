@@ -62,7 +62,7 @@
     <Compile Include="Abstractions\UrlMapperContext.cs" />
     <Compile Include="Abstractions\IUrlMapperContext.cs" />
     <Compile Include="ContentSearch\ComputedFields\AllowEmbeddedLanguageComputedField.cs" />
-    <Compile Include="ContentSearch\ComputedFields\ComputedFieldBase.cs" />
+    <Compile Include="ContentSearch\ComputedFields\UrlMapperComputedFieldBase.cs" />
     <Compile Include="ContentSearch\ComputedFields\SourceProtocolComputedField.cs" />
     <Compile Include="ContentSearch\ComputedFields\RedirectTypeComputedField.cs" />
     <Compile Include="ContentSearch\ComputedFields\SiteNameComputedField.cs" />
@@ -85,12 +85,14 @@
     <Compile Include="Services\IRedirectSearchDataService.cs" />
     <Compile Include="Services\IRedirectSearcher.cs" />
     <Compile Include="Services\ISanitizer.cs" />
+    <Compile Include="Services\ITemplateService.cs" />
     <Compile Include="Services\IUrlMapperSiteExecutionFilter.cs" />
     <Compile Include="Services\ISpecificationService.cs" />
     <Compile Include="Services\RedirectionService.cs" />
     <Compile Include="Services\RedirectSearchDataService.cs" />
     <Compile Include="Services\RedirectSearcher.cs" />
     <Compile Include="Services\Sanitizer.cs" />
+    <Compile Include="Services\TemplateService.cs" />
     <Compile Include="Services\UrlMapperSiteExecutionFilter.cs" />
     <Compile Include="Services\SpecificationService.cs" />
   </ItemGroup>

@@ -5,9 +5,9 @@
     using Constants = Definitions.Constants;
 
     [Sitecore.Annotations.UsedImplicitly]
-    public class AllowEmbeddedLanguageComputedField : ComputedFieldBase
+    public class AllowEmbeddedLanguageComputedField : UrlMapperComputedFieldBase
     {
-        public override object ComputeFieldValue(IIndexable indexable)
+        protected override object Compute(IIndexable indexable)
         {
             var value = indexable?.GetFieldByName(Constants.Fields.Redirect.AllowEmbeddedLanguage)?.Value;
             return MainUtil.GetBool(value, false);

@@ -8,7 +8,6 @@
     using Sitecore.Abstractions;
     using Sitecore.ContentSearch;
     using Sitecore.ContentSearch.Linq;
-    using Sitecore.Data;
     using Unic.UrlMapper2.ContentSearch.SearchResults;
     using Unic.UrlMapper2.Definitions;
     using Unic.UrlMapper2.Models;
@@ -16,10 +15,12 @@
     public class RedirectSearcher : IRedirectSearcher
     {
         private readonly BaseSettings settings;
+        private readonly ITemplateService templateService;
 
-        public RedirectSearcher(BaseSettings settings)
+        public RedirectSearcher(BaseSettings settings, ITemplateService templateService)
         {
             this.settings = settings;
+            this.templateService = templateService;
         }
 
         public IEnumerable<Redirect> SearchRedirects(RedirectSearchData redirectSearchData)
@@ -85,7 +86,7 @@
             r => r.IsLatestVersion;
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetTemplatePredicate(RedirectSearchData redirectSearchData) =>
-            r => r.TemplateId == this.GetSharedRedirectTemplateId || r.TemplateId == this.GetRedirectTemplateId;
+            r => r.TemplateId == this.templateService.GetSharedRedirectTemplateId() || r.TemplateId == this.templateService.GetRedirectTemplateId();
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetProtocolPredicate(RedirectSearchData redirectSearchData) =>
             r => r.SourceProtocol == redirectSearchData.SourceProtocol || r.SourceProtocol == Constants.Markers.AnyProtocolMarker;
@@ -106,9 +107,5 @@
         }
 
         protected virtual string GetIndexName() => this.settings.GetSetting(Constants.Settings.ActiveIndex);
-
-        protected virtual ID GetRedirectTemplateId => Constants.Templates.Redirect;
-
-        protected virtual ID GetSharedRedirectTemplateId => Constants.Templates.SharedRedirect;
     }
 }

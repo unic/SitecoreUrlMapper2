@@ -18,6 +18,7 @@
             serviceCollection.AddTransient<IRedirectSearcher, RedirectSearcher>();
             serviceCollection.AddTransient<IRedirectSearchDataService, RedirectSearchDataService>();
             serviceCollection.AddTransient<IRedirectionService, RedirectionService>();
+            serviceCollection.AddTransient<ITemplateService, TemplateService>();
         }
     }
 }

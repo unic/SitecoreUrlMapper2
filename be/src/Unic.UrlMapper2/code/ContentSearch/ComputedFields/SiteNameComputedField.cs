@@ -11,9 +11,9 @@
     using Unic.UrlMapper2.Services;
 
     [Sitecore.Annotations.UsedImplicitly]
-    public class SiteNameComputedField : ComputedFieldBase
+    public class SiteNameComputedField : UrlMapperComputedFieldBase
     {
-        public override object ComputeFieldValue(IIndexable indexable)
+        protected override object Compute(IIndexable indexable)
         {
             var siteInfo = this.GetSiteInfo(indexable as SitecoreIndexableItem);
 

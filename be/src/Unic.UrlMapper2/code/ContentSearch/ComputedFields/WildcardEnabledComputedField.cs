@@ -5,9 +5,9 @@
     using Constants = Definitions.Constants;
 
     [Sitecore.Annotations.UsedImplicitly]
-    public class WildcardEnabledComputedField : ComputedFieldBase
+    public class WildcardEnabledComputedField : UrlMapperComputedFieldBase
     {
-        public override object ComputeFieldValue(IIndexable indexable)
+        protected override object Compute(IIndexable indexable)
         {
             var value = indexable?.GetFieldByName(Constants.Fields.Redirect.WildcardEnabled)?.Value;
             return MainUtil.GetBool(value, false);

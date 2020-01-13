@@ -6,9 +6,9 @@
     using Constants = Definitions.Constants;
 
     [UsedImplicitly]
-    public class SourceTermComputedField : ComputedFieldBase
+    public class SourceTermComputedField : UrlMapperComputedFieldBase
     {
-        public override object ComputeFieldValue(IIndexable indexable)
+        protected override object Compute(IIndexable indexable)
         {
             var value = indexable?.GetFieldByName(Constants.Fields.Redirect.SourceTerm)?.Value as string;
 
