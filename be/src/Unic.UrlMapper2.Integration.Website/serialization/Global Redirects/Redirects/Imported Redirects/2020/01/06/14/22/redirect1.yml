@@ -1,0 +1,48 @@
+﻿---
+ID: "b0ad8d93-9c85-459c-ac4f-839701102e9b"
+Parent: "8de47ab0-c43f-46c8-8848-edc304f803ad"
+Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Path: /sitecore/content/Redirects/Imported Redirects/2020/01/06/14/22/redirect1
+DB: master
+SharedFields:
+- ID: "9f5b68ea-9cd5-4da1-babd-07ce569f865f"
+  Hint: Description
+  Value: a great link to sietcore.com
+- ID: "b8c6bd4c-0352-40b7-b2b9-57b477025e46"
+  Hint: Wildcard enabled
+  Type: Checkbox
+  Value: 1
+- ID: "bf7e3537-859e-4bf4-a186-9c6e81bfba33"
+  Hint: Redirect Type
+  Value: "{E02637AB-038A-4169-8F82-29BFA5A3162B}"
+Languages:
+- Language: "de-CH"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "22e7c908-cbf2-41e2-bc6f-4ab690389a6c"
+      Hint: Target Url
+      Value: "https://sietcore.com"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200106T142234Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "e34c8dce-7424-4b42-bc88-db147f6754a3"
+      Hint: Source Term
+      Value: "test-de"
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "22e7c908-cbf2-41e2-bc6f-4ab690389a6c"
+      Hint: Target Url
+      Value: "https://sietcore.com"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200106T142234Z
+    - ID: "e34c8dce-7424-4b42-bc88-db147f6754a3"
+      Hint: Source Term
+      Value: "test-en"

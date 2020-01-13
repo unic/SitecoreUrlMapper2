@@ -1,0 +1,31 @@
+﻿---
+ID: "f8972fdf-e3b0-4ab4-9b11-0a1b3d381b50"
+Parent: "8de47ab0-c43f-46c8-8848-edc304f803ad"
+Template: "dbdee63a-98bc-4bf0-84ef-d955329fe680"
+Path: /sitecore/content/Redirects/Imported Redirects/2020/01/06/14/22/shared redirect
+DB: master
+SharedFields:
+- ID: "9f5b68ea-9cd5-4da1-babd-07ce569f865f"
+  Hint: Description
+  Value: a great link to sietcore.com
+- ID: "b8c6bd4c-0352-40b7-b2b9-57b477025e46"
+  Hint: Wildcard enabled
+  Type: Checkbox
+  Value: 1
+- ID: "bf7e3537-859e-4bf4-a186-9c6e81bfba33"
+  Hint: Redirect Type
+  Value: "{E02637AB-038A-4169-8F82-29BFA5A3162B}"
+- ID: "d1d61eeb-3e53-4c9a-a49e-dd885d92e882"
+  Hint: Source Term
+  Value: "global-shared"
+- ID: "d505713f-fd7b-4f24-bf82-d6a7339fe192"
+  Hint: Target Url
+  Value: "https://sietcore.com"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200106T142234Z

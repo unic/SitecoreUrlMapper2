@@ -79,9 +79,6 @@
     <Content Include="packages.lock.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\UrlMapper2.Integration.Website\urlmapper-jss-app.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_Config\Include\Unicorn\Unicorn.AutoPublish.config" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.config" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.Default.example" />

@@ -1,0 +1,19 @@
+﻿---
+ID: "035d77ac-d2d7-4944-bae9-42c3397c98d3"
+Parent: "5c5389c7-dd92-4824-baeb-38839c098d94"
+Template: "ab8484a9-553a-44fe-a82f-0dd30d435e4c"
+Path: /sitecore/content/Redirects/Manual Redirects
+DB: master
+BranchID: "a0f7503c-2a9a-45e8-8651-b825e17d16ac"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{60CDD167-91B6-463D-B741-7788A0C3C517}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200103T105759Z
