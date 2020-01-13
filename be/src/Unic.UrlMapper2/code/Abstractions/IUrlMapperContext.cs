@@ -4,7 +4,7 @@
     using Sitecore.Globalization;
     using Sitecore.Sites;
 
-    public interface IContext
+    public interface IUrlMapperContext
     {
         SiteContext Site { get; set; }
 

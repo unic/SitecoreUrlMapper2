@@ -8,7 +8,7 @@
     [UsedImplicitly]
     public class TryPerformRedirect : ProcessorBase<HttpRequestArgs>
     {
-        protected override bool ShouldExecute(HttpRequestArgs args) => base.ShouldExecute(args) && this.ResolveDependency<IContext>()?.Item == null;
+        protected override bool ShouldExecute(HttpRequestArgs args) => base.ShouldExecute(args) && this.ResolveDependency<IUrlMapperContext>()?.Item == null;
 
         protected override void Execute(HttpRequestArgs args)
         {

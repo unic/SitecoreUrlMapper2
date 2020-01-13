@@ -18,8 +18,8 @@
 
         protected virtual bool ShouldExecute(T args)
         {
-            var context = this.ResolveDependency<IContext>();
-            var siteExecutionFilter = this.ResolveDependency<ISiteExecutionFilter>();
+            var context = this.ResolveDependency<IUrlMapperContext>();
+            var siteExecutionFilter = this.ResolveDependency<IUrlMapperSiteExecutionFilter>();
 
             return siteExecutionFilter.IsSiteAllowed(context?.Site, this.AllowedSites, this.RestrictedSites);
         }

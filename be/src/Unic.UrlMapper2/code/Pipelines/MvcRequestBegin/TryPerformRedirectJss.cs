@@ -11,7 +11,7 @@
     {
         protected override bool ShouldExecute(RequestBeginArgs args) => 
             base.ShouldExecute(args)
-            && this.ResolveDependency<IContext>()?.Item == null
+            && this.ResolveDependency<IUrlMapperContext>()?.Item == null
             && (this.ResolveDependency<IRouteMapper>()?.IsLayoutServiceRoute(args.RequestContext) ?? false);
 
         protected override void Execute(RequestBeginArgs args)

@@ -11,8 +11,8 @@
     {
         public void Configure(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddTransient<IContext, Context>();
-            serviceCollection.AddTransient<ISiteExecutionFilter, SiteExecutionFilter>();
+            serviceCollection.AddTransient<IUrlMapperContext, UrlMapperContext>();
+            serviceCollection.AddTransient<IUrlMapperSiteExecutionFilter, UrlMapperSiteExecutionFilter>();
             serviceCollection.AddTransient<ISpecificationService, SpecificationService>();
             serviceCollection.AddTransient<ISanitizer, Sanitizer>();
             serviceCollection.AddTransient<IRedirectSearcher, RedirectSearcher>();

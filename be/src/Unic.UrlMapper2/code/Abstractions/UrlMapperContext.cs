@@ -4,7 +4,7 @@
     using Sitecore.Globalization;
     using Sitecore.Sites;
 
-    public class Context : IContext
+    public class UrlMapperContext : IUrlMapperContext
     {
         public SiteContext Site
         {

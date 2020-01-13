@@ -14,10 +14,10 @@
 
     public class RedirectSearchDataService : IRedirectSearchDataService
     {
-        private readonly IContext context;
+        private readonly IUrlMapperContext context;
         private readonly BaseSettings settings;
 
-        public RedirectSearchDataService(IContext context, BaseSettings settings)
+        public RedirectSearchDataService(IUrlMapperContext context, BaseSettings settings)
         {
             this.context = context;
             this.settings = settings;

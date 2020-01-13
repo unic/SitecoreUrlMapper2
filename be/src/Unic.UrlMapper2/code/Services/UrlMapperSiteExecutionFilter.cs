@@ -7,11 +7,11 @@
     using Sitecore.Sites;
 
     [UsedImplicitly]
-    public class SiteExecutionFilter : ISiteExecutionFilter
+    public class UrlMapperSiteExecutionFilter : IUrlMapperSiteExecutionFilter
     {
         private readonly BaseLog logger;
 
-        public SiteExecutionFilter(BaseLog logger)
+        public UrlMapperSiteExecutionFilter(BaseLog logger)
         {
             this.logger = logger;
         }
