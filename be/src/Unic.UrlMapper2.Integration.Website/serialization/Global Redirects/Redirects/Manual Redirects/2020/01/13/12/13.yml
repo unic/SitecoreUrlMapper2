@@ -1,8 +1,8 @@
 ﻿---
-ID: "79283c1f-b94c-4269-8af3-cdc8849f576e"
-Parent: "b0586d86-28cc-49b9-a1ef-6b574e7c0f0c"
+ID: "d88466d8-24dd-4f32-b60e-dfed53c91e79"
+Parent: "4498903d-8316-4771-a4ae-f1c03442f2cb"
 Template: "adb6ca4f-03ef-4f47-b9ac-9ce2ba53ff97"
-Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2020/01/06/14"
+Path: /sitecore/content/Redirects/Manual Redirects/2020/01/13/12/13
 DB: master
 Languages:
 - Language: en
@@ -11,7 +11,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200106T142234Z
+      Value: 20200113T121343Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

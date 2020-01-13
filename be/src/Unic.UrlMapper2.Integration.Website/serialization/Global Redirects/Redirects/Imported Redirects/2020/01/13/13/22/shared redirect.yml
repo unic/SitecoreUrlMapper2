@@ -1,8 +1,8 @@
 ﻿---
-ID: "f8972fdf-e3b0-4ab4-9b11-0a1b3d381b50"
-Parent: "8de47ab0-c43f-46c8-8848-edc304f803ad"
+ID: "62237d1a-e650-493a-9a49-ebd4303aee43"
+Parent: "5bdf6221-d912-4ca9-b826-e7733ee4baf9"
 Template: "dbdee63a-98bc-4bf0-84ef-d955329fe680"
-Path: /sitecore/content/Redirects/Imported Redirects/2020/01/06/14/22/shared redirect
+Path: /sitecore/content/Redirects/Imported Redirects/2020/01/13/13/22/shared redirect
 DB: master
 SharedFields:
 - ID: "9f5b68ea-9cd5-4da1-babd-07ce569f865f"
@@ -28,4 +28,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200106T142234Z
+      Value: 20200113T132201Z

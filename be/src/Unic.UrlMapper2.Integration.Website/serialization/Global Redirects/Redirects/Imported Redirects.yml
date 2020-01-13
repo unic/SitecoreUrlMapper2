@@ -4,6 +4,10 @@ Parent: "5c5389c7-dd92-4824-baeb-38839c098d94"
 Template: "3bae66e5-fa45-498f-bc5e-7802a63fbb6a"
 Path: /sitecore/content/Redirects/Imported Redirects
 DB: master
+SharedFields:
+- ID: "814bdd80-36de-46fa-938c-46ceaf5d9722"
+  Hint: Last Import Date
+  Value: 20200113T142201
 Languages:
 - Language: en
   Versions:

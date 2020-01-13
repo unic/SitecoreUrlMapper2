@@ -1,0 +1,14 @@
+﻿---
+ID: "6bd366a3-c403-412a-ae58-cf89701c921c"
+Parent: "d88466d8-24dd-4f32-b60e-dfed53c91e79"
+Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Path: /sitecore/content/Redirects/Manual Redirects/2020/01/13/12/13/Redirect
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200113T121343Z

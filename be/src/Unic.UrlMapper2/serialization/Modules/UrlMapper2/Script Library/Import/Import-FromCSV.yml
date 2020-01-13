@@ -120,9 +120,9 @@ SharedFields:
                     $resolver = New-Object "Sitecore.Data.ItemResolvers.ItemPathResolver"
                     $targetItem = $resolver.ResolveItem($path, $rootItem)
                     
-                    New-UsingBlock(New-Object -TypeName "Sitecore.Sites.SiteContextSwitcher" -ArgumentList $siteInfo) {
-                        $target = [Sitecore.Links.LinkManager]::GetItemUrl($targetItem);
-                    }
+                    #New-UsingBlock(New-Object -TypeName "Sitecore.Sites.SiteContextSwitcher" -ArgumentList $siteInfo) {
+                    #    $target = [Sitecore.Links.LinkManager]::GetItemUrl($targetItem);
+                    #}
                 }
                 
                 $languageVersion.'Target URL' = $target;
@@ -131,6 +131,10 @@ SharedFields:
     }
     
     # TODO: Trigger partial rebuild of import folders
+    
+    foreach($importFolder in $importFolders){
+        (Get-Item $importFolder.ItemId).'Last Import Date' = [datetime]::Now
+    }
     
     Write-Host "`nDone"
 Languages:

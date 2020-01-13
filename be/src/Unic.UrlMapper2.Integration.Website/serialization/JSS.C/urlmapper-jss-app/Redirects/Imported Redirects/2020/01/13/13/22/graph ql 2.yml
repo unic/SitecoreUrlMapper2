@@ -1,8 +1,8 @@
 ﻿---
-ID: "578eecec-b408-4c25-82bc-669f0db0f116"
-Parent: "e1295285-7083-41d5-90ec-5a3556731d57"
+ID: "3f62ed38-e108-458f-ae58-abbc7c812592"
+Parent: "f35fafcb-130a-411f-ba25-eebee99f02a3"
 Template: "dbdee63a-98bc-4bf0-84ef-d955329fe680"
-Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2020/01/06/14/22/graph ql 3"
+Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2020/01/13/13/22/graph ql 2"
 DB: master
 SharedFields:
 - ID: "6374afc3-6c32-4f58-a039-38e4700ec1e2"
@@ -22,4 +22,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200106T142243Z
+      Value: 20200113T132201Z

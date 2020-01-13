@@ -1,8 +1,8 @@
 ﻿---
-ID: "b0ad8d93-9c85-459c-ac4f-839701102e9b"
-Parent: "8de47ab0-c43f-46c8-8848-edc304f803ad"
+ID: "c3042bda-9311-4ea2-8fa0-5b31c0f582e8"
+Parent: "5bdf6221-d912-4ca9-b826-e7733ee4baf9"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: /sitecore/content/Redirects/Imported Redirects/2020/01/06/14/22/redirect1
+Path: /sitecore/content/Redirects/Imported Redirects/2020/01/13/13/22/redirect1
 DB: master
 SharedFields:
 - ID: "9f5b68ea-9cd5-4da1-babd-07ce569f865f"
@@ -25,7 +25,7 @@ Languages:
       Value: "https://sietcore.com"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200106T142234Z
+      Value: 20200113T132200Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -42,7 +42,7 @@ Languages:
       Value: "https://sietcore.com"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200106T142234Z
+      Value: 20200113T132200Z
     - ID: "e34c8dce-7424-4b42-bc88-db147f6754a3"
       Hint: Source Term
       Value: "test-en"
