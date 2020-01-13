@@ -30,7 +30,6 @@ SharedFields:
     $package.Sources.Add($source);
     
     $packageName = "$($package.Name)-$Version" -replace " ",".";
-    Export-Package -Project $package -Path "$packageName.xml"
     Export-Package -Project $package -Path "$packageName.zip" -Zip
     Download-File "$SitecorePackageFolder\$packageName.zip"
 Languages:
