@@ -72,6 +72,7 @@
     <Compile Include="ContentSearch\SearchResults\RedirectSearchResultItem.cs" />
     <Compile Include="Definitions\Constants.cs" />
     <Compile Include="DependencyInjection\Container.cs" />
+    <Compile Include="DependencyInjection\Scope.cs" />
     <Compile Include="DependencyInjection\ServicesConfigurator.cs" />
     <Compile Include="Models\Redirect.cs" />
     <Compile Include="Models\RedirectSearchData.cs" />

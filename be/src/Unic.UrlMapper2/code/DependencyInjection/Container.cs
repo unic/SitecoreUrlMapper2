@@ -7,5 +7,8 @@
     {
         public static T Resolve<T>()
             where T : class => ServiceLocator.ServiceProvider.GetRequiredService<T>();
+
+        public static Scope CreateScope() =>
+            new Scope(ServiceLocator.ServiceProvider.GetService<IServiceScopeFactory>().CreateScope());
     }
 }

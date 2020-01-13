@@ -1,8 +1,8 @@
 ﻿---
-ID: "a5fb3e9c-0ba4-4bff-9c82-f2c90522f76e"
-Parent: "83314755-8009-4e7b-8b01-203ae140b683"
+ID: "577d54e9-5081-4288-ae83-502c0bf275a1"
+Parent: "dcc59ea0-ce77-46ea-a1d7-f604f6cce18f"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: /sitecore/content/Integration Site/Redirects/Manual Redirects/2020/01/13/12/01/Redirect
+Path: /sitecore/content/Redirects/Manual Redirects/2020/01/13/15/01/lerpi
 DB: master
 Languages:
 - Language: en
@@ -11,10 +11,10 @@ Languages:
     Fields:
     - ID: "22e7c908-cbf2-41e2-bc6f-4ab690389a6c"
       Hint: Target Url
-      Value: "https://google.com/global"
+      Value: "http://sietcore.com/lerpi"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200113T120155Z
+      Value: 20200113T150123Z
     - ID: "e34c8dce-7424-4b42-bc88-db147f6754a3"
       Hint: Source Term
-      Value: "local-integrations"
+      Value: lerpi

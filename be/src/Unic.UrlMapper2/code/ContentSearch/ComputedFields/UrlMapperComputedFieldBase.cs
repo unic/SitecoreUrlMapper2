@@ -8,12 +8,29 @@
 
     public abstract class UrlMapperComputedFieldBase : IComputedIndexField
     {
+        private Scope scope;
+
         public string FieldName { get; set; }
         public string ReturnType { get; set; }
 
-        public object ComputeFieldValue(IIndexable indexable) => this.ShouldCompute(indexable)
-            ? this.Compute(indexable)
-            : null;
+        public object ComputeFieldValue(IIndexable indexable)
+        {
+            if (this.ShouldCompute(indexable))
+            {
+                object result;
+
+                using (this.scope = Container.CreateScope())
+                {
+                    result = this.Compute(indexable);
+                }
+
+                this.scope = null;
+
+                return result;
+            }
+
+            return null;
+        }
 
         protected abstract object Compute(IIndexable indexable);
 
@@ -24,6 +41,7 @@
             return this.ResolveDependency<ITemplateService>().IsRedirectTemplate(item.TemplateID);
         }
 
-        protected virtual T ResolveDependency<T>() where T : class => Container.Resolve<T>();
+        protected virtual TDependency ResolveDependency<TDependency>()
+            where TDependency : class => this.scope != null ? this.scope.Resolve<TDependency>() : Container.Resolve<TDependency>();
     }
 }
