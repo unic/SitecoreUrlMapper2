@@ -1,0 +1,25 @@
+﻿---
+ID: "578eecec-b408-4c25-82bc-669f0db0f116"
+Parent: "e1295285-7083-41d5-90ec-5a3556731d57"
+Template: "dbdee63a-98bc-4bf0-84ef-d955329fe680"
+Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2020/01/06/14/22/graph ql 3"
+DB: master
+SharedFields:
+- ID: "6374afc3-6c32-4f58-a039-38e4700ec1e2"
+  Hint: Allow Embedded Language
+  Type: Checkbox
+  Value: 0
+- ID: "9f5b68ea-9cd5-4da1-babd-07ce569f865f"
+  Hint: Description
+  Value: a link to an internal item
+- ID: "d1d61eeb-3e53-4c9a-a49e-dd885d92e882"
+  Hint: Source Term
+  Value: graphql
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200106T142243Z

@@ -1,0 +1,143 @@
+﻿---
+ID: "eca19ee4-e950-4d7e-98c5-362cc5de8adc"
+Parent: "c34f289b-3062-4a5f-8b2a-b14f127a00e6"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: "/sitecore/system/Modules/UrlMapper2/Script Library/Import/Import-FromCSV"
+DB: master
+SharedFields:
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    $uploadDirectory = Join-Path -Path $SitecoreDataFolder -ChildPath "temp"
+    $importFilePath = Receive-File -Overwrite -Title $defaultProps.Title -Description "Choose a valid CSV file to import." -Icon $defaultProps.Icon -Path $uploadDirectory -OkButtonName "Next"
+    
+    if(-not(Test-Path -Path $importFilePath)) { exit }
+    
+    #$importData = Import-CSV "$($uploadDirectory)\import.csv" -Delimiter ";"
+    $importData = Import-CSV $importFilePath -Delimiter ";"
+    $columnNames = $importData | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name
+    $sourceFieldNames = $columnNames | ForEach-Object { $mappings = [ordered]@{} } { $mappings[$_] = $_ } { $mappings }
+    $fieldMappings = $sourceFieldNames
+    
+    # TODO: Clear existing import data
+    
+    # Determine the bucket locations
+    $criteria = @(
+        @{Filter = "Equals"; Field = "_template"; Value = "{3BAE66E5-FA45-498F-BC5E-7802A63FBB6A}"}, # redirect import folder template
+        @{Filter = "Equals"; Field = "_latestversion"; Value = "true"},
+        @{Filter = "Equals"; Field = "_language"; Value = "en"},
+        @{ Filter = "DescendantOf"; Value = (Get-Item "master:/content/") }
+    )
+    $props = @{
+        Index = "sitecore_master_index"
+        Criteria = $criteria
+    }
+    $importFolders = Find-Item @props
+    
+    # Create destination map
+    $importDestinations = @{}
+    $sitesToExclude = "shell", "modules_shell", "modules_website", "website", "exm"
+    foreach($importFolder in $importFolders){
+        $siteInfo = [Sitecore.Sites.SiteContextFactory]::Sites |
+                    ? { $_.RootPath.Length -gt 0 } |
+                    ? { $importFolder.Path -like "$($_.RootPath)*" } |
+                    sort { $_.RootPath.length } -Descending |
+                    select -first 1
+        
+        if($sitesToExclude -notcontains $($siteInfo.Name)){
+            $importDestinations[$siteInfo.Name] = $importFolder.ItemId
+        }
+        else{
+            if($importDestinations[""]){
+                Write-Warning "Multiple global import folders available. Global redirects will be imported into the last determined global folder"
+            }
+            $importDestinations[""] = $importFolder.ItemId
+        }
+    }
+    Write-Host "Import destination map:"
+    $importDestinations
+    
+    # Create choice maps for protocol and redirect type
+    $lookupProtocols = Get-ChildItem -Language "en" -Path "/sitecore/system/Modules/UrlMapper2/Source Protocol" | ForEach-Object { $mappings = @{} } { $mappings[$_.Value] = $_.ID } { $mappings }
+    $lookupRedirectTypes = Get-ChildItem -Language "en" -Path "/sitecore/system/Modules/UrlMapper2/Redirect Type" | ForEach-Object { $mappings = @{} } { $mappings[$_.Value] = $_.ID } { $mappings }
+    
+    New-UsingBlock (New-Object Sitecore.Data.BulkUpdateContext) {
+        # Clear import folders
+        Write-Host "`nClearing import folders"
+        foreach($importFolder in $importFolders){
+            Write-Host "- Clearing $($importFolder.Path)"
+            foreach($child in Get-ChildItem $importFolder.ItemId){
+                Remove-Item $child.ID -recurse
+            }
+        }
+        
+        Write-Host "`nStarting import"
+        
+        $redirectTemplateId = "{91B6672E-51A2-48DB-9A17-D9E8744EE490}"
+        $sharedRedirectTemlateId = "{DBDEE63A-98BC-4BF0-84EF-D955329FE680}"
+        
+        $defaultLanguage = [Sitecore.Configuration.Settings]::DefaultLanguage
+        
+        # An import group represents one language redirect containing multiple language verions
+        $importGroups = $importData | Group-Object -Property Name
+        
+        $rowIndex = 0
+        foreach($importGroup in $importGroups){
+            
+            # Create base item
+            $metaInfo = $importGroup.Group | Select-Object -first 1
+            $target = $importDestinations[$metaInfo.Site]
+            
+            $templateToUse = If ($importGroup.Count -gt 1) { $redirectTemplateId } Else { $sharedRedirectTemlateId }
+            $item = New-Item -Path $target -Name $metaInfo.Name -ItemType $templateToUse -Language $defaultLanguage
+            
+            # Create language versions
+            foreach($itemInfo in $importGroup.Group){
+                $language = If ($itemInfo.LanguageCode) { $itemInfo.LanguageCode } Else { $defaultLanguage }
+                
+                $languageToCreate = $language
+                $languageVersion = Add-ItemLanguage -TargetLanguage $languageToCreate -DoNotCopyFields -IfExist "skip" -Item $item
+                $languageVersion.'Source Protocol' = $lookupProtocols[$itemInfo.Protocol]
+                $languageVersion.'Redirect Type' = If ($itemInfo.Permanent.ToLower() -eq "x") { $lookupRedirectTypes["permanent"] } Else { $lookupRedirectTypes["temporary"] }
+                $languageVersion.'Source Term' = $itemInfo.Term
+                $languageVersion.Description = $itemInfo.Description
+                $languageVersion.'Allow Embedded Language' = If ($itemInfo.AllowLanguageCode.ToLower() -eq "x") { $true } Else { $false }
+                $languageVersion.'Wildcard Enabled' = If ($itemInfo.Wildcard.ToLower() -eq "x") { $true } Else { $false }
+                
+                # Determine target url
+                $target = $itemInfo.Target;
+                if(![Sitecore.Web.WebUtil]::IsExternalUrl($target)){
+                    if($itemInfo.Type.ToLower() -eq "global" -and !$itemInfo.Site){
+                        Write-Warning "A global entry with a relative target url must contain a value for 'site'. Skipping entry $($itemInfo.Name)"
+                        continue
+                    }
+                    
+                    # As the relative path might contain the display name, we cannot use Get-Item
+                    # and have to go through the ItemPathResolver to find the correct item
+                    $siteInfo = [Sitecore.Sites.SiteContext]::GetSite($itemInfo.Site)
+                    $path = $itemInfo.Target
+                    $rootItem = Get-Item [Sitecore.IO.FileUtil]::MakePath($siteInfo.RootPath, $siteInfo.StartItem)
+                    $resolver = New-Object "Sitecore.Data.ItemResolvers.ItemPathResolver"
+                    $targetItem = $resolver.ResolveItem($path, $rootItem)
+                    
+                    New-UsingBlock(New-Object -TypeName "Sitecore.Sites.SiteContextSwitcher" -ArgumentList $siteInfo) {
+                        $target = [Sitecore.Links.LinkManager]::GetItemUrl($targetItem);
+                    }
+                }
+                
+                $languageVersion.'Target URL' = $target;
+            }
+        }
+    }
+    
+    # TODO: Trigger partial rebuild of import folders
+    
+    Write-Host "`nDone"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200103T103410Z

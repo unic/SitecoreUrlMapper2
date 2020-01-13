@@ -1,0 +1,14 @@
+﻿---
+ID: "c34f289b-3062-4a5f-8b2a-b14f127a00e6"
+Parent: "04bdf921-93d5-435f-9127-a2cba83a689b"
+Template: "b6a55ac6-a602-4c09-ac3a-1d2938621d5b"
+Path: /sitecore/system/Modules/UrlMapper2/Script Library/Import
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200106T062320Z
