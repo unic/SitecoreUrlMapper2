@@ -106,6 +106,9 @@
   <ItemGroup>
     <Content Include="App_Config\Layers.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Config\Include\UrlMapper2.Integration.Website\UrlMapper2.Integration.Website.config" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
