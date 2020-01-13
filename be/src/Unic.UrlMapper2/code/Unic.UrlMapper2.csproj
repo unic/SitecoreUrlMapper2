@@ -79,7 +79,7 @@
     <Compile Include="Models\SourceProtocol.cs" />
     <Compile Include="Pipelines\HttpRequestBegin\TryPerformRedirect.cs" />
     <Compile Include="Pipelines\MvcRequestBegin\TryPerformRedirectJss.cs" />
-    <Compile Include="Pipelines\ProcessorBase.cs" />
+    <Compile Include="Pipelines\UrlMapperProcessorBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IRedirectionService.cs" />
     <Compile Include="Services\IRedirectSearchDataService.cs" />

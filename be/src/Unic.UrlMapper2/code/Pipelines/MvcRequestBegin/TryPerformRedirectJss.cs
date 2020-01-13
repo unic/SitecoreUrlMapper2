@@ -7,12 +7,16 @@
     using Unic.UrlMapper2.Services;
 
     [UsedImplicitly]
-    public class TryPerformRedirectJss : ProcessorBase<RequestBeginArgs>
+    public class TryPerformRedirectJss : UrlMapperProcessorBase<RequestBeginArgs>
     {
-        protected override bool ShouldExecute(RequestBeginArgs args) => 
-            base.ShouldExecute(args)
-            && this.ResolveDependency<IUrlMapperContext>()?.Item == null
-            && (this.ResolveDependency<IRouteMapper>()?.IsLayoutServiceRoute(args.RequestContext) ?? false);
+        protected override bool ShouldExecute(RequestBeginArgs args)
+        {
+            var context = this.ResolveDependency<IUrlMapperContext>();
+            return base.ShouldExecute(args)
+                   && context?.Item == null
+                   && context?.Site != null
+                   && (this.ResolveDependency<IRouteMapper>()?.IsLayoutServiceRoute(args.RequestContext) ?? false);
+        }
 
         protected override void Execute(RequestBeginArgs args)
         {

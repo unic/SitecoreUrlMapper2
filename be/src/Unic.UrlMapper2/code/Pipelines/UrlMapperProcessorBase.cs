@@ -5,7 +5,7 @@
     using Unic.UrlMapper2.DependencyInjection;
     using Unic.UrlMapper2.Services;
 
-    public abstract class ProcessorBase<T>
+    public abstract class UrlMapperProcessorBase<T>
     {
         protected List<string> AllowedSites { get; } = new List<string>();
 

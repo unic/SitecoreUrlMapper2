@@ -6,9 +6,13 @@
     using Unic.UrlMapper2.Services;
 
     [UsedImplicitly]
-    public class TryPerformRedirect : ProcessorBase<HttpRequestArgs>
+    public class TryPerformRedirect : UrlMapperProcessorBase<HttpRequestArgs>
     {
-        protected override bool ShouldExecute(HttpRequestArgs args) => base.ShouldExecute(args) && this.ResolveDependency<IUrlMapperContext>()?.Item == null;
+        protected override bool ShouldExecute(HttpRequestArgs args)
+        {
+            var context = this.ResolveDependency<IUrlMapperContext>();
+            return base.ShouldExecute(args) && context?.Item == null && context?.Site != null;
+        }
 
         protected override void Execute(HttpRequestArgs args)
         {

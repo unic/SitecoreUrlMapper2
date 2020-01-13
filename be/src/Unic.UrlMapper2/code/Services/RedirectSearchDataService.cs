@@ -5,7 +5,6 @@
     using Sitecore;
     using Sitecore.Abstractions;
     using Sitecore.Globalization;
-    using Sitecore.Mvc.Pipelines.Request.RequestBegin;
     using Sitecore.Pipelines.HttpRequest;
     using Sitecore.Web;
     using Unic.UrlMapper2.Abstractions;
