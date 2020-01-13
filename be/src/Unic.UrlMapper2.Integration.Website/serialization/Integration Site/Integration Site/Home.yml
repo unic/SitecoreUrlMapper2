@@ -7,7 +7,7 @@ DB: master
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Network/16x16/home.png
+  Value: office/32x32/home.png
 - ID: "0c894aab-962b-4a84-b923-cb24b05e60d2"
   Hint: __Ribbon
   Value: 
