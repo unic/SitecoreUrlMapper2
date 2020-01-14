@@ -53,12 +53,12 @@
 
         protected virtual Redirect MapToSearchResult(RedirectSearchResultItem redirectSearchResultItem, RedirectSearchData redirectSearchData)
         {
-            if (!Enum.TryParse<RedirectType>(redirectSearchResultItem.RedirectType, out var redirectType))
+            if (!Enum.TryParse<RedirectType>(redirectSearchResultItem.RedirectType, ignoreCase: true, out var redirectType))
             {
                 this.logger.Error($"Failed to parse redirect type {redirectSearchResultItem.RedirectType}", this);
             }
 
-            if (!Enum.TryParse<SourceProtocol>(redirectSearchResultItem.SourceProtocol, out var sourceProtocol))
+            if (!Enum.TryParse<SourceProtocol>(redirectSearchResultItem.SourceProtocol, ignoreCase: true, out var sourceProtocol))
             {
                 this.logger.Error($"Failed to parse source protocol {redirectSearchResultItem.SourceProtocol}", this);
             }

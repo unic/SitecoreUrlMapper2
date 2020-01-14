@@ -1,11 +1,10 @@
 ﻿namespace Unic.UrlMapper2.Services
 {
+    using Sitecore.Abstractions;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
-    using Sitecore.Abstractions;
-    using Sitecore.Web;
     using Unic.UrlMapper2.Models;
 
     public class RedirectionService : IRedirectionService
@@ -43,6 +42,8 @@
 
         protected virtual Redirect FilterRedirects(IEnumerable<Redirect> redirects, RedirectSearchData redirectSearchData)
         {
+            if (redirects == null) return null;
+
             var enumerableRedirects = redirects.ToList();
 
             // If there is a strong redirect (one that doesn't have wildcards enabled), it has priority

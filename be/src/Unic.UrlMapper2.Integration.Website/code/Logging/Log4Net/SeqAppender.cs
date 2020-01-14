@@ -114,40 +114,9 @@
                 { nameof(loggingEvent.Domain), loggingEvent.Domain }
             };
 
-            if (loggingEvent.MessageObject is StructuredLogInfo info)
-            {
-                AddProperty(properties, nameof(info.RequestId), info.RequestId);
-                AddProperty(properties, nameof(info.Controller), info.Controller);
-                AddProperty(properties, nameof(info.Context), info.Context);
-
-                var args = info.Arguments;
-                var type = args.GetType();
-                var props = type.GetProperties();
-
-                foreach (var propertyInfo in props)
-                {
-                    AddProperty(properties, propertyInfo.Name, propertyInfo.GetValue(args));
-                }
-            }
-
             return properties;
         }
 
-        private static string GetMessageTemplate(LoggingEvent loggingEvent)
-        {
-            if (loggingEvent.MessageObject is StructuredLogInfo info)
-            {
-                return info.MessageTemplate;
-            }
-
-            return loggingEvent.RenderedMessage;
-        }
-
-        private static void AddProperty(IDictionary<string, object> properties, string key, object value)
-        {
-            if (value == null || properties.ContainsKey(key)) return;
-
-            properties.Add(key, value);
-        }
+        private static string GetMessageTemplate(LoggingEvent loggingEvent) => loggingEvent.RenderedMessage;
     }
 }
