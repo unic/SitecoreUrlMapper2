@@ -6,8 +6,6 @@ $Webroot = Join-Path $env:SystemDrive 'inetpub\wwwroot'
 $SitecoreVersion = "9.2.0 rev. 002893"
 $IdentityServerVersion = "3.0.0 rev. 00211"
 $InstallerVersion = "2.1.0"
-$JSSVersion = "12.0.0 rev. 190522"
-$PSEVersion = "6.0"
 
 # Assets and prerequisites
 $ConfigsRoot = "$PSScriptRoot\..\build\sif-configs"
@@ -56,5 +54,5 @@ $SolrUrl = "https://localhost:62200/solr"
 $SolrRoot = "$PSScriptRoot\etc\docker\solrdata"
 
 # Modules Parameters
-$JSSServerPackage = "$ModulesRoot\JSS\JSS_CM_$JSSVersion.scwdp.zip"
-$PSEPackage = "$ModulesRoot\PSE\PSE_CM_$PSEVersion.scwdp.zip"
+$JSSServerPackage = "$ModulesRoot\JSS\JSS_CM.scwdp.zip"
+$PSEPackage = "$ModulesRoot\PSE\PSE_CM.scwdp.zip"

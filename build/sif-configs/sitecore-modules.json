@@ -78,7 +78,7 @@
                     "Dest": "Auto",
                     "SetParam": [
                         {
-                            "Name": "IIS Web Application Name",
+                            "Name": "Application Path",
                             "Value": "[parameter('SiteName')]"
                         },
                         {
@@ -106,7 +106,7 @@
                     "Dest": "Auto",
                     "SetParam": [
                         {
-                            "Name": "IIS Web Application Name",
+                            "Name": "Application Path",
                             "Value": "[parameter('SiteName')]"
                         },
                         {

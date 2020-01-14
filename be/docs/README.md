@@ -56,6 +56,8 @@ All of that is handled for you when you run the `Initialize-DockerEnvironment` t
         * Sitecore package: `.\build\assets\Sitecore X.X.X rev. XXXXXX (OnPrem)_single.scwdp.zip`
         * xConnect package: `.\build\assets\Sitecore X.X.X rev. XXXXXX (OnPrem)_xp0xconnect.scwdp.zip`
         * Identity Server package: `.\build\assets\Sitecore.IdentityServer X.X.X rev. XXXXXX (OnPrem)_identityserver.scwdp.zip`
+1. Download the Sitecore Azure Toolkit from [dev.sitecore.net](https://dev.sitecore.net/Downloads/Sitecore_Azure_Toolkit.aspx) and extract the contents of the `tools` folder into `/build/sitecore-azure-toolkit`
+1. Download the correct version of JSS and Sitecore PowerShell extensions and place them into the prepared /build/sitecore-modules folders. Check the README.mds within the subfolders for additional information about naming and the required versions.
 1. Are you using system settings other than the defaults specified at the top of this page?
     * If yes, you need to update the files accordingly.
     * **Include or omit trailing slashes as per the default setting in each file!**
