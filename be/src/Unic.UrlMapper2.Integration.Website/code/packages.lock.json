@@ -23,6 +23,24 @@
         "resolved": "2.1.1",
         "contentHash": "XRzK7ZF+O6FzdfWrlFTi1Rgj2080ZDsd46vzOjadHUB0Cz5kOvDG8vI7caa5YFrsHQpcfn0DxtjS4E46N4FZsA=="
       },
+      "Serilog": {
+        "type": "Direct",
+        "requested": "[2.9.0, )",
+        "resolved": "2.9.0",
+        "contentHash": "QzcrD33A3+CsVvwi1I5CSei67ikQnkGrw7SscgL+vZTghaC2aNYg8fiUcedXHzKJFNjgje9rBjzwYGQTKEaXaA=="
+      },
+      "Serilog.Sinks.Seq": {
+        "type": "Direct",
+        "requested": "[4.0.0, )",
+        "resolved": "4.0.0",
+        "contentHash": "02HTAboPlG6+/u63+o4bffS5f9VOLMn0/76OsK+Ii90IufoTO6YWIEzZ84KUYjmQnjToe0lrVbLa7qOJdUCYbg==",
+        "dependencies": {
+          "Serilog": "2.5.0",
+          "Serilog.Formatting.Compact": "1.0.0",
+          "Serilog.Sinks.File": "4.0.0",
+          "Serilog.Sinks.PeriodicBatching": "2.1.1"
+        }
+      },
       "Sitecore.Annotations": {
         "type": "Direct",
         "requested": "[9.2.0, )",
@@ -65,6 +83,12 @@
           "Sitecore.Nexus.Consumption": "1.1.0",
           "Sitecore.Zip": "9.2.0"
         }
+      },
+      "Sitecore.Logging": {
+        "type": "Direct",
+        "requested": "[9.3.0, )",
+        "resolved": "9.3.0",
+        "contentHash": "dQwfLWM/XgfHN9coo9iAuNbqsGAx+Vf7vtIaddQzgo1XxK8qjNXgR+kJ1CnRu15mzAl3z/J9/HoFOUNgFr1Bcg=="
       },
       "Synthesis": {
         "type": "Direct",
@@ -361,6 +385,30 @@
           "WebActivatorEx": "2.0.3"
         }
       },
+      "Serilog.Formatting.Compact": {
+        "type": "Transitive",
+        "resolved": "1.0.0",
+        "contentHash": "r3QYz02y7+B7Ng30hyJM929OJhem7SsJ4XDUE0Zfptj2MRiQfpPUb5f58juAFjp/TnNeSX2QNzZEnHwLeoJfHQ==",
+        "dependencies": {
+          "Serilog": "2.0.0"
+        }
+      },
+      "Serilog.Sinks.File": {
+        "type": "Transitive",
+        "resolved": "4.0.0",
+        "contentHash": "vBj43RkAbeP1dzoPFR2+LfV5GevDRPDq6265JJBv223lMvT9rfdwe/S/I9ow7aZSLYKfw4qPDw6NW8YwjbDbvg==",
+        "dependencies": {
+          "Serilog": "2.5.0"
+        }
+      },
+      "Serilog.Sinks.PeriodicBatching": {
+        "type": "Transitive",
+        "resolved": "2.1.1",
+        "contentHash": "L1iZtcEzQdEIYCPvhYJYB2RofPg+i1NhHJfS+DpXLyLSMS6OXebqaI1fxWhmJRIjD9D9BuXi23FkZTQDiP7cHw==",
+        "dependencies": {
+          "Serilog": "2.0.0"
+        }
+      },
       "SharpZipLib": {
         "type": "Transitive",
         "resolved": "0.86.0",
@@ -415,11 +463,6 @@
           "Sitecore.Nexus.Consumption": "1.1.0",
           "Sitecore.Services.Infrastructure.Sitecore": "9.2.0"
         }
-      },
-      "Sitecore.Logging": {
-        "type": "Transitive",
-        "resolved": "9.2.0",
-        "contentHash": "qpSoY0ctmSay5UPrlCE2EnqFsQQL8g5EeQcwrDVVtPRZpadIM/cDKNx0eLg3V81V59sKeJXYsp3hO6DpXlSADw=="
       },
       "Sitecore.Logging.Client": {
         "type": "Transitive",
