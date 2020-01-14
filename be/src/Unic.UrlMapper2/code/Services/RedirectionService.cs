@@ -73,7 +73,7 @@
                 return;
             }
 
-            this.logger.Debug($"Performing {redirect.RedirectType} redirect to {redirect.TargetUrl}");
+            this.logger.Debug($"Performing {redirect.RedirectType} redirect to {redirect.TargetUrl}", this);
 
             switch (redirect.RedirectType)
             {
