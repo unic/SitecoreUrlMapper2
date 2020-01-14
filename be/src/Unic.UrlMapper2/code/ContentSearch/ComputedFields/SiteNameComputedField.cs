@@ -28,7 +28,6 @@
         {
             if (item == null) return null;
 
-            // TODO: Check if this doesn't change default Sitecore site resolving behaviour (order)
             return SiteContextFactory.Sites
                 .Where(s => !string.IsNullOrWhiteSpace(s.RootPath) && item.Paths.Path.StartsWith(s.RootPath, StringComparison.OrdinalIgnoreCase))
                 .OrderByDescending(s => s.RootPath.Length)
