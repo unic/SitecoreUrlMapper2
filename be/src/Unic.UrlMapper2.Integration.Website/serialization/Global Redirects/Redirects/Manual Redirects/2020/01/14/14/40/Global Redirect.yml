@@ -1,0 +1,28 @@
+﻿---
+ID: "ca2e5f3f-b3dd-40bf-ad27-6040b44ab9e7"
+Parent: "1b5a8a7c-863f-41ad-8b42-4cee672d6772"
+Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Path: /sitecore/content/Redirects/Manual Redirects/2020/01/14/14/40/Global Redirect
+DB: master
+SharedFields:
+- ID: "9f5b68ea-9cd5-4da1-babd-07ce569f865f"
+  Hint: Description
+  Value: This is a global redirect, it should be executed on any site.
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "22e7c908-cbf2-41e2-bc6f-4ab690389a6c"
+      Hint: Target Url
+      Value: "https://sitecore.com"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200114T144020Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "e34c8dce-7424-4b42-bc88-db147f6754a3"
+      Hint: Source Term
+      Value: "global-redirect"

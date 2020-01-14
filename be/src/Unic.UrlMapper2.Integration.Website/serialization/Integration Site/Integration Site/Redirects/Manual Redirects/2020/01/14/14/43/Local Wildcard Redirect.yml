@@ -1,0 +1,32 @@
+﻿---
+ID: "de448963-204a-45e9-8cd0-80829fd059f7"
+Parent: "fca77d4b-75eb-4ba8-ba07-da13dcb51d2e"
+Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Path: /sitecore/content/Integration Site/Redirects/Manual Redirects/2020/01/14/14/43/Local Wildcard Redirect
+DB: master
+SharedFields:
+- ID: "9f5b68ea-9cd5-4da1-babd-07ce569f865f"
+  Hint: Description
+  Value: This is a wildcard redirect. It should only be executed for the integration site.
+- ID: "b8c6bd4c-0352-40b7-b2b9-57b477025e46"
+  Hint: Wildcard enabled
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "22e7c908-cbf2-41e2-bc6f-4ab690389a6c"
+      Hint: Target Url
+      Value: "https://amazon.com"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200114T144344Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "e34c8dce-7424-4b42-bc88-db147f6754a3"
+      Hint: Source Term
+      Value: "local-wildcard-redirect"

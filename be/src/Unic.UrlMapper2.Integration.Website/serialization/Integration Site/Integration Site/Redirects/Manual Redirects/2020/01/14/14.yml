@@ -1,8 +1,8 @@
 ﻿---
-ID: "ecb502d6-e2f0-45ed-8412-b465dd98c99e"
-Parent: "96468ea4-17d1-4c8e-96a6-fa6864928b11"
+ID: "c4656d95-d1a7-47f6-b805-2e24b811d3c4"
+Parent: "041c7d4c-f343-447e-bb0c-7526fed446b3"
 Template: "adb6ca4f-03ef-4f47-b9ac-9ce2ba53ff97"
-Path: /sitecore/content/Integration Site/Redirects/Manual Redirects/2020
+Path: /sitecore/content/Integration Site/Redirects/Manual Redirects/2020/01/14/14
 DB: master
 Languages:
 - Language: en
@@ -11,4 +11,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200114T144123Z
+      Value: 20200114T144124Z

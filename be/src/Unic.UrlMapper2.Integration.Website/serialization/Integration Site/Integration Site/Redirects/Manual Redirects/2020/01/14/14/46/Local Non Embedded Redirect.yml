@@ -1,0 +1,32 @@
+﻿---
+ID: "37dcf751-ff91-43f4-b0b4-f4bd86026271"
+Parent: "5470af78-da7f-427e-a7d6-9ad7671d8620"
+Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Path: /sitecore/content/Integration Site/Redirects/Manual Redirects/2020/01/14/14/46/Local Non Embedded Redirect
+DB: master
+SharedFields:
+- ID: "6374afc3-6c32-4f58-a039-38e4700ec1e2"
+  Hint: Allow Embedded Language
+  Type: Checkbox
+  Value: 0
+- ID: "9f5b68ea-9cd5-4da1-babd-07ce569f865f"
+  Hint: Description
+  Value: This redirect should only be executed on the integration site. If the requested URL contains an embedded language code, it should not be executed.
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "22e7c908-cbf2-41e2-bc6f-4ab690389a6c"
+      Hint: Target Url
+      Value: "https://uber.com"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200114T144636Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "e34c8dce-7424-4b42-bc88-db147f6754a3"
+      Hint: Source Term
+      Value: "local-non-embedded-redirect"

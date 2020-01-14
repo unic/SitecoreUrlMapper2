@@ -1,0 +1,14 @@
+﻿---
+ID: "fca77d4b-75eb-4ba8-ba07-da13dcb51d2e"
+Parent: "c4656d95-d1a7-47f6-b805-2e24b811d3c4"
+Template: "adb6ca4f-03ef-4f47-b9ac-9ce2ba53ff97"
+Path: /sitecore/content/Integration Site/Redirects/Manual Redirects/2020/01/14/14/43
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200114T144344Z
