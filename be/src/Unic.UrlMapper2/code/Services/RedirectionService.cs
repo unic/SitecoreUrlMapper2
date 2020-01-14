@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
+    using Sitecore.Abstractions;
     using Sitecore.Web;
     using Unic.UrlMapper2.Models;
 
@@ -11,11 +12,16 @@
     {
         private readonly IRedirectSearcher redirectSearcher;
         private readonly ISanitizer sanitizer;
+        private readonly BaseLog logger;
 
-        public RedirectionService(IRedirectSearcher redirectSearcher, ISanitizer sanitizer)
+        public RedirectionService(
+            IRedirectSearcher redirectSearcher,
+            ISanitizer sanitizer,
+            BaseLog logger)
         {
             this.redirectSearcher = redirectSearcher;
             this.sanitizer = sanitizer;
+            this.logger = logger;
         }
 
         public virtual void PerformRedirect(RedirectSearchData redirectSearchData, HttpContextBase httpContext)
@@ -24,8 +30,11 @@
             this.sanitizer.SanitizeRedirectSearchData(redirectSearchData);
 
             var redirects = this.redirectSearcher.SearchRedirects(redirectSearchData)?.ToList();
-            if (redirects == null || !redirects.Any()) return; // TODO: Add logging
-            
+            if (redirects == null || !redirects.Any())
+            {
+                this.logger.Debug($"No redirects found for term {redirectSearchData.SourceTerm}", this);
+            }
+
             var redirect = this.FilterRedirects(redirects, redirectSearchData);
             if (redirect == null) return;
 
@@ -60,11 +69,11 @@
         {
             if (redirect == null || string.IsNullOrWhiteSpace(redirect.TargetUrl))
             {
-                // TODO: Add logging about null arg
+                this.logger.Debug("Incomplete redirect information provided. Redirect will be aborted.", this);
                 return;
             }
 
-            // TODO: Add logging about performing temporary and permanent redirect
+            this.logger.Debug($"Performing {redirect.RedirectType} redirect to {redirect.TargetUrl}");
 
             switch (redirect.RedirectType)
             {

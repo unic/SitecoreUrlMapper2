@@ -13,7 +13,7 @@
         {
             serviceCollection.AddTransient<IUrlMapperContext, UrlMapperContext>();
             serviceCollection.AddTransient<IUrlMapperSiteExecutionFilter, UrlMapperSiteExecutionFilter>();
-            serviceCollection.AddScoped<ISpecificationService, SpecificationService>();
+            serviceCollection.AddTransient<ISpecificationService, SpecificationService>();
             serviceCollection.AddTransient<ISanitizer, Sanitizer>();
             serviceCollection.AddTransient<IRedirectSearcher, RedirectSearcher>();
             serviceCollection.AddTransient<IRedirectSearchDataService, RedirectSearchDataService>();

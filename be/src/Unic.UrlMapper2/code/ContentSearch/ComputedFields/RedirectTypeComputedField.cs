@@ -1,5 +1,6 @@
 ﻿namespace Unic.UrlMapper2.ContentSearch.ComputedFields
 {
+    using Sitecore.Abstractions;
     using Sitecore.Annotations;
     using Sitecore.ContentSearch;
     using Sitecore.Data;
@@ -20,7 +21,8 @@
                 return this.ResolveDependency<ISpecificationService>().GetSharedSpecification(item.Database, specificationId);
             }
 
-            // TODO: Add logging
+            this.ResolveDependency<BaseLog>().Error("Failed to determine redirect type", this);
+
             return null;
         }
     }

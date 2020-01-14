@@ -16,17 +16,20 @@
     {
         private readonly BaseSettings settings;
         private readonly ITemplateService templateService;
+        private readonly BaseLog logger;
 
-        public RedirectSearcher(BaseSettings settings, ITemplateService templateService)
+        public RedirectSearcher(
+            BaseSettings settings,
+            ITemplateService templateService,
+            BaseLog logger)
         {
             this.settings = settings;
             this.templateService = templateService;
+            this.logger = logger;
         }
 
         public IEnumerable<Redirect> SearchRedirects(RedirectSearchData redirectSearchData)
         {
-            // TODO: Add logging
-
             if (redirectSearchData == null) return null;
 
             var indexName = this.GetIndexName();
@@ -36,25 +39,28 @@
             using (var searchContext = ContentSearchManager.GetIndex(indexName).CreateSearchContext())
             {
                 var queryable = this.GetSearchQuery(searchContext, redirectSearchData);
-                results = queryable.ToList().DistinctBy(r => r.ItemId);
+                results = queryable.ToList().DistinctBy(r => r.ItemId)?.ToList();
             }
 
-            // Add log if results is null or empty
+            if (results != null && results.Any())
+            {
+                return results.Select(r => this.MapToSearchResult(r, redirectSearchData));
+            }
 
-            if (results == null) return null;
-            return results.Select(r => this.MapToSearchResult(r, redirectSearchData));
+            this.logger.Debug($"No results found for current search data (term: {redirectSearchData.SourceTerm})", this);
+            return null;
         }
 
         protected virtual Redirect MapToSearchResult(RedirectSearchResultItem redirectSearchResultItem, RedirectSearchData redirectSearchData)
         {
             if (!Enum.TryParse<RedirectType>(redirectSearchResultItem.RedirectType, out var redirectType))
             {
-                // TODO: Add logging
+                this.logger.Error($"Failed to parse redirect type {redirectSearchResultItem.RedirectType}", this);
             }
 
             if (!Enum.TryParse<SourceProtocol>(redirectSearchResultItem.SourceProtocol, out var sourceProtocol))
             {
-                // TODO: Add logging
+                this.logger.Error($"Failed to parse source protocol {redirectSearchResultItem.SourceProtocol}", this);
             }
 
             return new Redirect

@@ -15,11 +15,16 @@
     {
         private readonly IUrlMapperContext context;
         private readonly BaseSettings settings;
+        private readonly BaseLog logger;
 
-        public RedirectSearchDataService(IUrlMapperContext context, BaseSettings settings)
+        public RedirectSearchDataService(
+            IUrlMapperContext context,
+            BaseSettings settings,
+            BaseLog logger)
         {
             this.context = context;
             this.settings = settings;
+            this.logger = logger;
         }
 
         public virtual RedirectSearchData GetDefaultRedirectSearchData(HttpRequestArgs args) =>
@@ -45,17 +50,17 @@
                 Constants.Settings.UseProtocolHeaderForDefaultProcessor,
                 Constants.Settings.ProtocolHeaderForDefaultProcessor);
 
-            if (string.IsNullOrWhiteSpace(headerName))
-            {
-                // TODO: Add logging about not defined header name
-            }
-            else
+            // ReSharper disable once InvertIf
+            if (!string.IsNullOrWhiteSpace(headerName))
             {
                 var value = args.HttpContext.Request.Headers[headerName];
-                if (!string.IsNullOrWhiteSpace(value)) return value;
-            }
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    return value;
+                }
 
-            // TODO: Add logging that header could not be found and fallback will be used
+                this.logger.Warn($"Header {headerName} could not be found in the current request. Falling back to current request scheme", this);
+            }
 
             // ... otherwise use the protocol provided from the HttpContext
             return args.HttpContext.Request.Url?.Scheme;
@@ -68,17 +73,13 @@
                 Constants.Settings.UseProtocolHeaderForJssProcessor,
                 Constants.Settings.ProtocolHeaderForJssProcessor);
 
-            if (string.IsNullOrWhiteSpace(headerName))
-            {
-                // TODO: Add logging about not defined header name
-            }
-            else
+            if (!string.IsNullOrWhiteSpace(headerName))
             {
                 var value = httpContext.Request.Headers[headerName];
                 if (!string.IsNullOrWhiteSpace(value)) return value;
             }
 
-            // TODO: Add logging that header could not be found and fallback will be used
+            this.logger.Warn($"Header {headerName} could not be found in the current JSS request. Falling back to current request scheme", this);
 
             // ... otherwise use the protocol provided from the HttpContext
             return httpContext.Request.Url?.Scheme;
@@ -104,14 +105,14 @@
             var headerName = this.settings.GetSetting(Constants.Settings.OriginalUrlHeaderForJssProcessor);
             if (string.IsNullOrWhiteSpace(headerName))
             {
-                // TODO: Add logging
+                this.logger.Warn($"Header {headerName} could not be found in the current JSS request.", this);
                 return null;
             }
 
             var originalUrl = httpContext.Request.Headers[headerName];
             if (string.IsNullOrWhiteSpace(originalUrl))
             {
-                // TODO: Add logging
+                this.logger.Warn($"Header {headerName} does not contain a value.", this);
                 return null;
             }
 
@@ -121,7 +122,7 @@
             }
             else
             {
-                // TODO: Add logging
+                this.logger.Warn($"Failed to extract language for current request", this);
                 return null;
             }
         }

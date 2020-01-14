@@ -1,5 +1,6 @@
 ﻿namespace Unic.UrlMapper2.ContentSearch.ComputedFields
 {
+    using Sitecore.Abstractions;
     using Sitecore.Annotations;
     using Sitecore.ContentSearch;
     using Sitecore.Data;
@@ -21,7 +22,8 @@
                 return this.ResolveDependency<ISanitizer>().SanitizeProtocol(protocol);
             }
 
-            // TODO: Add logging
+            this.ResolveDependency<BaseLog>().Error("Failed to determine source protocol", this);
+
             return null;
         }
     }
