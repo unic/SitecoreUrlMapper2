@@ -34,8 +34,8 @@
             IFormatProvider formatProvider = null,
             bool supplyContextMessage = false)
         {
-            if (loggerConfiguration == null) throw new ArgumentNullException(nameof(loggerConfiguration));
-            if (defaultLoggerName == null) throw new ArgumentNullException(nameof(defaultLoggerName));
+            if (loggerConfiguration is null) throw new ArgumentNullException(nameof(loggerConfiguration));
+            if (defaultLoggerName is null) throw new ArgumentNullException(nameof(defaultLoggerName));
 
             return loggerConfiguration.Sink(new Log4NetSink(defaultLoggerName, formatProvider, supplyContextMessage), restrictedToMinimumLevel);
         }

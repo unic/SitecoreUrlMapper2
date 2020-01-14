@@ -13,7 +13,7 @@
         {
             var context = this.ResolveDependency<IUrlMapperContext>();
             return base.ShouldExecute(args)
-                   && context?.Item == null
+                   && context?.Item is null
                    && context?.Site != null
                    && (this.ResolveDependency<IRouteMapper>()?.IsLayoutServiceRoute(args.RequestContext) ?? false);
         }
@@ -23,7 +23,7 @@
             var httpContext = args.RequestContext.HttpContext;
 
             var redirectSearchData = this.ResolveDependency<IRedirectSearchDataService>().GetJssRedirectSearchData(httpContext);
-            if (redirectSearchData == null) return;
+            if (redirectSearchData is null) return;
 
             var redirectionService = this.ResolveDependency<IRedirectionService>();
             redirectionService?.PerformRedirect(redirectSearchData, httpContext);

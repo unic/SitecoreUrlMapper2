@@ -16,10 +16,10 @@
         public string GetSharedSpecification(Database database, ID specificationItemId)
         {
             var item = database.GetItem(specificationItemId);
-            if (item == null)
+            if (item is null)
             {
                 this.logger.Error($"Failed to get specification item with id {specificationItemId}", this);
-                return null;
+                return default;
             }
 
             var value = item[Constants.Fields.Specification.Value];

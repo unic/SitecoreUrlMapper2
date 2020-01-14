@@ -23,7 +23,7 @@
 
             this.ResolveDependency<BaseLog>().Error("Failed to determine redirect type", this);
 
-            return null;
+            return default;
         }
     }
 }

@@ -13,7 +13,7 @@
             var value = indexable?.GetFieldByName(Constants.Fields.Redirect.SourceTerm)?.Value as string;
 
             return string.IsNullOrWhiteSpace(value)
-                ? null
+                ? default
                 : this.ResolveDependency<ISanitizer>()?.SanitizeTerm(value);
         }
     }

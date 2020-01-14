@@ -17,7 +17,7 @@
         {
             var siteInfo = this.GetSiteInfo(indexable as SitecoreIndexableItem);
 
-            if (siteInfo == null) return null;
+            if (siteInfo is null) return default;
 
             return this.GetBlacklistedSiteNames().Contains(siteInfo.Name, StringComparer.InvariantCultureIgnoreCase)
                 ? Definitions.Constants.Markers.GlobalSiteMarker
@@ -26,7 +26,7 @@
 
         protected virtual SiteInfo GetSiteInfo(Item item)
         {
-            if (item == null) return null;
+            if (item is null) return default;
 
             return SiteContextFactory.Sites
                 .Where(s => !string.IsNullOrWhiteSpace(s.RootPath) && item.Paths.Path.StartsWith(s.RootPath, StringComparison.OrdinalIgnoreCase))

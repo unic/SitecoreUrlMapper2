@@ -29,7 +29,7 @@
                 return result;
             }
 
-            return null;
+            return default;
         }
 
         protected abstract object Compute(IIndexable indexable);
@@ -42,6 +42,6 @@
         }
 
         protected virtual TDependency ResolveDependency<TDependency>()
-            where TDependency : class => this.scope != null ? this.scope.Resolve<TDependency>() : Container.Resolve<TDependency>();
+            where TDependency : class => this.scope != default ? this.scope.Resolve<TDependency>() : Container.Resolve<TDependency>();
     }
 }

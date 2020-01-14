@@ -57,7 +57,7 @@
 
         protected override void SendBuffer(LoggingEvent[] events)
         {
-            if (this.ServerUrl == null)
+            if (this.ServerUrl is null)
             {
                 return;
             }

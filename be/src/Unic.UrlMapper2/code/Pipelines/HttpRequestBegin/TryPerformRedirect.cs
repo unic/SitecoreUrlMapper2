@@ -11,13 +11,13 @@
         protected override bool ShouldExecute(HttpRequestArgs args)
         {
             var context = this.ResolveDependency<IUrlMapperContext>();
-            return base.ShouldExecute(args) && context?.Item == null && context?.Site != null;
+            return base.ShouldExecute(args) && context?.Item is null && context?.Site != null;
         }
 
         protected override void Execute(HttpRequestArgs args)
         {
             var redirectSearchData = this.ResolveDependency<IRedirectSearchDataService>().GetDefaultRedirectSearchData(args);
-            if (redirectSearchData == null) return;
+            if (redirectSearchData is null) return;
 
             var redirectionService = this.ResolveDependency<IRedirectionService>();
             redirectionService?.PerformRedirect(redirectSearchData, args.HttpContext);

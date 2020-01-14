@@ -88,15 +88,15 @@
         protected virtual string GetToggleableSettings(string toggleSettingName, string valueSettingName) =>
             this.settings.GetBoolSetting(toggleSettingName, false)
                 ? this.settings.GetSetting(valueSettingName)
-                : null;
+                : default;
 
         protected virtual string GetSourceTermForJssRedirectSearchData(HttpContextBase httpContext)
         {
-            if (httpContext == null) return null;
+            if (httpContext is null) return default;
 
             var itemPath = httpContext.Request.QueryString["item"];
             return string.IsNullOrWhiteSpace(itemPath)
-                ? null
+                ? default
                 : this.StripVirtualFolderPath(itemPath);
         }
 
@@ -106,14 +106,14 @@
             if (string.IsNullOrWhiteSpace(headerName))
             {
                 this.logger.Warn($"Header {headerName} could not be found in the current JSS request.", this);
-                return null;
+                return default;
             }
 
             var originalUrl = httpContext.Request.Headers[headerName];
             if (string.IsNullOrWhiteSpace(originalUrl))
             {
                 this.logger.Warn($"Header {headerName} does not contain a value.", this);
-                return null;
+                return default;
             }
 
             if (this.TryExtractLanguage(originalUrl, out var embeddedLanguage))
@@ -123,7 +123,7 @@
             else
             {
                 this.logger.Warn($"Failed to extract language for current request", this);
-                return null;
+                return default;
             }
         }
 

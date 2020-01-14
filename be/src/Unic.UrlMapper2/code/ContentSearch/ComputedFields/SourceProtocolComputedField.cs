@@ -24,7 +24,7 @@
 
             this.ResolveDependency<BaseLog>().Error("Failed to determine source protocol", this);
 
-            return null;
+            return default;
         }
     }
 }

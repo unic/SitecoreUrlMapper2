@@ -16,7 +16,7 @@
 
         public virtual string SanitizeTerm(string value)
         {
-            if (string.IsNullOrWhiteSpace(value)) return null;
+            if (string.IsNullOrWhiteSpace(value)) return default;
 
             value = value.Trim().ToLower();
 

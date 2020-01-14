@@ -25,24 +25,24 @@
 
         public virtual void PerformRedirect(RedirectSearchData redirectSearchData, HttpContextBase httpContext)
         {
-            if (redirectSearchData == null) return;
+            if (redirectSearchData is null) return;
             this.sanitizer.SanitizeRedirectSearchData(redirectSearchData);
 
             var redirects = this.redirectSearcher.SearchRedirects(redirectSearchData)?.ToList();
-            if (redirects == null || !redirects.Any())
+            if (redirects is null || !redirects.Any())
             {
                 this.logger.Debug($"No redirects found for term {redirectSearchData.SourceTerm}", this);
             }
 
             var redirect = this.FilterRedirects(redirects, redirectSearchData);
-            if (redirect == null) return;
+            if (redirect is null) return;
 
             this.PerformRedirect(redirect, httpContext);
         }
 
         protected virtual Redirect FilterRedirects(IEnumerable<Redirect> redirects, RedirectSearchData redirectSearchData)
         {
-            if (redirects == null) return null;
+            if (redirects is null) return default;
 
             var enumerableRedirects = redirects.ToList();
 
@@ -68,7 +68,7 @@
 
         protected virtual void PerformRedirect(Redirect redirect, HttpContextBase httpContext)
         {
-            if (redirect == null || string.IsNullOrWhiteSpace(redirect.TargetUrl))
+            if (redirect is null || string.IsNullOrWhiteSpace(redirect.TargetUrl))
             {
                 this.logger.Debug("Incomplete redirect information provided. Redirect will be aborted.", this);
                 return;

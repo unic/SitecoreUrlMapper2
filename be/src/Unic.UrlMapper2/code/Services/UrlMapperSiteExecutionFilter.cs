@@ -18,19 +18,19 @@
 
         public bool IsSiteAllowed(SiteContext siteContext, IList<string> allowedSites, IList<string> restrictedSites)
         {
-            if (allowedSites == null)
+            if (allowedSites is null)
             {
                 this.logger.Warn($"Value '{nameof(allowedSites)}' cannot be null", null, this);
                 return true;
             }
 
-            if (restrictedSites == null)
+            if (restrictedSites is null)
             {
                 this.logger.Warn($"Value '{nameof(restrictedSites)}' cannot be null", null, this);
                 return true;
             }
 
-            if (siteContext == null)
+            if (siteContext is null)
             {
                 return true;
             }

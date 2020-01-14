@@ -30,10 +30,10 @@
 
         public IEnumerable<Redirect> SearchRedirects(RedirectSearchData redirectSearchData)
         {
-            if (redirectSearchData == null) return null;
+            if (redirectSearchData is null) return default;
 
             var indexName = this.GetIndexName();
-            if (string.IsNullOrWhiteSpace(indexName)) return null;
+            if (string.IsNullOrWhiteSpace(indexName)) return default;
 
             IEnumerable<RedirectSearchResultItem> results;
             using (var searchContext = ContentSearchManager.GetIndex(indexName).CreateSearchContext())
@@ -48,7 +48,7 @@
             }
 
             this.logger.Debug($"No results found for current search data (term: {redirectSearchData.SourceTerm})", this);
-            return null;
+            return default;
         }
 
         protected virtual Redirect MapToSearchResult(RedirectSearchResultItem redirectSearchResultItem, RedirectSearchData redirectSearchData)
