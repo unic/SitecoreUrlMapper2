@@ -36,3 +36,7 @@ The module offers several extension points and the framework elements have been 
 
 - The Content Search Provider must be either SolR or Azure Search, Lucene is not supported.
 - The module assumes that Sitecore PowerShell extensions are available.
+
+## Development
+
+If you would like to extend the Module and set up a local development environment, please follow the steps described [over here](/be/docs/README.md).
