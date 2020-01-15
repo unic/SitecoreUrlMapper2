@@ -4,7 +4,6 @@ Parent: "0de95ae4-41ab-4d01-9eb0-67441b7c2450"
 Template: "40fd6640-f468-45d0-a816-4898e25219ce"
 Path: /sitecore/content/Redirects
 DB: master
-BranchID: "a0f7503c-2a9a-45e8-8651-b825e17d16ac"
 SharedFields:
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator

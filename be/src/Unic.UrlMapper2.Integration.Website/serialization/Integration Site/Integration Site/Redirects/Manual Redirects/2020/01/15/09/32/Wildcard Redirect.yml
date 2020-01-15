@@ -1,0 +1,25 @@
+﻿---
+ID: "0b44248e-257e-4ea6-943e-33a382b1b84d"
+Parent: "963b1420-e4b4-4d15-a04e-3f2072be97a8"
+Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Path: /sitecore/content/Integration Site/Redirects/Manual Redirects/2020/01/15/09/32/Wildcard Redirect
+DB: master
+SharedFields:
+- ID: "b8c6bd4c-0352-40b7-b2b9-57b477025e46"
+  Hint: Regex enabled
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "22e7c908-cbf2-41e2-bc6f-4ab690389a6c"
+      Hint: Target Url
+      Value: "http://sietcore.com/regex"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200115T093205Z
+    - ID: "e34c8dce-7424-4b42-bc88-db147f6754a3"
+      Hint: Source Term
+      Value: "^local-regex-redirect$"

@@ -4,7 +4,6 @@ Parent: "7bcfca5e-d54f-4158-afd4-a33160b281b2"
 Template: "3bae66e5-fa45-498f-bc5e-7802a63fbb6a"
 Path: /sitecore/content/Integration Site/Redirects/Imported Redirects
 DB: master
-BranchID: "a0f7503c-2a9a-45e8-8651-b825e17d16ac"
 SharedFields:
 - ID: "814bdd80-36de-46fa-938c-46ceaf5d9722"
   Hint: Last Import Date

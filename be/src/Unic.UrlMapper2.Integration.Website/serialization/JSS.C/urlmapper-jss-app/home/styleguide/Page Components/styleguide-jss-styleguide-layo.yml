@@ -1,8 +1,8 @@
 ﻿---
-ID: "ff923df2-024d-51ee-8037-25947d3bca0c"
+ID: "63ae1605-1882-55a5-8eb4-7c69934f8a7c"
 Parent: "90060e36-56e2-59b9-9267-e08b85bd4f4a"
 Template: "6ad47708-45d0-5765-a1ad-83ac3630b2d9"
-Path: "/sitecore/content/urlmapper-jss-app/home/styleguide/Page Components/styleguide-jss-styleguide-layout-34A6553C-81DE-5CD3-989E-853F6CB6DF8C-0-Styleguide-Section-1"
+Path: "/sitecore/content/urlmapper-jss-app/home/styleguide/Page Components/styleguide-jss-styleguide-layout-34A6553C-81DE-5CD3-989E-853F6CB6DF8C-0-Styleguide-Section-2"
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -13,16 +13,16 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: "Styleguide-Section-1"
+    Value: "Styleguide-Section-2"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20191231T071526Z
+      Value: 20191231T071527Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
     - ID: "6de5a719-fb33-51e8-96e4-2905e84f1f3c"
       Hint: heading
-      Value: Content Data
+      Value: Layout Patterns

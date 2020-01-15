@@ -4,7 +4,9 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text.RegularExpressions;
     using System.Web;
+    using Sitecore.ContentSearch.Linq;
     using Unic.UrlMapper2.Models;
 
     public class RedirectionService : IRedirectionService
@@ -60,7 +62,7 @@
         protected virtual Redirect GetRegexMatch(RedirectSearchData redirectSearchData, IEnumerable<Redirect> enumerableRedirects)
         {
             // We are going to take the one regex redirect which has the longest match within the term
-            var regexMatches = enumerableRedirects.Where(r => r.RegexEnabled && (redirectSearchData.SourceTerm?.StartsWith(r.Term) ?? false));
+            var regexMatches = enumerableRedirects.Where(r => r.RegexEnabled && Regex.IsMatch(input: redirectSearchData.SourceTerm, pattern: r.Term));
             var regexMatch = regexMatches.OrderByDescending(r => r.Term.Length).FirstOrDefault();
 
             return regexMatch;
