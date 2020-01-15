@@ -68,7 +68,7 @@
     <Compile Include="ContentSearch\ComputedFields\SiteNameComputedField.cs" />
     <Compile Include="ContentSearch\ComputedFields\SourceTermComputedField.cs" />
     <Compile Include="ContentSearch\ComputedFields\TargetUrlComputedField.cs" />
-    <Compile Include="ContentSearch\ComputedFields\WildcardEnabledComputedField.cs" />
+    <Compile Include="ContentSearch\ComputedFields\RegexEnabledComputedField.cs" />
     <Compile Include="ContentSearch\SearchResults\RedirectSearchResultItem.cs" />
     <Compile Include="Definitions\Constants.cs" />
     <Compile Include="DependencyInjection\Container.cs" />

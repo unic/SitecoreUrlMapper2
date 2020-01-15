@@ -25,7 +25,7 @@
 
                 public const string AllowEmbeddedLanguage = "Allow Embedded Language";
 
-                public const string WildcardEnabled = "Wildcard enabled";
+                public const string RegexEnabled = "Regex enabled";
             }
 
             public struct Specification

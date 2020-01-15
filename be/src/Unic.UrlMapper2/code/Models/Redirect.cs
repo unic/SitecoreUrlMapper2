@@ -12,7 +12,7 @@
 
         public RedirectSearchData RedirectSearchData { get; set; }
         
-        public bool WildcardEnabled { get; set; }
+        public bool RegexEnabled { get; set; }
 
         public string Term { get; set; }
     }

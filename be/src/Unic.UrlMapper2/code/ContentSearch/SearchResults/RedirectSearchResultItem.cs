@@ -49,8 +49,8 @@
         [DataMember]
         public virtual bool AllowEmbeddedLanguage { get; set; }
 
-        [IndexField("urlmapper_wildcard_enabled")]
+        [IndexField("urlmapper_regex_enabled")]
         [DataMember]
-        public virtual bool WildcardEnabled { get; set; }
+        public virtual bool RegexEnabled { get; set; }
     }
 }

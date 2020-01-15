@@ -46,24 +46,24 @@
 
             var enumerableRedirects = redirects.ToList();
 
-            // If there is a strong redirect (one that doesn't have wildcards enabled), it has priority
+            // If there is a strong redirect (one that doesn't have regex enabled), it has priority
             var strongRedirect = this.GetStrongRedirect(enumerableRedirects);
             if (strongRedirect != null) return strongRedirect;
 
-            // ... otherwise we are going to check if there is any wildcard match available
-            var wildcardMatch = this.GetWildcardMatch(redirectSearchData, enumerableRedirects);
-            return wildcardMatch;
+            // ... otherwise we are going to check if there is any regex match available
+            var regexMatch = this.GetRegexMatch(redirectSearchData, enumerableRedirects);
+            return regexMatch;
         }
 
-        protected virtual Redirect GetStrongRedirect(IEnumerable<Redirect> enumerableRedirects) => enumerableRedirects.FirstOrDefault(r => !r.WildcardEnabled);
+        protected virtual Redirect GetStrongRedirect(IEnumerable<Redirect> enumerableRedirects) => enumerableRedirects.FirstOrDefault(r => !r.RegexEnabled);
 
-        protected virtual Redirect GetWildcardMatch(RedirectSearchData redirectSearchData, IEnumerable<Redirect> enumerableRedirects)
+        protected virtual Redirect GetRegexMatch(RedirectSearchData redirectSearchData, IEnumerable<Redirect> enumerableRedirects)
         {
-            // We are going to take the one wildcard redirect which has the longest match within the term
-            var wildcardMatches = enumerableRedirects.Where(r => r.WildcardEnabled && (redirectSearchData.SourceTerm?.StartsWith(r.Term) ?? false));
-            var wildcardMatch = wildcardMatches.OrderByDescending(r => r.Term.Length).FirstOrDefault();
+            // We are going to take the one regex redirect which has the longest match within the term
+            var regexMatches = enumerableRedirects.Where(r => r.RegexEnabled && (redirectSearchData.SourceTerm?.StartsWith(r.Term) ?? false));
+            var regexMatch = regexMatches.OrderByDescending(r => r.Term.Length).FirstOrDefault();
 
-            return wildcardMatch;
+            return regexMatch;
         }
 
         protected virtual void PerformRedirect(Redirect redirect, HttpContextBase httpContext)

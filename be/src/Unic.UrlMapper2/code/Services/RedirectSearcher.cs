@@ -70,7 +70,7 @@
                 TargetUrl = redirectSearchResultItem.TargetUrl,
                 SourceProtocol = sourceProtocol,
                 IncludeEmbeddedLanguage = redirectSearchResultItem.AllowEmbeddedLanguage,
-                WildcardEnabled = redirectSearchResultItem.WildcardEnabled,
+                RegexEnabled = redirectSearchResultItem.RegexEnabled,
                 Term = redirectSearchResultItem.SourceTerm
             };
         }
@@ -105,11 +105,11 @@
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetTermPredicate(RedirectSearchData redirectSearchData)
         {
-            // It would be great to use a predicate like the following for the wildcard matches:
-            // r.WildcardEnabled && redirectSearchData.SourceTerm.StartsWith(r.SourceTerm)
+            // It would be great to use a predicate like the following for the regex matches:
+            // r.RegexEnabled && redirectSearchData.SourceTerm.Match(r.SourceTerm)
             // However, this seems to generate some really weird SolR queries, resulting in no matches.
-            // Therefore we have to load all entries being a wildcard redirect and then do the filtering in memory.
-            return r => !r.WildcardEnabled && r.SourceTerm == redirectSearchData.SourceTerm || r.WildcardEnabled;
+            // Therefore we have to load all entries being a regex enabled redirect and then do the filtering in memory.
+            return r => !r.RegexEnabled && r.SourceTerm == redirectSearchData.SourceTerm || r.RegexEnabled;
         }
 
         protected virtual string GetIndexName() => this.settings.GetSetting(Constants.Settings.ActiveIndex);

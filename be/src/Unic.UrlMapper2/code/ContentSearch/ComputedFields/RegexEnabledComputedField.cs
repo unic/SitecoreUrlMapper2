@@ -5,11 +5,11 @@
     using Constants = Definitions.Constants;
 
     [Sitecore.Annotations.UsedImplicitly]
-    public class WildcardEnabledComputedField : UrlMapperComputedFieldBase
+    public class RegexEnabledComputedField : UrlMapperComputedFieldBase
     {
         protected override object Compute(IIndexable indexable)
         {
-            var value = indexable?.GetFieldByName(Constants.Fields.Redirect.WildcardEnabled)?.Value;
+            var value = indexable?.GetFieldByName(Constants.Fields.Redirect.RegexEnabled)?.Value;
             return MainUtil.GetBool(value, false);
         }
     }
