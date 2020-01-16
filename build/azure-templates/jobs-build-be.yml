@@ -1,0 +1,17 @@
+jobs:
+    - job: BuildBE
+      displayName: Build Backend
+      pool:
+        vmImage: 'windows-latest'
+      variables:
+        solutionDirectory: 'be/'
+        solution: '$(solutionDirectory)/*.sln'
+      
+      steps:
+      - task: GitVersion@5
+        inputs:
+          runtime: 'full'
+    
+      # Install NuGet Tools
+      - task: NuGetToolInstaller@1
+        displayName: Install NuGet Tools
