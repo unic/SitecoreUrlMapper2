@@ -1,14 +1,14 @@
 trigger:
   branches:
     include:
-    - feature/*
-    - master
-    - develop
-    - release/*
-    - hotfix/*
+      - feature/*
+      - master
+      - develop
+      - release/*
+      - hotfix/*
   paths:
     include:
-    - be/*
+      - be/*
 
 jobs:
-- template: '/build/azure-templates/jobs-build-be.yml'
+  - template: "/build/azure-templates/jobs-build-be.yml"
