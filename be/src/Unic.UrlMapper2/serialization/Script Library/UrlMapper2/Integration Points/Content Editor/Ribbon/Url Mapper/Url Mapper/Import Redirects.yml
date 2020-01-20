@@ -22,8 +22,6 @@ SharedFields:
     $sourceFieldNames = $columnNames | ForEach-Object { $mappings = [ordered]@{} } { $mappings[$_] = $_ } { $mappings }
     $fieldMappings = $sourceFieldNames
     
-    # TODO: Clear existing import data
-    
     # Determine the bucket locations
     $criteria = @(
         @{Filter = "Equals"; Field = "_template"; Value = "{3BAE66E5-FA45-498F-BC5E-7802A63FBB6A}"}, # redirect import folder template
@@ -64,7 +62,7 @@ SharedFields:
     $lookupProtocols = Get-ChildItem -Language "en" -Path "/sitecore/system/Modules/UrlMapper2/Source Protocol" | ForEach-Object { $mappings = @{} } { $mappings[$_.Value] = $_.ID } { $mappings }
     $lookupRedirectTypes = Get-ChildItem -Language "en" -Path "/sitecore/system/Modules/UrlMapper2/Redirect Type" | ForEach-Object { $mappings = @{} } { $mappings[$_.Value] = $_.ID } { $mappings }
     
-    New-UsingBlock (New-Object Sitecore.Data.BulkUpdateContext) {
+    #New-UsingBlock (New-Object Sitecore.Data.BulkUpdateContext) {
         # Clear import folders
         Write-Host "`nClearing import folders"
         foreach($importFolder in $importFolders){
@@ -77,66 +75,85 @@ SharedFields:
         Write-Host "`nStarting import"
         
         $redirectTemplateId = "{91B6672E-51A2-48DB-9A17-D9E8744EE490}"
-        $sharedRedirectTemlateId = "{DBDEE63A-98BC-4BF0-84EF-D955329FE680}"
         
         $defaultLanguage = [Sitecore.Configuration.Settings]::DefaultLanguage
         
-        # An import group represents one language redirect containing multiple language verions
+        # An import group represents one redirect containing multiple language verions
         $importGroups = $importData | Group-Object -Property Name
         
         $rowIndex = 0
         foreach($importGroup in $importGroups){
             
-            # Create base item
             $metaInfo = $importGroup.Group | Select-Object -first 1
-            $target = $importDestinations[$metaInfo.Site]
-            
-            $templateToUse = If ($importGroup.Count -gt 1) { $redirectTemplateId } Else { $sharedRedirectTemlateId }
-            $item = New-Item -Path $target -Name $metaInfo.Name -ItemType $templateToUse -Language $defaultLanguage
+            $target = if($metaInfo.Type -eq "global"){ $importDestinations[""] } else { $importDestinations[$metaInfo.Site] }
+            $item = $null
             
             # Create language versions
             foreach($itemInfo in $importGroup.Group){
-                $language = If ($itemInfo.LanguageCode) { $itemInfo.LanguageCode } Else { $defaultLanguage }
-                
-                $languageToCreate = $language
-                $languageVersion = Add-ItemLanguage -TargetLanguage $languageToCreate -DoNotCopyFields -IfExist "skip" -Item $item
-                $languageVersion.'Source Protocol' = $lookupProtocols[$itemInfo.Protocol]
-                $languageVersion.'Redirect Type' = If ($itemInfo.Permanent.ToLower() -eq "x") { $lookupRedirectTypes["permanent"] } Else { $lookupRedirectTypes["temporary"] }
-                $languageVersion.'Source Term' = $itemInfo.Term
-                $languageVersion.Description = $itemInfo.Description
-                $languageVersion.'Allow Embedded Language' = If ($itemInfo.AllowLanguageCode.ToLower() -eq "x") { $true } Else { $false }
-                $languageVersion.'Wildcard Enabled' = If ($itemInfo.Wildcard.ToLower() -eq "x") { $true } Else { $false }
+                if(!$item){
+                    # Create item if we are in the first iteration
+                    $item = New-Item -Path $target -Name $metaInfo.Name -ItemType $redirectTemplateId -Language $itemInfo.LanguageCode
+                }
                 
                 # Determine target url
-                $target = $itemInfo.Target;
-                if(![Sitecore.Web.WebUtil]::IsExternalUrl($target)){
+                $isExternalUrl = [Sitecore.Web.WebUtil]::IsExternalUrl($itemInfo.Target)
+                if(!$isExternalUrl){
                     if($itemInfo.Type.ToLower() -eq "global" -and !$itemInfo.Site){
-                        Write-Warning "A global entry with a relative target url must contain a value for 'site'. Skipping entry $($itemInfo.Name)"
+                        Write-Warning "A global entry with a relative target url must contain a value for 'site'. Skipping entry $($itemInfo.Name) ($($itemInfo.LanguageCode))"
                         continue
                     }
                     
                     # As the relative path might contain the display name, we cannot use Get-Item
                     # and have to go through the ItemPathResolver to find the correct item
-                    $siteInfo = [Sitecore.Sites.SiteContext]::GetSite($itemInfo.Site)
-                    $path = $itemInfo.Target
-                    $rootItem = Get-Item [Sitecore.IO.FileUtil]::MakePath($siteInfo.RootPath, $siteInfo.StartItem)
-                    $resolver = New-Object "Sitecore.Data.ItemResolvers.ItemPathResolver"
-                    $targetItem = $resolver.ResolveItem($path, $rootItem)
+                    # We also need to load the rootItem in the specified language, as otherwise
+                    # SPE will mess up the language context real bad
+                    $site = [Sitecore.Sites.SiteContext]::GetSite($itemInfo.Site)
+                    $rootItemPath = [Sitecore.IO.FileUtil]::MakePath($site.RootPath, $site.StartItem)
+                    $rootItemLanguage = $itemInfo.LanguageCode
+                    $rootItem = Get-Item -Path "$rootItemPath" -Language $itemInfo.LanguageCode
+                    if(!$rootItem){
+                        Write-Warning "Root item at path $rootItemPath could not be loaded. Ensure that it exists in language $($itemInfo.LanguageCode). Skipping entry $($itemInfo.Name) ($($itemInfo.LanguageCode))"
+                        continue;
+                    }
                     
-                    #New-UsingBlock(New-Object -TypeName "Sitecore.Sites.SiteContextSwitcher" -ArgumentList $siteInfo) {
-                    #    $target = [Sitecore.Links.LinkManager]::GetItemUrl($targetItem);
-                    #}
+                    $resolver = New-Object "Sitecore.Data.ItemResolvers.ItemPathResolver"
+                    $targetItem = $resolver.ResolveItem($itemInfo.Target, $rootItem)
+                    if(!$targetItem){
+                        Write-Warning "No item could be found in site $($itemInfo.Site) (home item: $rootItemPath) resolving to path $($itemInfo.Target). Link will be generated as external - $($itemInfo.Name) ($($itemInfo.LanguageCode))"
+                        $isExternalUrl = $true
+                    }
                 }
                 
-                $languageVersion.'Target URL' = $target;
+                # Fill language version
+                $languageVersion = Add-ItemLanguage -TargetLanguage $itemInfo.LanguageCode -DoNotCopyFields -IfExist "skip" -Item $item
+                $languageVersion.Editing.BeginEdit();
+                $languageVersion["Source Protocol"] = $lookupProtocols[$itemInfo.Protocol]
+                $languageVersion["Redirect Type"] = If ($itemInfo.Permanent.ToLower() -eq "x") { $lookupRedirectTypes["permanent"] } Else { $lookupRedirectTypes["temporary"] }
+                $languageVersion["Source Term"] = $itemInfo.Term
+                $languageVersion["Description"] = $itemInfo.Description
+                $languageVersion["Regex enabled"] = If ($itemInfo.Regex.ToLower() -eq "x") { 1 } Else { 0 }
+                
+                # Set target (general link) field
+                [Sitecore.Data.Fields.LinkField]$targetField = $languageVersion.Fields['Target']
+                $targetField.Text = $itemInfo.Name
+                $targetField.Title = $itemInfo.Name
+                $targetField.LinkType = if($isExternalUrl) { "external" } Else { "internal" }
+                if($isExternalUrl){
+                    $targetField.Url = $itemInfo.Target
+                }
+                else{
+                    $targetField.TargetID = $targetItem.Id
+                }
+                $languageVersion.Editing.EndEdit() > $null
+                
+                Write-Host "Successfully created redirect $($languageVersion.Id) ($($itemInfo.LanguageCode)): $($languageVersion.ItemPath)"
             }
         }
-    }
-    
-    # TODO: Trigger partial rebuild of import folders
+    #}
     
     foreach($importFolder in $importFolders){
-        (Get-Item $importFolder.ItemId).'Last Import Date' = [datetime]::Now
+        $importFolderItem = Get-Item $importFolder.ItemId
+        $importFolderItem.'Last Import Date' = [datetime]::Now
     }
     
     Write-Host "`nDone"

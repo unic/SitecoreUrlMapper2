@@ -10,6 +10,10 @@ SharedFields:
   Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
 Languages:
 - Language: "de-CH"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: graphql de
   Versions:
   - Version: 1
     Fields:
@@ -24,6 +28,10 @@ Languages:
       Value: |
         sitecore\admin
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: graphql en
   Versions:
   - Version: 1
     Fields:

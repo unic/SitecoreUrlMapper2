@@ -5,6 +5,9 @@ Template: "3bae66e5-fa45-498f-bc5e-7802a63fbb6a"
 Path: /sitecore/templates/Modules/UrlMapper2/Redirect Import Folder/__Standard Values
 DB: master
 SharedFields:
+- ID: "814bdd80-36de-46fa-938c-46ceaf5d9722"
+  Hint: Last Import Date
+  Value: 20200117T111936
 - ID: "a0cb3965-8884-4c7a-8815-b6b2e5ced162"
   Hint: __Editors
   Type: TreelistEx
