@@ -32,7 +32,6 @@
                 sourceTerm: args.LocalPath,
                 language: this.context.Language?.Name,
                 siteName: this.context.Site?.Name?.ToLower(),
-                embeddedLanguage: this.context.FilePathLanguage?.Name,
                 sourceProtocol: this.GetSourceProtocolForDefaultRedirectSearchData(args));
 
         public virtual RedirectSearchData GetJssRedirectSearchData(HttpContextBase httpContext) =>
@@ -40,7 +39,6 @@
                 sourceTerm: this.GetSourceTermForJssRedirectSearchData(httpContext),
                 language: this.context.Language?.Name,
                 siteName: this.context.Site?.Name,
-                embeddedLanguage: this.GetEmbeddedLanguageForJssRedirectSearchData(httpContext),
                 sourceProtocol: this.GetSourceProtocolForJssRedirectSearchData(httpContext));
 
         protected virtual string GetSourceProtocolForDefaultRedirectSearchData(HttpRequestArgs args)
@@ -98,33 +96,6 @@
             return string.IsNullOrWhiteSpace(itemPath)
                 ? default
                 : this.StripVirtualFolderPath(itemPath);
-        }
-
-        protected virtual string GetEmbeddedLanguageForJssRedirectSearchData(HttpContextBase httpContext)
-        {
-            var headerName = this.settings.GetSetting(Constants.Settings.OriginalUrlHeaderForJssProcessor);
-            if (string.IsNullOrWhiteSpace(headerName))
-            {
-                this.logger.Warn($"Header {headerName} could not be found in the current JSS request.", this);
-                return default;
-            }
-
-            var originalUrl = httpContext.Request.Headers[headerName];
-            if (string.IsNullOrWhiteSpace(originalUrl))
-            {
-                this.logger.Warn($"Header {headerName} does not contain a value.", this);
-                return default;
-            }
-
-            if (this.TryExtractLanguage(originalUrl, out var embeddedLanguage))
-            {
-                return embeddedLanguage?.Name;
-            }
-            else
-            {
-                this.logger.Warn($"Failed to extract language for current request", this);
-                return default;
-            }
         }
 
         protected virtual bool TryExtractLanguage(string url, out Language language)

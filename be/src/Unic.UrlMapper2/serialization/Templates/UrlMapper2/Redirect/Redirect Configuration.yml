@@ -1,0 +1,14 @@
+﻿---
+ID: "aa0cf857-7540-4fca-830a-7370d9693d23"
+Parent: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Modules/UrlMapper2/Redirect/Redirect Configuration
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200120T141004Z

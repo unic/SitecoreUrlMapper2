@@ -23,8 +23,6 @@
 
                 public const string SourceProtocol = "Source Protocol";
 
-                public const string AllowEmbeddedLanguage = "Allow Embedded Language";
-
                 public const string RegexEnabled = "Regex enabled";
             }
 
@@ -37,8 +35,6 @@
         public struct Templates
         {
             public static readonly ID Redirect = ID.Parse("{91B6672E-51A2-48DB-9A17-D9E8744EE490}");
-
-            public static readonly ID SharedRedirect = ID.Parse("{DBDEE63A-98BC-4BF0-84EF-D955329FE680}");
         }
 
         public struct Settings
@@ -54,8 +50,6 @@
             public const string ProtocolHeaderForJssProcessor = "UrlMapper2.ProtocolHeaderForJssProcessor";
 
             public const string EnableJssProcessor = "UrlMapper2.EnableJssProcessor";
-
-            public const string OriginalUrlHeaderForJssProcessor = "UrlMapper2.OriginalUrlHeaderForJssProcessor";
         }
     }
 }

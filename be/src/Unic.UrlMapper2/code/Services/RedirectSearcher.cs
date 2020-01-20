@@ -69,7 +69,6 @@
                 RedirectType = redirectType,
                 TargetUrl = redirectSearchResultItem.TargetUrl,
                 SourceProtocol = sourceProtocol,
-                IncludeEmbeddedLanguage = redirectSearchResultItem.AllowEmbeddedLanguage,
                 RegexEnabled = redirectSearchResultItem.RegexEnabled,
                 Term = redirectSearchResultItem.SourceTerm
             };
@@ -92,7 +91,7 @@
             r => r.IsLatestVersion;
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetTemplatePredicate(RedirectSearchData redirectSearchData) =>
-            r => r.TemplateId == this.templateService.GetSharedRedirectTemplateId() || r.TemplateId == this.templateService.GetRedirectTemplateId();
+            r => r.TemplateId == this.templateService.GetRedirectTemplateId();
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetProtocolPredicate(RedirectSearchData redirectSearchData) =>
             r => r.SourceProtocol == redirectSearchData.SourceProtocol || r.SourceProtocol == Constants.Markers.AnyProtocolMarker;
@@ -101,7 +100,7 @@
             r => r.SiteName == redirectSearchData.SiteName || r.SiteName == Constants.Markers.GlobalSiteMarker;
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetLanguagePredicate(RedirectSearchData redirectSearchData) =>
-            r => redirectSearchData.ContainsEmbeddedLanguage && r.AllowEmbeddedLanguage || !redirectSearchData.ContainsEmbeddedLanguage;
+            r => true; // TODO: Add check for current context language
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetTermPredicate(RedirectSearchData redirectSearchData)
         {

@@ -45,10 +45,6 @@
         [DataMember]
         public virtual string SourceProtocol { get; set; }
 
-        [IndexField("urlmapper_allow_embedded_language")]
-        [DataMember]
-        public virtual bool AllowEmbeddedLanguage { get; set; }
-
         [IndexField("urlmapper_regex_enabled")]
         [DataMember]
         public virtual bool RegexEnabled { get; set; }

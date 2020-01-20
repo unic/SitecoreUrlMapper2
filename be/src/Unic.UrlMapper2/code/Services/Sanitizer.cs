@@ -10,7 +10,6 @@
             redirectSearchData.SourceTerm = this.SanitizeTerm(redirectSearchData.SourceTerm);
             redirectSearchData.SiteName = this.SanitizeSiteName(redirectSearchData.SiteName);
             redirectSearchData.SourceProtocol = this.SanitizeProtocol(redirectSearchData.SourceProtocol);
-            redirectSearchData.EmbeddedLanguage = this.SanitizeEmbeddedLanguage(redirectSearchData.EmbeddedLanguage);
             redirectSearchData.Language = this.SanitizeLanguage(redirectSearchData.Language);
         }
 
@@ -29,8 +28,6 @@
         public virtual string SanitizeSiteName(string value) => value?.Trim().ToLower();
 
         public virtual string SanitizeProtocol(string value) => value?.Trim().ToLower();
-
-        protected virtual string SanitizeEmbeddedLanguage(string value) => value?.Trim().ToLower();
 
         protected virtual string SanitizeLanguage(string value) => value?.Trim().ToLower();
     }

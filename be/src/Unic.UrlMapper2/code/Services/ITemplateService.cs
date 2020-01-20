@@ -6,8 +6,6 @@
     {
         ID GetRedirectTemplateId();
 
-        ID GetSharedRedirectTemplateId();
-
         bool IsRedirectTemplate(ID templateId);
     }
 }

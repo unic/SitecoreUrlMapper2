@@ -8,8 +8,6 @@
 
         public SourceProtocol SourceProtocol { get; set; }
 
-        public bool IncludeEmbeddedLanguage { get; set; }
-
         public RedirectSearchData RedirectSearchData { get; set; }
         
         public bool RegexEnabled { get; set; }

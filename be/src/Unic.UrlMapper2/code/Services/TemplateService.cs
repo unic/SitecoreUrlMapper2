@@ -7,8 +7,6 @@
     {
         public virtual ID GetRedirectTemplateId() => Constants.Templates.Redirect;
 
-        public virtual ID GetSharedRedirectTemplateId() => Constants.Templates.SharedRedirect;
-
-        public bool IsRedirectTemplate(ID templateId) => templateId == this.GetRedirectTemplateId() || templateId == this.GetSharedRedirectTemplateId();
+        public bool IsRedirectTemplate(ID templateId) => templateId == this.GetRedirectTemplateId();
     }
 }

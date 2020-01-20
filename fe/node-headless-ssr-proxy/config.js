@@ -101,7 +101,6 @@ const config = {
       proxyReq.setHeader('X-Forwarded-For', ipv4);
 
       proxyReq.setHeader('Jss-Origin-Host', req.header('X-Forwarded-Host') ? req.header('X-Forwarded-Host') : req.hostname);
-      proxyReq.setHeader('Jss-Origin-Url', req.originalUrl);
 
       // because this is a proxy, all headers are forwarded on to the Sitecore server
       // but, if we SSR we only understand how to decompress gzip and deflate. Some
