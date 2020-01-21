@@ -1,0 +1,13 @@
+Type;Name;Site;Permanent;Regex;Protocol;LanguageCode;Term;Target;Description
+
+global;global redirect 1;;;;any;en;global-redirect-one-en;https://www.google.com/?q=global-redirect-one-en;
+global;global redirect 1;;;;any;de-ch;global-redirect-one-de;https://www.google.com/?q=global-redirect-one-de;
+
+site;local redirect 1;integration-site;;;any;en;local-redirect-one-en;https://www.google.com/?q=local-redirect-one-en;
+site;local redirect 1;integration-site;;;any;de-ch;local-redirect-one-de;https://www.google.com/?q=local-redirect-one-de;
+
+site;local redirect 2;urlmapper-jss-app;;;any;en;local-redirect-two-en;https://www.google.com/?q=local-redirect-two-en;
+site;local redirect 2;urlmapper-jss-app;;;any;de-ch;local-redirect-two-de;https://www.google.com/?q=local-redirect-two-de;
+
+global;regex to internal;integration-site;;x;any;en;^regex-to-internal-item;/sample item en/sub sample item en;
+global;regex to internal;integration-site;;x;any;de-ch;^regex-to-internal-item;/sample item de/sub sample item de;

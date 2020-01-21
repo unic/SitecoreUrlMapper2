@@ -7,7 +7,7 @@ DB: master
 SharedFields:
 - ID: "814bdd80-36de-46fa-938c-46ceaf5d9722"
   Hint: Last Import Date
-  Value: 20200120T152157
+  Value: 20200121T071313
 Languages:
 - Language: "de-CH"
   Versions:
