@@ -100,7 +100,7 @@
             r => r.SiteName == redirectSearchData.SiteName || r.SiteName == Constants.Markers.GlobalSiteMarker;
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetLanguagePredicate(RedirectSearchData redirectSearchData) =>
-            r => true; // TODO: Add check for current context language
+            r => r.Language == redirectSearchData.Language;
 
         protected virtual Expression<Func<RedirectSearchResultItem, bool>> GetTermPredicate(RedirectSearchData redirectSearchData)
         {
