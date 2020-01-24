@@ -66,8 +66,8 @@
             return new Redirect
             {
                 RedirectSearchData = redirectSearchData,
+                ItemId = redirectSearchResultItem.ItemId,
                 RedirectType = redirectType,
-                TargetUrl = redirectSearchResultItem.TargetUrl,
                 SourceProtocol = sourceProtocol,
                 RegexEnabled = redirectSearchResultItem.RegexEnabled,
                 Term = redirectSearchResultItem.SourceTerm

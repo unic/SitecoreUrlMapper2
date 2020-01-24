@@ -7,6 +7,6 @@
     [UsedImplicitly]
     public class TargetUrlComputedField : UrlMapperComputedFieldBase
     {
-        protected override object Compute(IIndexable indexable) => indexable?.GetFieldByName(Constants.Fields.Redirect.TargetUrl)?.Value;
+        protected override object Compute(IIndexable indexable) => indexable?.GetFieldByName(Constants.Fields.Redirect.Target)?.Value;
     }
 }

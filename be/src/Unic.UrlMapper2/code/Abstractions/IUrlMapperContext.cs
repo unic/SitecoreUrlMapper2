@@ -1,5 +1,6 @@
 ﻿namespace Unic.UrlMapper2.Abstractions
 {
+    using Sitecore.Data;
     using Sitecore.Data.Items;
     using Sitecore.Globalization;
     using Sitecore.Sites;
@@ -12,6 +13,6 @@
 
         Language Language { get; set; }
 
-        Language FilePathLanguage { get; set; }
+        Database Database { get; set; }
     }
 }

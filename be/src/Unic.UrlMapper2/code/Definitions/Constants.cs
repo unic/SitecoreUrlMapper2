@@ -17,7 +17,7 @@
             {
                 public const string SourceTerm = "Source Term";
 
-                public const string TargetUrl = "Target";
+                public const string Target = "Target";
 
                 public const string RedirectType = "Redirect Type";
 

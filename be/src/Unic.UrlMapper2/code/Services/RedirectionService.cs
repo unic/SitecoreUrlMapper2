@@ -6,7 +6,10 @@
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Web;
-    using Sitecore.ContentSearch.Linq;
+    using Sitecore.Data.Items;
+    using Sitecore.Links;
+    using Unic.UrlMapper2.Abstractions;
+    using Unic.UrlMapper2.Definitions;
     using Unic.UrlMapper2.Models;
 
     public class RedirectionService : IRedirectionService
@@ -14,15 +17,24 @@
         private readonly IRedirectSearcher redirectSearcher;
         private readonly ISanitizer sanitizer;
         private readonly BaseLog logger;
+        private readonly IUrlMapperContext context;
+        private readonly BaseLinkManager linkManager;
+        private readonly BaseMediaManager mediaManager;
 
         public RedirectionService(
             IRedirectSearcher redirectSearcher,
             ISanitizer sanitizer,
-            BaseLog logger)
+            BaseLog logger,
+            IUrlMapperContext context,
+            BaseLinkManager linkManager,
+            BaseMediaManager mediaManager)
         {
             this.redirectSearcher = redirectSearcher;
             this.sanitizer = sanitizer;
             this.logger = logger;
+            this.context = context;
+            this.linkManager = linkManager;
+            this.mediaManager = mediaManager;
         }
 
         public virtual void PerformRedirect(RedirectSearchData redirectSearchData, HttpContextBase httpContext)
@@ -70,25 +82,79 @@
 
         protected virtual void PerformRedirect(Redirect redirect, HttpContextBase httpContext)
         {
-            if (redirect is null || string.IsNullOrWhiteSpace(redirect.TargetUrl))
+            if (redirect?.ItemId is null)
             {
                 this.logger.Debug("Incomplete redirect information provided. Redirect will be aborted.", this);
                 return;
             }
 
-            this.logger.Debug($"Performing {redirect.RedirectType} redirect to {redirect.TargetUrl}", this);
+            var redirectItem = this.GetRedirectItem(redirect);
+            if (redirectItem == null)
+            {
+                this.logger.Error($"Failed to perform redirect. Item with ID {redirect.ItemId} could not be found", this);
+                return;
+            }
+
+            var targetUrl = this.GetTargetUrl(redirectItem);
+
+            this.logger.Debug($"Performing {redirect.RedirectType} redirect to {targetUrl}", this);
+
 
             switch (redirect.RedirectType)
             {
                 case RedirectType.Temporary:
-                    httpContext.Response.Redirect(redirect.TargetUrl, true);
+                    httpContext.Response.Redirect(targetUrl, true);
                     break;
                 case RedirectType.Permanent:
-                    httpContext.Response.RedirectPermanent(redirect.TargetUrl, true);
+                    httpContext.Response.RedirectPermanent(targetUrl, true);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        protected virtual Item GetRedirectItem(Redirect redirect) => this.context.Database.GetItem(redirect.ItemId);
+
+        protected virtual string GetTargetUrl(Item item)
+        {
+            if (item == null) return default;
+
+            // Based on https://doc.sitecore.com/developers/93/sitecore-experience-manager/en/how-to-access-general-link-fields.html
+            Sitecore.Data.Fields.LinkField linkField = item.Fields[Constants.Fields.Redirect.Target];
+
+            var targetUrl = string.Empty;
+            switch (linkField.LinkType)
+            {
+                case "internal":
+                    targetUrl = this.linkManager.GetItemUrl(linkField.TargetItem, this.GetUrlOptions());
+                    break;
+                case "external":
+                case "mailto":
+                case "anchor":
+                case "javascript":
+                    targetUrl = linkField.Url;
+                    break;
+                case "media":
+                    var media = new MediaItem(linkField.TargetItem);
+                    targetUrl = Sitecore.StringUtil.EnsurePrefix('/', this.mediaManager.GetMediaUrl(media));
+                    break;
+                case "":
+                    break;
+                default:
+                    this.logger.Error($"Unknown link type {linkField.LinkType} in {item.Paths.FullPath}", this);
+                    break;
+            }
+
+            return targetUrl;
+        }
+
+        protected virtual UrlOptions GetUrlOptions()
+        {
+            var options = this.linkManager.GetDefaultUrlOptions();
+            options.SiteResolving = true;
+            options.AlwaysIncludeServerUrl = true;
+
+            return options;
         }
     }
 }

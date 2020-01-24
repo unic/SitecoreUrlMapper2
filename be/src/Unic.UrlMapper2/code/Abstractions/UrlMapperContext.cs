@@ -1,5 +1,6 @@
 ﻿namespace Unic.UrlMapper2.Abstractions
 {
+    using Sitecore.Data;
     using Sitecore.Data.Items;
     using Sitecore.Globalization;
     using Sitecore.Sites;
@@ -24,10 +25,10 @@
             set => Sitecore.Context.Language = value;
         }
 
-        public Language FilePathLanguage
+        public Database Database
         {
-            get => Sitecore.Context.Data.FilePathLanguage;
-            set => Sitecore.Context.Data.FilePathLanguage = value;
+            get => Sitecore.Context.Database;
+            set => Sitecore.Context.Database = value;
         }
     }
 }
