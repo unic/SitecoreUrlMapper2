@@ -1,6 +1,6 @@
 ﻿---
-ID: "09b973d7-5cbd-455c-8d1c-245aa01a7a60"
-Parent: "6a667bdb-aaee-4768-b38c-936af7bfaa8f"
+ID: "b1d8962c-1940-4a54-ae34-de398ff21bc7"
+Parent: "be27e11a-66f3-47e7-b32c-725441d81440"
 Template: "adb6ca4f-03ef-4f47-b9ac-9ce2ba53ff97"
 Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2020/01"
 DB: master
@@ -11,4 +11,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200121T061313Z
+      Value: 20200130T070416Z

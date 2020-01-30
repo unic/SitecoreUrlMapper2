@@ -1,8 +1,8 @@
 ﻿---
-ID: "5041ed61-8c58-496e-abca-8c95dbf13882"
-Parent: "601e95a0-74b4-46bc-b415-ffc22342b24a"
+ID: "44076834-dba8-478c-9e77-12540cce465a"
+Parent: "f95e0e79-644a-482e-9a62-624fab4b09bb"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: /sitecore/content/Redirects/Imported Redirects/2020/01/21/06/13/global redirect 1
+Path: /sitecore/content/Redirects/Imported Redirects/2020/01/30/07/04/global redirect 1
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
@@ -22,7 +22,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200121T061312Z
+      Value: 20200130T070416Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -40,7 +40,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200121T061312Z
+      Value: 20200130T070416Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

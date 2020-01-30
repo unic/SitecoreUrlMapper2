@@ -62,7 +62,7 @@ SharedFields:
     $lookupProtocols = Get-ChildItem -Language "en" -Path "/sitecore/system/Modules/UrlMapper2/Source Protocol" | ForEach-Object { $mappings = @{} } { $mappings[$_.Value] = $_.ID } { $mappings }
     $lookupRedirectTypes = Get-ChildItem -Language "en" -Path "/sitecore/system/Modules/UrlMapper2/Redirect Type" | ForEach-Object { $mappings = @{} } { $mappings[$_.Value] = $_.ID } { $mappings }
     
-    #New-UsingBlock (New-Object Sitecore.Data.BulkUpdateContext) {
+    New-UsingBlock (New-Object Sitecore.Data.BulkUpdateContext) {
         # Clear import folders
         Write-Host "`nClearing import folders"
         foreach($importFolder in $importFolders){
@@ -107,7 +107,7 @@ SharedFields:
                     # and have to go through the ItemPathResolver to find the correct item
                     # We also need to load the rootItem in the specified language, as otherwise
                     # SPE will mess up the language context real bad
-                    $site = [Sitecore.Sites.SiteContext]::GetSite($itemInfo.Site)
+                    $site = [Sitecore.Sites.SiteContext]::GetSite($itemInfo.TargetSite)
                     $rootItemPath = [Sitecore.IO.FileUtil]::MakePath($site.RootPath, $site.StartItem)
                     $rootItemLanguage = $itemInfo.LanguageCode
                     $rootItem = Get-Item -Path "$rootItemPath" -Language $itemInfo.LanguageCode
@@ -149,7 +149,7 @@ SharedFields:
                 Write-Host "Successfully created redirect $($languageVersion.Id) ($($itemInfo.LanguageCode)): $($languageVersion.ItemPath)"
             }
         }
-    #}
+    }
     
     foreach($importFolder in $importFolders){
         $importFolderItem = Get-Item $importFolder.ItemId
