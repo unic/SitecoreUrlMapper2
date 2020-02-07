@@ -12,4 +12,7 @@ site;local redirect 1;integration-site;integration-site;;;any;de-ch;local-redire
 site;local redirect 2;urlmapper-jss-app;;;;any;en;local-redirect-two-en;https://www.google.com/?q=local-redirect-two-en;
 site;local redirect 2;urlmapper-jss-app;;;;any;de-ch;local-redirect-two-de;https://www.google.com/?q=local-redirect-two-de;
 
+site;local redirect 3;urlmapper-jss-app;urlmapper-jss-app;;;any;en;local-redirect-three-en;/graphql/sample-1;
+site;local redirect 3;urlmapper-jss-app;urlmapper-jss-app;;;any;de-ch;local-redirect-three-de;/graphql/sample-2;
+
 site;local redirect to different site 1;integration-site;urlmapper-jss-app;;;any;de-ch;local-redirect-to-different-site-one-de;/graphql/sample-1;

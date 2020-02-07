@@ -1,14 +1,14 @@
 ﻿---
-ID: "a4261bd2-d67c-47fb-be6a-6e84750f9a39"
-Parent: "68016574-ba67-46e4-b65c-fb19c24a2a23"
+ID: "938c82ab-6a57-4187-95b7-73a9f3c1efd0"
+Parent: "b8b2d7fa-0c5c-4ca3-9141-090ca724c7f6"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2020/02/07/06/18/local redirect 2"
+Path: /sitecore/content/Redirects/Imported Redirects/2020/02/07/06/45/regex to internal
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
   Hint: Regex enabled
   Type: Checkbox
-  Value: 0
+  Value: 1
 - ID: "bb67d28d-eff1-4a65-bd01-de64ac6e9da4"
   Hint: Redirect Type
   Value: "{3742D841-C7E8-4282-9C35-5C58696264EF}"
@@ -22,7 +22,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200207T061859Z
+      Value: 20200207T064532Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -30,17 +30,17 @@ Languages:
     - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
       Hint: Target
       Value: |
-        <link text="local redirect 2" title="local redirect 2" linktype="external" url="https://www.google.com/?q=local-redirect-two-de" />
+        <link text="regex to internal" title="regex to internal" linktype="internal" id="{C83B74E8-0A16-4D0A-A1E7-CF3FBD3E44FB}" />
     - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
       Hint: Source Term
-      Value: "local-redirect-two-de"
+      Value: "^regex-to-internal-item"
 - Language: en
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200207T061859Z
+      Value: 20200207T064532Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -48,7 +48,7 @@ Languages:
     - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
       Hint: Target
       Value: |
-        <link text="local redirect 2" title="local redirect 2" linktype="external" url="https://www.google.com/?q=local-redirect-two-en" />
+        <link text="regex to internal" title="regex to internal" linktype="internal" id="{C83B74E8-0A16-4D0A-A1E7-CF3FBD3E44FB}" />
     - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
       Hint: Source Term
-      Value: "local-redirect-two-en"
+      Value: "^regex-to-internal-item"

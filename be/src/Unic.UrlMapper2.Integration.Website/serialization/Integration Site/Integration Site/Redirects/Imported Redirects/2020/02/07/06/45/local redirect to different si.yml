@@ -1,8 +1,8 @@
 ﻿---
-ID: "f31d4c7e-1599-40a0-b371-c4f54d7b25cb"
-Parent: "894da1aa-9a10-42f1-9910-41bdacd46123"
+ID: "5fb78e94-e798-4c75-a773-9c10b673862a"
+Parent: "55ca179c-b7aa-47f2-b13d-852d01cad68e"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: /sitecore/content/Integration Site/Redirects/Imported Redirects/2020/02/07/06/18/local redirect to different site 1
+Path: /sitecore/content/Integration Site/Redirects/Imported Redirects/2020/02/07/06/45/local redirect to different site 1
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
@@ -22,7 +22,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200207T061900Z
+      Value: 20200207T064532Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
