@@ -29,6 +29,9 @@ SharedFields:
     $source = Get-Item "$AppPath\bin\Unic.UrlMapper2.dll" | New-ExplicitFileSource -Name "Binaries"
     $package.Sources.Add($source);
     
+    $source = Get-Item "$AppPath\bin\MoreLinq.dll" | New-ExplicitFileSource -Name "Third Party Binaries"
+    $package.Sources.Add($source);
+    
     $packageName = "$($package.Name)-$Version" -replace " ",".";
     Export-Package -Project $package -Path "$packageName.zip" -Zip
     Download-File "$SitecorePackageFolder\$packageName.zip"
