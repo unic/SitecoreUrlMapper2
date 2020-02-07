@@ -152,7 +152,7 @@
         {
             var options = this.linkManager.GetDefaultUrlOptions();
             options.SiteResolving = true;
-            options.AlwaysIncludeServerUrl = true;
+            options.AlwaysIncludeServerUrl = false;
 
             return options;
         }

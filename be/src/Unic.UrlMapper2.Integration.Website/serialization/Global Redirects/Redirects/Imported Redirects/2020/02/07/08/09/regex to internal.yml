@@ -1,8 +1,8 @@
 ﻿---
-ID: "938c82ab-6a57-4187-95b7-73a9f3c1efd0"
-Parent: "b8b2d7fa-0c5c-4ca3-9141-090ca724c7f6"
+ID: "3abbe0d9-5da8-44e9-add9-87c75b8de33f"
+Parent: "a78e47ef-5558-4e4c-b08f-5db74be7d268"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: /sitecore/content/Redirects/Imported Redirects/2020/02/07/06/45/regex to internal
+Path: /sitecore/content/Redirects/Imported Redirects/2020/02/07/08/09/regex to internal
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
@@ -22,7 +22,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200207T064532Z
+      Value: 20200207T080942Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -40,7 +40,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200207T064532Z
+      Value: 20200207T080941Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
