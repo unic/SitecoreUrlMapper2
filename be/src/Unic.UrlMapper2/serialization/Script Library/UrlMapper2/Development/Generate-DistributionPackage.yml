@@ -20,7 +20,7 @@ SharedFields:
     $package.Metadata.Publisher = "Unic AG"
     $package.Metadata.Version = $version
     
-    $source = Get-Item "$AppPath\App_Config\Include\UrlMapper2\*.*" |  New-ExplicitFileSource -Name "Configuration Files"
+    $source = Get-Item "$AppPath\App_Config\Include\UrlMapper2\*.*" -exclude "UrlMapper2.Serialization.config" |  New-ExplicitFileSource -Name "Configuration Files"
     $package.Sources.Add($source);
     
     $source = Get-Item "$AppPath\bin\Unic.UrlMapper2.dll" | New-ExplicitFileSource -Name "Binaries"
