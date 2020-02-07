@@ -5,6 +5,9 @@ Template: "40fd6640-f468-45d0-a816-4898e25219ce"
 Path: /sitecore/content/Redirects
 DB: master
 SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{D9F2C6DC-2ABC-405A-A4AB-E03045E240F7}"
