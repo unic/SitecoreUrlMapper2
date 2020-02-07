@@ -12,7 +12,6 @@ SharedFields:
     
     #TODO during release process: Update the $version variable
     $version = "1.0"
-    $currentYear = [datetime]::Today.ToString("yyyy")
         
     $package = New-Package "UrlMapper2"
     $package.Sources.Clear()
@@ -20,8 +19,6 @@ SharedFields:
     $package.Metadata.Author = "David Szöke, Tobias Studer, Christian Hahnloser"
     $package.Metadata.Publisher = "Unic AG"
     $package.Metadata.Version = $version
-    
-    Get-UnicornConfiguration -Filter "UrlMapper2" | New-UnicornItemSource -Name "UrlMapper2" -Project $package -InstallMode Overwrite
     
     $source = Get-Item "$AppPath\App_Config\Include\UrlMapper2\*.*" |  New-ExplicitFileSource -Name "Configuration Files"
     $package.Sources.Add($source);
@@ -32,7 +29,15 @@ SharedFields:
     $source = Get-Item "$AppPath\bin\MoreLinq.dll" | New-ExplicitFileSource -Name "Third Party Binaries"
     $package.Sources.Add($source);
     
-    $packageName = "$($package.Name)-$Version" -replace " ",".";
+    # Create Content Delivery package
+    $packageName = "$($package.Name)_CD-$Version" -replace " ",".";
+    Export-Package -Project $package -Path "$packageName.zip" -Zip
+    Download-File "$SitecorePackageFolder\$packageName.zip"
+    
+    # Create Content Management package
+    Get-UnicornConfiguration -Filter "UrlMapper2" | New-UnicornItemSource -Name "UrlMapper2" -Project $package -InstallMode Overwrite
+    
+    $packageName = "$($package.Name)_CM-$Version" -replace " ",".";
     Export-Package -Project $package -Path "$packageName.zip" -Zip
     Download-File "$SitecorePackageFolder\$packageName.zip"
 Languages:
