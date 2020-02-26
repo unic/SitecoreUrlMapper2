@@ -129,3 +129,38 @@ All required content for the jss app (such as renderings, placeholder settings, 
 Additionally, a headless proxy based on the [official documentation](https://jss.sitecore.com/docs/techniques/ssr/headless-mode-ssr) has been added and configured in the `/fe/node-headless-ssr-proxy` folder.
 
 In order to start the headless proxy, run the following commands in the `/fe/node-headless-ssr-proxy` directory: `npm install` and then `npm start`.
+
+## Available URLs and redirects
+
+The solution has the following two sites configured:
+
+- http://urlmapper2.dev.local - this is the jss site
+- http://urlmapper2.dev.local/integration - this is the "integration" site and is not running in JSS
+
+The docker setup also provides a SEQ container used for logging, which can be accessed through the following url: http://localhost:62100/#/events
+
+The development environments ships with some pre-defined redirects you can use for local testing. You can find them in the following .csv (which also acts as an example of the `.csv` import format): `be\etc\import\example-import-file.csv`
+
+## Creating a release
+
+When you have made changes to the module and you want to disitribute those, there is a handy Sitecore PowerShell script you can use to generate the installation packages. The script can be found here: `/sitecore/system/Modules/PowerShell/Script Library/UrlMapper2/Development/Generate-DistributionPackage`
+
+Once you execute this script, it will prompt you to download two separate files: One for the CM and one for the CD instance.
+
+### Converting the installation packages to .scwdps
+
+Using the [Sitecore Azure Toolkit](https://dev.sitecore.net/Downloads/Sitecore_Azure_Toolkit.aspx), you can easily convert the generated packages to `.scwdp`s which you can then use in your ARM/Azure deployments. Use the `ConvertTo-SCModuleWebDeployPackage` cmdlet as follows:
+
+```powershell
+ConvertTo-SCModuleWebDeployPackage "<path-to-installation-package>\UrlMapper2_CD-<version>.zip" "<output-path>"
+ConvertTo-SCModuleWebDeployPackage "<path-to-installation-package>\UrlMapper2_CM-<version>.zip" "<output-path>"
+```
+
+Please note that if you are planning to use the modules for local or on-prem installations, you will have to disable dacpac options, which can be accomplished as follows:
+
+```powershell
+Update-SCWebDeployPackage -Path "<path-to-scwdp>" -DisableDacPacOptions '*' -ParametersXmlPath "<path-to-parameters-xml>"
+```
+
+More information about package conversion can be found in the [official documentation](https://doc.sitecore.com/developers/sat/20/sitecore-azure-toolkit/en/web-deploy-packages-for-a-module.html).
+
