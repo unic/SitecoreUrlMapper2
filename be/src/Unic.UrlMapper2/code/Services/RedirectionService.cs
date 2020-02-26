@@ -51,7 +51,32 @@
             var redirect = this.FilterRedirects(redirects, redirectSearchData);
             if (redirect is null) return;
 
-            this.PerformRedirect(redirect, httpContext);
+            var additionalTargetData = this.GetAdditionalTargetUrlData(redirectSearchData, redirect);
+
+            this.PerformRedirect(redirect, httpContext, additionalTargetData);
+        }
+
+        protected virtual string GetAdditionalTargetUrlData(RedirectSearchData redirectSearchData, Redirect redirect)
+        {
+            if (!redirect.RegexEnabled) return default;
+
+            var match = Regex.Match(redirectSearchData.SourceTerm, redirect.Term);
+            if (match.Groups.Count <= 1) return default;
+
+            string additionalTargetData = null;
+
+            // We most probably have capture groups defined within the regex. If so, we are going to apply them to the target url
+            // ReSharper disable once LoopCanBeConvertedToQuery
+            for (var i = 1; i < match.Groups.Count; i++)
+            {
+                var groupValue = match.Groups[i].Value;
+                if (!string.IsNullOrWhiteSpace(groupValue))
+                {
+                    additionalTargetData += groupValue;
+                }
+            }
+
+            return additionalTargetData;
         }
 
         protected virtual Redirect FilterRedirects(IEnumerable<Redirect> redirects, RedirectSearchData redirectSearchData)
@@ -80,7 +105,7 @@
             return regexMatch;
         }
 
-        protected virtual void PerformRedirect(Redirect redirect, HttpContextBase httpContext)
+        protected virtual void PerformRedirect(Redirect redirect, HttpContextBase httpContext, string additionalTargetData)
         {
             if (redirect?.ItemId is null)
             {
@@ -95,7 +120,7 @@
                 return;
             }
 
-            var targetUrl = this.GetTargetUrl(redirectItem);
+            var targetUrl = this.GetTargetUrl(redirectItem, additionalTargetData);
 
             this.logger.Debug($"Performing {redirect.RedirectType} redirect to {targetUrl}", this);
 
@@ -115,7 +140,7 @@
 
         protected virtual Item GetRedirectItem(Redirect redirect) => this.context.Database.GetItem(redirect.ItemId);
 
-        protected virtual string GetTargetUrl(Item item)
+        protected virtual string GetTargetUrl(Item item, string additionalTargetData)
         {
             if (item == null) return default;
 
@@ -145,7 +170,7 @@
                     break;
             }
 
-            return targetUrl;
+            return $"{targetUrl}{additionalTargetData}";
         }
 
         protected virtual UrlOptions GetUrlOptions()

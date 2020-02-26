@@ -4,9 +4,7 @@
     using System.Web;
     using Sitecore;
     using Sitecore.Abstractions;
-    using Sitecore.Globalization;
     using Sitecore.Pipelines.HttpRequest;
-    using Sitecore.Web;
     using Unic.UrlMapper2.Abstractions;
     using Unic.UrlMapper2.Models;
     using Constants = Definitions.Constants;
@@ -29,10 +27,13 @@
 
         public virtual RedirectSearchData GetDefaultRedirectSearchData(HttpRequestArgs args) =>
             new RedirectSearchData(
-                sourceTerm: args.LocalPath,
+                sourceTerm: this.GetSourceTermForDefaultRedirectSearchData(args),
                 language: this.context.Language?.Name,
                 siteName: this.context.Site?.Name?.ToLower(),
                 sourceProtocol: this.GetSourceProtocolForDefaultRedirectSearchData(args));
+
+        protected virtual string GetSourceTermForDefaultRedirectSearchData(HttpRequestArgs args) =>
+            args.RequestUrl.PathAndQuery.Substring(args.RequestUrl.PathAndQuery.LastIndexOf(args.LocalPath, StringComparison.InvariantCultureIgnoreCase));
 
         public virtual RedirectSearchData GetJssRedirectSearchData(HttpContextBase httpContext) =>
             new RedirectSearchData(
@@ -96,18 +97,6 @@
             return string.IsNullOrWhiteSpace(itemPath)
                 ? default
                 : this.StripVirtualFolderPath(itemPath);
-        }
-
-        protected virtual bool TryExtractLanguage(string url, out Language language)
-        {
-            // check Sitecore.Pipelines.PreprocessRequest.StripLanguage
-            return Language.TryParse(this.ExtractLanguageName(url), out language);
-        }
-
-        protected virtual string ExtractLanguageName(string filePath)
-        {
-            var languageName = WebUtil.ExtractLanguageName(filePath);
-            return !string.IsNullOrEmpty(languageName) ? languageName : null;
         }
 
         protected virtual string StripVirtualFolderPath(string path)
