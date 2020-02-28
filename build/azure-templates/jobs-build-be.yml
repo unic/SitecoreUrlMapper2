@@ -64,7 +64,7 @@ jobs:
           command: 'push'
           packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
           nuGetFeedType: 'internal'
-          publishVstsFeed: '9618972f-2cc4-47e9-914e-3f6dc49a4892'
+          publishVstsFeed: 'f15d58b8-78d3-4148-a83d-7a8cf13fb857/9618972f-2cc4-47e9-914e-3f6dc49a4892'
 
       # Zip and move to artifact directory
       - task: ArchiveFiles@2
