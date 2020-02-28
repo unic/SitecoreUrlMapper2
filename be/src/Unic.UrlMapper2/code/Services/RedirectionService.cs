@@ -121,9 +121,7 @@
             }
 
             var targetUrl = this.GetTargetUrl(redirectItem, additionalTargetData);
-
             this.logger.Debug($"Performing {redirect.RedirectType} redirect to {targetUrl}", this);
-
 
             switch (redirect.RedirectType)
             {
