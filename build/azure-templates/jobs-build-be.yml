@@ -51,6 +51,7 @@ jobs:
 
       # Create nuget package
       - task: NuGetCommand@2
+        displayName: Create nuget package
         inputs:
           command: 'pack'
           packagesToPack: '**/Unic.UrlMapper2.csproj'
@@ -58,11 +59,12 @@ jobs:
       
       # Push nuget package
       - task: NuGetCommand@2
+        displayName: Push nuget package
         inputs:
           command: 'push'
           packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
           nuGetFeedType: 'internal'
-          publishVstsFeed: 'dc6f9338-9ad8-4e19-8bca-58ab35ee4c46'
+          publishVstsFeed: '9618972f-2cc4-47e9-914e-3f6dc49a4892'
 
       # Zip and move to artifact directory
       - task: ArchiveFiles@2
