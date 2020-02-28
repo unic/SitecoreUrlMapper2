@@ -16,11 +16,7 @@ SharedFields:
     
     if(-not(Test-Path -Path $importFilePath)) { exit }
     
-    #$importData = Import-CSV "$($uploadDirectory)\import.csv" -Delimiter ";"
     $importData = Import-CSV $importFilePath -Delimiter ";"
-    $columnNames = $importData | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name
-    $sourceFieldNames = $columnNames | ForEach-Object { $mappings = [ordered]@{} } { $mappings[$_] = $_ } { $mappings }
-    $fieldMappings = $sourceFieldNames
     
     # Determine the bucket locations
     $criteria = @(
@@ -78,7 +74,7 @@ SharedFields:
         
         $defaultLanguage = [Sitecore.Configuration.Settings]::DefaultLanguage
         
-        # An import group represents one redirect containing multiple language verions
+        # An import group represents one redirect containing multiple language versions
         $importGroups = $importData | Group-Object -Property Name
         
         $rowIndex = 0
@@ -109,7 +105,6 @@ SharedFields:
                     # SPE will mess up the language context real bad
                     $site = [Sitecore.Sites.SiteContext]::GetSite($itemInfo.TargetSite)
                     $rootItemPath = [Sitecore.IO.FileUtil]::MakePath($site.RootPath, $site.StartItem)
-                    $rootItemLanguage = $itemInfo.LanguageCode
                     $rootItem = Get-Item -Path "$rootItemPath" -Language $itemInfo.LanguageCode
                     if(!$rootItem){
                         Write-Warning "Root item at path $rootItemPath could not be loaded. Ensure that it exists in language $($itemInfo.LanguageCode). Skipping entry $($itemInfo.Name) ($($itemInfo.LanguageCode))"
