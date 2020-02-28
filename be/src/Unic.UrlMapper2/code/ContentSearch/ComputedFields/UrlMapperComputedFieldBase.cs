@@ -15,6 +15,7 @@
 
         public object ComputeFieldValue(IIndexable indexable)
         {
+            // ReSharper disable once InvertIf
             if (this.ShouldCompute(indexable))
             {
                 object result;

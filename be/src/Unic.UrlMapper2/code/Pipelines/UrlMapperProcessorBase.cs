@@ -1,6 +1,7 @@
 ﻿namespace Unic.UrlMapper2.Pipelines
 {
     using System.Collections.Generic;
+    using Sitecore.Annotations;
     using Unic.UrlMapper2.Abstractions;
     using Unic.UrlMapper2.DependencyInjection;
     using Unic.UrlMapper2.Services;
@@ -11,6 +12,7 @@
 
         protected List<string> RestrictedSites { get; } = new List<string>();
 
+        [UsedImplicitly]
         public virtual void Process(T args)
         {
             if (this.ShouldExecute(args)) this.Execute(args);
