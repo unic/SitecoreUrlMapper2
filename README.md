@@ -22,7 +22,7 @@ Redirects can be defined on Site or a Global level, allowing you to target only 
 
 Redirects can be defined with Regex patterns, allowing you to be even more specific about what should and should not be redirected.
 
-For example, if you would like to have a "wildcard" matching, you can define the term as `^mytest`, which will result in all of the following requests being a match: `https://mysite.com/test`, `https://mysite.com/testing`, `https://mysite.com/test-redirect`.
+For example, if you would like to have a "wildcard" matching, you can define the term as `^test`, which will result in all of the following requests being a match: `https://mysite.com/test`, `https://mysite.com/testing`, `https://mysite.com/test-redirect`.
 
 ### Bulk Import
 
