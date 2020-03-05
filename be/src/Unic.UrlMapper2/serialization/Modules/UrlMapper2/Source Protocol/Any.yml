@@ -1,0 +1,21 @@
+﻿---
+ID: "4fa60eae-166f-4c2a-9983-16d916360965"
+Parent: "83b79076-3fd9-4079-8938-4dbdbddf9950"
+Template: "89eafcf4-89d9-4e0a-943c-596fd5a14dca"
+Path: /sitecore/system/Modules/UrlMapper2/Source Protocol/Any
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "f8978d6b-13a3-4110-ae64-47146ba07c07"
+  Hint: Value
+  Value: Any
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191227T132742Z

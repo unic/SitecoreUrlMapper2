@@ -1,0 +1,54 @@
+﻿---
+ID: "3abbe0d9-5da8-44e9-add9-87c75b8de33f"
+Parent: "a78e47ef-5558-4e4c-b08f-5db74be7d268"
+Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Path: /sitecore/content/Redirects/Imported Redirects/2020/02/07/08/09/regex to internal
+DB: master
+SharedFields:
+- ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
+  Hint: Regex enabled
+  Type: Checkbox
+  Value: 1
+- ID: "bb67d28d-eff1-4a65-bd01-de64ac6e9da4"
+  Hint: Redirect Type
+  Value: "{3742D841-C7E8-4282-9C35-5C58696264EF}"
+- ID: "e453d759-43e3-4033-ada8-245ddb56980d"
+  Hint: Source Protocol
+  Value: "{4FA60EAE-166F-4C2A-9983-16D916360965}"
+Languages:
+- Language: "de-CH"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200207T080942Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
+      Hint: Target
+      Value: |
+        <link text="regex to internal" title="regex to internal" linktype="internal" id="{C83B74E8-0A16-4D0A-A1E7-CF3FBD3E44FB}" />
+    - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
+      Hint: Source Term
+      Value: "^regex-to-internal-item"
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200207T080941Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
+      Hint: Target
+      Value: |
+        <link text="regex to internal" title="regex to internal" linktype="internal" id="{C83B74E8-0A16-4D0A-A1E7-CF3FBD3E44FB}" />
+    - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
+      Hint: Source Term
+      Value: "^regex-to-internal-item"

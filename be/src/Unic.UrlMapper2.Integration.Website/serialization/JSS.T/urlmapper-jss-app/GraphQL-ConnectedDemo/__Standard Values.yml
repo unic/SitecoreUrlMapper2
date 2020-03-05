@@ -1,0 +1,22 @@
+﻿---
+ID: "3c57cba2-3244-5fb4-909f-00153f368086"
+Parent: "7ab5d6f9-3059-582a-a6cf-ea2d2ec829a8"
+Template: "7ab5d6f9-3059-582a-a6cf-ea2d2ec829a8"
+Path: "/sitecore/templates/Project/urlmapper-jss-app/GraphQL-ConnectedDemo/__Standard Values"
+DB: master
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191231T071517Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport

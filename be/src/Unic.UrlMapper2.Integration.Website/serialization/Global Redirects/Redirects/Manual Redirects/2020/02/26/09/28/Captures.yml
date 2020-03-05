@@ -1,0 +1,30 @@
+﻿---
+ID: "1afeb1c6-94a6-412a-b119-96fc5f70bb77"
+Parent: "dfb9cae4-0a9c-48b9-b8ac-7d115e3cd6ba"
+Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Path: /sitecore/content/Redirects/Manual Redirects/2020/02/26/09/28/Captures
+DB: master
+SharedFields:
+- ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
+  Hint: Regex enabled
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200226T092818Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
+      Hint: Target
+      Value: |
+        <link linktype="external" url="https://google.com" anchor="" target="" />
+    - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
+      Hint: Source Term
+      Value: "captures([?&]parking=[^&=]+)?([?&]level=[^&=]+)?"

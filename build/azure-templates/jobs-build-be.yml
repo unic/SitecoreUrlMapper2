@@ -1,0 +1,67 @@
+jobs:
+  - job: BuildBE
+    displayName: Build Backend
+    pool:
+      vmImage: "windows-latest"
+    variables:
+      solutionDirectory: "be/"
+      solution: "$(solutionDirectory)/*.sln"
+      buildOutTempPath: "$(Agent.TempDirectory)/solution-webroot"
+      buildPlatform: "Any CPU"
+      buildConfiguration: "Release"
+      buildBuildArtifactFolder: "be-build"
+      artifactName: "solution-webroot.zip"
+
+    steps:
+      - task: GitVersion@5
+        inputs:
+          runtime: "full"
+          additionalArguments: "/updateassemblyinfo"
+
+      # Install NuGet Tools
+      - task: NuGetToolInstaller@1
+        displayName: Install NuGet Tools
+
+      # Restore NuGet packages
+      - task: NuGetCommand@2
+        displayName: Restore NuGet Packages
+        inputs:
+          command: "restore"
+          restoreSolution: "$(solution)"
+          feedsToUse: "config"
+          nugetConfigPath: "$(solutionDirectory)/nuget.config"
+
+      # Build Solution
+      - task: VSBuild@1
+        displayName: Build Solution
+        inputs:
+          solution: "$(solution)"
+          msbuildArgs: '/p:DeployOnBuild=True /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=False /p:publishUrl="$(buildOutTempPath)"'
+          platform: "$(buildPlatform)"
+          configuration: "$(buildConfiguration)"
+          maximumCpuCount: false
+
+      # # Run Unit Tests - Enable this when unit tests are in place
+      # - task: VSTest@2
+      #   displayName: Run Unit Tests
+      #   inputs:
+      #     platform: "$(buildPlatform)"
+      #     configuration: "$(buildConfiguration)"
+      #     codeCoverageEnabled: true
+
+      # Zip and move to artifact directory
+      - task: ArchiveFiles@2
+        displayName: Zip and move to artifact directory
+        inputs:
+          rootFolderOrFile: "$(buildOutTempPath)"
+          includeRootFolder: false
+          archiveType: "zip"
+          archiveFile: "$(Pipeline.Workspace)/$(artifactName)"
+          replaceExistingArchive: true
+          verbose: true
+
+      # Publish Pipeline Artifact
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: "$(Pipeline.Workspace)/$(artifactName)"
+          artifact: "$(buildBuildArtifactFolder)"

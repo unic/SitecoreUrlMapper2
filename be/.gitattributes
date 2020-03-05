@@ -1,0 +1,15 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Custom for Visual Studio
+*.cs diff=csharp
+*.csproj text=auto merge=union 
+*.sln text=auto eol=crlf merge=union 
+
+## Sitecore specific settings ##
+# unset the text attribute and prevent git from normalizing serialized files
+*.item -text
+*.role -text 
+
+# Always use LF for linux scripts
+*.sh text eol=lf

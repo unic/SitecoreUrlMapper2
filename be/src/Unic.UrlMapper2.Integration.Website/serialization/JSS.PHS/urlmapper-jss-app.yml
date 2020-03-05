@@ -1,0 +1,18 @@
+﻿---
+ID: "d97ac325-8f2c-55b8-bf5f-79fbed45641b"
+Parent: "f5f0fbe3-61ad-4967-a5d8-8d760331d6a1"
+Template: "c3b037a0-46e5-4b67-ac7a-a144b962a56f"
+Path: "/sitecore/layout/Placeholder Settings/Project/urlmapper-jss-app"
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191231T071515Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport

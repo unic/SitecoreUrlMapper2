@@ -1,0 +1,166 @@
+﻿---
+ID: "0523f206-1681-4efb-aba6-681cbcffdf72"
+Parent: "8ab4269a-360d-4dcf-b352-11918c322d1f"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/UrlMapper2/Integration Points/Content Editor/Ribbon/Url Mapper/Url Mapper/Import Redirects
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: office/32x32/inbox_into.png
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    $uploadDirectory = Join-Path -Path $SitecoreDataFolder -ChildPath "temp"
+    $importFilePath = Receive-File -Overwrite -Title $defaultProps.Title -Description "Choose a valid CSV file to import." -Icon $defaultProps.Icon -Path $uploadDirectory -OkButtonName "Next"
+    
+    if(-not(Test-Path -Path $importFilePath)) { exit }
+    
+    $importData = Import-CSV $importFilePath -Delimiter ";"
+    
+    # Determine the bucket locations
+    $criteria = @(
+        @{Filter = "Equals"; Field = "_template"; Value = "{3BAE66E5-FA45-498F-BC5E-7802A63FBB6A}"}, # redirect import folder template
+        @{Filter = "Equals"; Field = "_latestversion"; Value = "true"},
+        @{Filter = "Equals"; Field = "_language"; Value = "en"},
+        @{ Filter = "DescendantOf"; Value = (Get-Item "master:/content/") }
+    )
+    $props = @{
+        Index = "sitecore_master_index"
+        Criteria = $criteria
+    }
+    $importFolders = Find-Item @props
+    
+    # Create destination map
+    $importDestinations = @{}
+    $sitesToExclude = "shell", "modules_shell", "modules_website", "website", "exm"
+    foreach($importFolder in $importFolders){
+        $siteInfo = [Sitecore.Sites.SiteContextFactory]::Sites |
+                    ? { $_.RootPath.Length -gt 0 } |
+                    ? { $importFolder.Path -like "$($_.RootPath)*" } |
+                    sort { $_.RootPath.length } -Descending |
+                    select -first 1
+        
+        if($sitesToExclude -notcontains $($siteInfo.Name)){
+            $importDestinations[$siteInfo.Name] = $importFolder.ItemId
+        }
+        else{
+            if($importDestinations[""]){
+                Write-Warning "Multiple global import folders available. Global redirects will be imported into the last determined global folder"
+            }
+            $importDestinations[""] = $importFolder.ItemId
+        }
+    }
+    Write-Host "Import destination map:"
+    $importDestinations
+    
+    # Create choice maps for protocol and redirect type
+    $lookupProtocols = Get-ChildItem -Language "en" -Path "/sitecore/system/Modules/UrlMapper2/Source Protocol" | ForEach-Object { $mappings = @{} } { $mappings[$_.Value] = $_.ID } { $mappings }
+    $lookupRedirectTypes = Get-ChildItem -Language "en" -Path "/sitecore/system/Modules/UrlMapper2/Redirect Type" | ForEach-Object { $mappings = @{} } { $mappings[$_.Value] = $_.ID } { $mappings }
+    
+    New-UsingBlock (New-Object Sitecore.Data.BulkUpdateContext) {
+        # Clear import folders
+        Write-Host "`nClearing import folders"
+        foreach($importFolder in $importFolders){
+            Write-Host "- Clearing $($importFolder.Path)"
+            foreach($child in Get-ChildItem $importFolder.ItemId){
+                Remove-Item $child.ID -recurse
+            }
+        }
+        
+        Write-Host "`nStarting import"
+        
+        $redirectTemplateId = "{91B6672E-51A2-48DB-9A17-D9E8744EE490}"
+        
+        $defaultLanguage = [Sitecore.Configuration.Settings]::DefaultLanguage
+        
+        # An import group represents one redirect containing multiple language versions
+        $importGroups = $importData | Group-Object -Property Name
+        
+        $rowIndex = 0
+        foreach($importGroup in $importGroups){
+            
+            $metaInfo = $importGroup.Group | Select-Object -first 1
+            $target = if($metaInfo.Type -eq "global"){ $importDestinations[""] } else { $importDestinations[$metaInfo.Site] }
+            $item = $null
+            
+            # Create language versions
+            foreach($itemInfo in $importGroup.Group){
+                if(!$item){
+                    # Create item if we are in the first iteration
+                    $item = New-Item -Path $target -Name $metaInfo.Name -ItemType $redirectTemplateId -Language $itemInfo.LanguageCode
+                }
+                
+                # Determine target url
+                $isExternalUrl = [Sitecore.Web.WebUtil]::IsExternalUrl($itemInfo.Target)
+                if(!$isExternalUrl){
+                    if($itemInfo.Type.ToLower() -eq "global" -and !$itemInfo.Site){
+                        Write-Warning "A global entry with a relative target url must contain a value for 'site'. Skipping entry $($itemInfo.Name) ($($itemInfo.LanguageCode))"
+                        continue
+                    }
+                    
+                    # As the relative path might contain the display name, we cannot use Get-Item
+                    # and have to go through the ItemPathResolver to find the correct item
+                    # We also need to load the rootItem in the specified language, as otherwise
+                    # SPE will mess up the language context real bad
+                    $site = [Sitecore.Sites.SiteContext]::GetSite($itemInfo.TargetSite)
+                    $rootItemPath = [Sitecore.IO.FileUtil]::MakePath($site.RootPath, $site.StartItem)
+                    $rootItem = Get-Item -Path "$rootItemPath" -Language $itemInfo.LanguageCode
+                    if(!$rootItem){
+                        Write-Warning "Root item at path $rootItemPath could not be loaded. Ensure that it exists in language $($itemInfo.LanguageCode). Skipping entry $($itemInfo.Name) ($($itemInfo.LanguageCode))"
+                        continue;
+                    }
+                    
+                    $resolver = New-Object "Sitecore.Data.ItemResolvers.ItemPathResolver"
+                    $targetItem = $resolver.ResolveItem($itemInfo.Target, $rootItem)
+                    if(!$targetItem){
+                        Write-Warning "No item could be found in site $($itemInfo.Site) (home item: $rootItemPath) resolving to path $($itemInfo.Target). Link will be generated as external - $($itemInfo.Name) ($($itemInfo.LanguageCode))"
+                        $isExternalUrl = $true
+                    }
+                }
+                
+                # Fill language version
+                $languageVersion = Add-ItemLanguage -TargetLanguage $itemInfo.LanguageCode -DoNotCopyFields -IfExist "skip" -Item $item
+                $languageVersion.Editing.BeginEdit();
+                $languageVersion["Source Protocol"] = $lookupProtocols[$itemInfo.Protocol]
+                $languageVersion["Redirect Type"] = If ($itemInfo.Permanent.ToLower() -eq "x") { $lookupRedirectTypes["permanent"] } Else { $lookupRedirectTypes["temporary"] }
+                $languageVersion["Source Term"] = $itemInfo.Term
+                $languageVersion["Description"] = $itemInfo.Description
+                $languageVersion["Regex enabled"] = If ($itemInfo.Regex.ToLower() -eq "x") { 1 } Else { 0 }
+                
+                # Set target (general link) field
+                [Sitecore.Data.Fields.LinkField]$targetField = $languageVersion.Fields['Target']
+                $targetField.Text = $itemInfo.Name
+                $targetField.Title = $itemInfo.Name
+                $targetField.LinkType = if($isExternalUrl) { "external" } Else { "internal" }
+                if($isExternalUrl){
+                    $targetField.Url = $itemInfo.Target
+                }
+                else{
+                    $targetField.TargetID = $targetItem.Id
+                }
+                $languageVersion.Editing.EndEdit() > $null
+                
+                Write-Host "Successfully created redirect $($languageVersion.Id) ($($itemInfo.LanguageCode)): $($languageVersion.ItemPath)"
+            }
+        }
+    }
+    
+    foreach($importFolder in $importFolders){
+        $importFolderItem = Get-Item $importFolder.ItemId
+        $importFolderItem.'Last Import Date' = [datetime]::Now
+    }
+    
+    Write-Host "`nDone"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200114T103441Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

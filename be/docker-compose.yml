@@ -1,0 +1,55 @@
+version: '3'
+services:
+
+  solr:
+    image: solr:7.5-alpine
+    ports:
+      - "8983" # Only exposes the port to other services
+    volumes:
+      - ./etc/docker/solrdata:/solrhome
+    environment:
+      SOLR_HOME: /solrhome
+      INIT_SOLR_HOME: "yes"
+    restart: unless-stopped
+      
+  proxy:
+    build: 
+      context: ./etc/docker/nginx
+      args: 
+        SERVER_NAME: localhost
+    image: nginx-solr-proxy
+    ports:
+      - "62200:443"
+    volumes:
+      - ./etc/docker/certs:/certs
+    environment:
+      SERVER_NAME: localhost
+      PROXY_PASS: http://solr:8983
+      PROXY_REDIRECT: http://localhost/solr/ https://localhost:62200/solr/
+    restart: unless-stopped
+    depends_on:
+      - solr
+
+  seq:
+    image: datalust/seq:latest
+    ports:
+      - "62100:80"
+    volumes:
+      - urlmapper2-logs:/data
+    environment:
+      - "ACCEPT_EULA=Y"
+    restart: unless-stopped
+
+  portainer:
+    image: portainer/portainer:latest
+    ports:
+      - "62300:9000"
+      - "62301:8000"
+    volumes:
+      - urlmapper2-portainer_data:/data portainer/portainer
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    
+volumes:
+  urlmapper2-logs:
+  urlmapper2-portainer_data:

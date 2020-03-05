@@ -1,0 +1,34 @@
+﻿---
+ID: "874c1954-c59d-5a76-b788-2181eb0df043"
+Parent: "90060e36-56e2-59b9-9267-e08b85bd4f4a"
+Template: "fb19bf88-34dd-50b2-943f-39f9537d8761"
+Path: "/sitecore/content/urlmapper-jss-app/home/styleguide/Page Components/styleguide-jss-styleguide-section-B7466F088988ADC3AF823B71B1D08EB5543ABE8080B5DCA82AE17317EBC6A7840F"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Styleguide-FieldUsage-Number-6"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1d0988d8-0aac-5270-97a3-dab0682f42f4"
+      Hint: heading
+      Value: Number
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191231T071526Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+    - ID: "b089eba6-e2a4-59c7-bd0e-1341eb43cee7"
+      Hint: sample
+      Value: 1.21
+    - ID: "baab9f43-a919-52a0-bd60-cba82d05516c"
+      Hint: description
+      Value: <small>Number tells Sitecore to use a number entry for editing.</small>

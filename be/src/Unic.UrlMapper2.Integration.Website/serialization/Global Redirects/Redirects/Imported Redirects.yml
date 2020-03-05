@@ -1,0 +1,29 @@
+﻿---
+ID: "c4cb89d8-fb85-4c3f-8cb4-690d3cde7314"
+Parent: "5c5389c7-dd92-4824-baeb-38839c098d94"
+Template: "3bae66e5-fa45-498f-bc5e-7802a63fbb6a"
+Path: /sitecore/content/Redirects/Imported Redirects
+DB: master
+SharedFields:
+- ID: "814bdd80-36de-46fa-938c-46ceaf5d9722"
+  Hint: Last Import Date
+  Value: 20200207T090942
+Languages:
+- Language: "de-CH"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200117T110613Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200106T080439Z

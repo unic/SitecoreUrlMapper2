@@ -1,0 +1,18 @@
+﻿---
+ID: "26ba5efd-2dcc-47a1-bd83-c3fa5457dad0"
+Parent: "60f90f58-d823-419f-b0d1-86e15066d336"
+Template: "ab154d3d-1126-4ab4-ac21-8b86e6bd70ea"
+Path: /sitecore/system/Modules/PowerShell/Script Library/UrlMapper2/Integration Points/Content Editor/Ribbon/Configure/Item Buckets
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200114T103344Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

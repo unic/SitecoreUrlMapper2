@@ -1,0 +1,9 @@
+{
+  "sitecore": {
+    "instancePath": "C:\\inetpub\\wwwroot\\urlmapper2.dev.local",
+    "apiKey": "{F02CC0B5-BF7B-41B0-B570-C398A59FEC19}",
+    "deploySecret": "edgpk9sk88js8e0hel9e0qupdtnrroxg6qlcxhh1ic4",
+    "deployUrl": "http://urlmapper2.dev.local/sitecore/api/jss/import",
+    "layoutServiceHost": "http://urlmapper2.dev.local"
+  }
+}

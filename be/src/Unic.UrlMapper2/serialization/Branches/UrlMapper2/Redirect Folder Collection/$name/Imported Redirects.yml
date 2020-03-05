@@ -1,0 +1,18 @@
+﻿---
+ID: "42d6c936-bd8a-4a06-996b-14ae84345706"
+Parent: "d9f2c6dc-2abc-405a-a4ab-e03045e240f7"
+Template: "3bae66e5-fa45-498f-bc5e-7802a63fbb6a"
+Path: /sitecore/templates/Branches/UrlMapper2/Redirect Folder Collection/$name/Imported Redirects
+DB: master
+SharedFields:
+- ID: "814bdd80-36de-46fa-938c-46ceaf5d9722"
+  Hint: Last Import Date
+  Value: 20200117T111936
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200103T105301Z
