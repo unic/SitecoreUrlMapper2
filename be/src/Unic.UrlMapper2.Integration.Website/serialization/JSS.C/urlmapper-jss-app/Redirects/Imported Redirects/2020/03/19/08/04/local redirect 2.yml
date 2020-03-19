@@ -1,8 +1,8 @@
 ﻿---
-ID: "ad691721-19bf-42cc-a877-3e2db2cdea68"
-Parent: "4b2e4a59-8758-4006-a6f5-1e68706459e6"
+ID: "aa486fde-d8b3-4bf8-bddf-4a95f2254c1b"
+Parent: "a3e0a2e2-073c-4409-8cbe-26d01bc768a9"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2020/03/19/07/49/local redirect 2"
+Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2020/03/19/08/04/local redirect 2"
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
@@ -16,7 +16,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200319T074902Z
+      Value: 20200319T080444Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -34,7 +34,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200319T074902Z
+      Value: 20200319T080444Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

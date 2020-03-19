@@ -1,25 +1,22 @@
 ﻿---
-ID: "8e07af35-f38d-4a48-9d96-9b9309c2ae99"
-Parent: "1e1f30b4-7dac-4d45-aa89-297e568363a8"
+ID: "a5bcb96e-dfd4-4336-9b9b-3682e423d5ae"
+Parent: "8b3e4e88-c9af-4802-9945-002c731dc148"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: /sitecore/content/Redirects/Imported Redirects/2020/03/19/07/49/global capture 1
+Path: /sitecore/content/Integration Site/Redirects/Imported Redirects/2020/03/19/08/04/local redirect to different site 1
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
   Hint: Regex enabled
   Type: Checkbox
-  Value: 1
+  Value: 0
 Languages:
-- Language: en
+- Language: "de-CH"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200319T074903Z
-    - ID: "51a833be-0259-46cb-ac5f-7fc9fbacd6ef"
-      Hint: Description
-      Value: Transfers all query strings to the target url
+      Value: 20200319T080444Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -27,7 +24,7 @@ Languages:
     - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
       Hint: Target
       Value: |
-        <link text="global capture 1" title="global capture 1" linktype="external" url="https://www.google.com" />
+        <link text="local redirect to different site 1" title="local redirect to different site 1" linktype="internal" id="{C8831E8A-BD6F-5034-8FB5-9B2D3DCED70A}" />
     - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
       Hint: Source Term
-      Value: "^global-capture([?].*)"
+      Value: "local-redirect-to-different-site-one-de"

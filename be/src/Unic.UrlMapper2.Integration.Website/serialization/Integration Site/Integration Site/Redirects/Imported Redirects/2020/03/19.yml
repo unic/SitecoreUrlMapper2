@@ -1,6 +1,6 @@
 ﻿---
-ID: "b3491b1d-08b7-46f7-a51e-c5728f8f081f"
-Parent: "193e6ca0-96be-49c8-9da5-6647614d88d6"
+ID: "c6a3e4c1-090f-4275-a6ea-d30dfc2166a8"
+Parent: "ff525289-c331-4212-bdc3-74b09961ee0b"
 Template: "adb6ca4f-03ef-4f47-b9ac-9ce2ba53ff97"
 Path: /sitecore/content/Integration Site/Redirects/Imported Redirects/2020/03/19
 DB: master
@@ -11,4 +11,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200319T074902Z
+      Value: 20200319T080443Z
