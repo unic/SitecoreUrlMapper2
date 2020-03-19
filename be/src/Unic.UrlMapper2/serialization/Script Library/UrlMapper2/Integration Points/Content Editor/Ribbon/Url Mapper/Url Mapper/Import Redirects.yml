@@ -21,7 +21,7 @@ SharedFields:
             <condition
               id="{96C04ABA-A209-4BB5-AA37-73B5FDC7565E}"
               uid="28CE0A66D9B7427E92CAC85E5166966D"
-              value="sitecore\UrlMapper Creator|sitecore\UrlMapper Importer" />
+              value="sitecore\UrlMapper Importer" />
             <condition
               id="{33D5F360-CA8F-4193-AA5A-B52BEA2C84B4}"
               uid="2E16628A21D24576B32D7984FB932789" />
