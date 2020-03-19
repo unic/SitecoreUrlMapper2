@@ -4,6 +4,11 @@ Parent: "08477468-d438-43d4-9d6a-6d84a611971c"
 Template: "fa333865-3007-4a7e-8993-0e79ccb2b19c"
 Path: /sitecore/system/Modules/UrlMapper2
 DB: master
+SharedFields:
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\UrlMapper Creator|pe|+item:read|pd|+item:read|ar|sitecore\UrlMapper Importer|pe|+item:read|pd|+item:read|
 Languages:
 - Language: en
   Versions:
