@@ -37,6 +37,10 @@ SharedFields:
     # Create Content Management package
     Get-UnicornConfiguration -Filter "UrlMapper2" | New-UnicornItemSource -Name "UrlMapper2" -Project $package -InstallMode Overwrite
     
+    # Add synced roles
+    $source = Get-Role -Filter "sitecore\UrlMapper *" | New-SecuritySource -Name "UrlMapper2.Roles"
+    $package.Sources.Add($source)
+    
     $packageName = "$($package.Name)_CM-$Version" -replace " ",".";
     Export-Package -Project $package -Path "$packageName.zip" -Zip
     Download-File "$SitecorePackageFolder\$packageName.zip"
