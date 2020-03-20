@@ -84,6 +84,9 @@
     <PackageReference Include="Unicorn">
       <Version>4.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Unicorn.Roles">
+      <Version>4.1.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Unic.UrlMapper2\code\Unic.UrlMapper2.csproj">
@@ -124,6 +127,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\UrlMapper2.Integration.Website\UrlMapper2.Integration.Website.Logging.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Roles.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Config\Include\Unicorn\Unicorn.Roles.DataProvider.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

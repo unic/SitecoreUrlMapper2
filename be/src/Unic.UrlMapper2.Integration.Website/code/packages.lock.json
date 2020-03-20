@@ -109,6 +109,16 @@
           "Unicorn.Core": "4.1.1"
         }
       },
+      "Unicorn.Roles": {
+        "type": "Direct",
+        "requested": "[4.1.1, )",
+        "resolved": "4.1.1",
+        "contentHash": "7imDlDNLuzvEVS6b9nd1PbMVIHRybtycruQVlReC+WnfWNjpHa/cuxznoez6Ht5mUi5M+nyxMMW2qnF03YPdRw==",
+        "dependencies": {
+          "Unicorn": "4.1.1",
+          "Unicorn.Roles.Core": "4.1.1"
+        }
+      },
       "Configy": {
         "type": "Transitive",
         "resolved": "1.0.0",
@@ -630,6 +640,16 @@
           "Rainbow.Core": "2.1.1",
           "Rainbow.Storage.Sc": "2.1.1",
           "Rainbow.Storage.Yaml": "2.1.1"
+        }
+      },
+      "Unicorn.Roles.Core": {
+        "type": "Transitive",
+        "resolved": "4.1.1",
+        "contentHash": "0gBlv+ZhVA/cKCp4jNrA0ZaT32vC7Z8HaaN65HniYyabpOHYpn5mSudJyZE/wYnH21CJDT2yBOz7TbeGXCXdrw==",
+        "dependencies": {
+          "Configy": "1.0.0",
+          "Rainbow.Core": "2.1.1",
+          "Unicorn.Core": "4.1.1"
         }
       },
       "WebActivatorEx": {

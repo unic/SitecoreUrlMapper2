@@ -1,8 +1,8 @@
 ﻿---
-ID: "1afeb1c6-94a6-412a-b119-96fc5f70bb77"
-Parent: "dfb9cae4-0a9c-48b9-b8ac-7d115e3cd6ba"
+ID: "5c241ecc-bf5e-4c3a-8a87-b1353c0b7d1b"
+Parent: "b46a62af-9d76-4a27-a3da-46a6b04eaf46"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: /sitecore/content/Redirects/Manual Redirects/2020/02/26/09/28/Captures
+Path: /sitecore/content/Redirects/Imported Redirects/2020/03/19/08/04/global capture 1
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
@@ -16,7 +16,10 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200226T092818Z
+      Value: 20200319T080444Z
+    - ID: "51a833be-0259-46cb-ac5f-7fc9fbacd6ef"
+      Hint: Description
+      Value: Transfers all query strings to the target url
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -24,7 +27,7 @@ Languages:
     - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
       Hint: Target
       Value: |
-        <link linktype="external" url="https://google.com" anchor="" target="" />
+        <link text="global capture 1" title="global capture 1" linktype="external" url="https://www.google.com" />
     - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
       Hint: Source Term
-      Value: "^captures([?].*)"
+      Value: "^global-capture([?].*)?"

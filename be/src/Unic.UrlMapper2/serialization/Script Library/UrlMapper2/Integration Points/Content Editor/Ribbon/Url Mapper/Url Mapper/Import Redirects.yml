@@ -8,6 +8,27 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: office/32x32/inbox_into.png
+- ID: "1c76313e-3c8c-4807-a826-135d10c39299"
+  Hint: ShowRule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{C61E1FA5-B799-4D29-9201-19A869C7D494}">
+        <conditions>
+          <or
+            uid="C7382871C4514698B8B8F598BD82E1B4">
+            <condition
+              id="{96C04ABA-A209-4BB5-AA37-73B5FDC7565E}"
+              uid="28CE0A66D9B7427E92CAC85E5166966D"
+              value="sitecore\UrlMapper Importer" />
+            <condition
+              id="{33D5F360-CA8F-4193-AA5A-B52BEA2C84B4}"
+              uid="2E16628A21D24576B32D7984FB932789" />
+          </or>
+        </conditions>
+      </rule>
+    </ruleset>
 - ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
   Hint: Script
   Value: |

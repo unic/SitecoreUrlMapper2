@@ -24,6 +24,12 @@ Redirects can be defined with Regex patterns, allowing you to be even more speci
 
 For example, if you would like to have a "wildcard" matching, you can define the term as `^mytest`, which will result in all of the following requests being a match: `https://mysite.com/test`, `https://mysite.com/testing`, `https://mysite.com/test-redirect`.
 
+### Regex Captures
+
+Capture groups can be defined when the regex feature has been enabled for a redirect. Capture groups can be used for example for transfering incoming query strings to the defined target.
+
+The following term definition matches incoming terms for `global-capture` and transfers all query strings to the target (if any have been provided): `^global-capture([?].*)?`
+
 ### Bulk Import
 
 A Sitecore PowerShell script is included allowing Authors to upload a CSV containing redirect definitions.

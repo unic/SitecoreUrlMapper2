@@ -1,0 +1,48 @@
+﻿---
+ID: "aa486fde-d8b3-4bf8-bddf-4a95f2254c1b"
+Parent: "a3e0a2e2-073c-4409-8cbe-26d01bc768a9"
+Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2020/03/19/08/04/local redirect 2"
+DB: master
+SharedFields:
+- ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
+  Hint: Regex enabled
+  Type: Checkbox
+  Value: 0
+Languages:
+- Language: "de-CH"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200319T080444Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
+      Hint: Target
+      Value: |
+        <link text="local redirect 2" title="local redirect 2" linktype="external" url="https://www.google.com/?q=local-redirect-two-de" />
+    - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
+      Hint: Source Term
+      Value: "local-redirect-two-de"
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200319T080444Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
+      Hint: Target
+      Value: |
+        <link text="local redirect 2" title="local redirect 2" linktype="external" url="https://www.google.com/?q=local-redirect-two-en" />
+    - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
+      Hint: Source Term
+      Value: "local-redirect-two-en"

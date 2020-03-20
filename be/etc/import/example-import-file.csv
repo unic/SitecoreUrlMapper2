@@ -16,3 +16,5 @@ site;local redirect 3;urlmapper-jss-app;urlmapper-jss-app;;;any;en;local-redirec
 site;local redirect 3;urlmapper-jss-app;urlmapper-jss-app;;;any;de-ch;local-redirect-three-de;/graphql/sample-2;
 
 site;local redirect to different site 1;integration-site;urlmapper-jss-app;;;any;de-ch;local-redirect-to-different-site-one-de;/graphql/sample-1;
+
+global;global capture 1;;;;x;any;en;^global-capture([?].*)?;https://www.google.com;Transfers all query strings to the target url;
