@@ -48,6 +48,10 @@
             public const string UseProtocolHeaderForJssProcessor = "UrlMapper2.UseProtocolHeaderForJssProcessor";
 
             public const string ProtocolHeaderForJssProcessor = "UrlMapper2.ProtocolHeaderForJssProcessor";
+
+            public const string UseOriginalUrlHeaderForJssProcessor = "UrlMapper2.UseOriginalUrlHeaderForJssProcessor";
+
+            public const string OriginalUrlHeaderForJssProcessor = "UrlMapper2.OriginalUrlHeaderForJssProcessor";
         }
     }
 }

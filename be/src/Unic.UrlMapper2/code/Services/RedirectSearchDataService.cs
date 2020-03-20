@@ -94,6 +94,26 @@
             if (httpContext is null) return default;
 
             var itemPath = httpContext.Request.QueryString["item"];
+
+            // https://github.com/Sitecore/jss/issues/140 describes an issue where query string parameters are proxied from the headless proxy
+            // to the LayoutService in the "item" parameter, causing 404s. If you have applied the suggested fix in your headless proxy, you will need to pass
+            // the originally requested relative url including query strings to Sitecore, as otherwise query strings would be lost and not considered
+            // by UrlMapper.
+            var headerName = this.GetToggleableSettings(
+                Constants.Settings.UseOriginalUrlHeaderForJssProcessor,
+                Constants.Settings.OriginalUrlHeaderForJssProcessor);
+
+            // ReSharper disable once InvertIf
+            if (!string.IsNullOrWhiteSpace(headerName))
+            {
+                // Prepare proper relative path including query strings for further processing if original URL has been passed in a header
+                var originalUrl = httpContext.Request.Headers[headerName];
+                if (!string.IsNullOrWhiteSpace(originalUrl))
+                {
+                    itemPath = originalUrl.Substring(originalUrl.IndexOf(itemPath, StringComparison.Ordinal));
+                }
+            }
+
             return string.IsNullOrWhiteSpace(itemPath)
                 ? default
                 : this.StripVirtualFolderPath(itemPath);
