@@ -58,7 +58,7 @@
                     return value;
                 }
 
-                this.logger.Warn($"Header {headerName} could not be found in the current request. Falling back to current request scheme", this);
+                this.logger.Debug($"Header {headerName} could not be found in the current request. Falling back to current request scheme", this);
             }
 
             // ... otherwise use the protocol provided from the HttpContext
@@ -78,7 +78,7 @@
                 if (!string.IsNullOrWhiteSpace(value)) return value;
             }
 
-            this.logger.Warn($"Header {headerName} could not be found in the current JSS request. Falling back to current request scheme", this);
+            this.logger.Debug($"Header {headerName} could not be found in the current JSS request. Falling back to current request scheme", this);
 
             // ... otherwise use the protocol provided from the HttpContext
             return httpContext.Request.Url?.Scheme;
