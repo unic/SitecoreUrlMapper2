@@ -99,7 +99,7 @@
         protected virtual Redirect GetRegexMatch(RedirectSearchData redirectSearchData, IEnumerable<Redirect> enumerableRedirects)
         {
             var sourceTerm = redirectSearchData?.SourceTerm;
-            if (string.IsNullOrWhiteSpace(sourceTerm)) return null;
+            if (string.IsNullOrWhiteSpace(sourceTerm)) return default;
 
             // We are going to take the one regex redirect which has the longest match within the term
             var regexMatches = enumerableRedirects.Where(r => r.RegexEnabled && Regex.IsMatch(input: sourceTerm, pattern: r.Term));

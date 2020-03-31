@@ -37,11 +37,11 @@
             var pathAndQuery = args?.RequestUrl?.PathAndQuery;
             if (string.IsNullOrWhiteSpace(pathAndQuery))
             {
-                return null;
+                return default;
             }
 
             var startIndex = pathAndQuery.LastIndexOf(args.LocalPath, StringComparison.InvariantCultureIgnoreCase);
-            return startIndex < 0 ? null : args.RequestUrl.PathAndQuery.Substring(startIndex);
+            return startIndex < 0 ? default : args.RequestUrl.PathAndQuery.Substring(startIndex);
         }
 
         public virtual RedirectSearchData GetJssRedirectSearchData(HttpContextBase httpContext) =>
