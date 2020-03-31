@@ -32,8 +32,17 @@
                 siteName: this.context.Site?.Name?.ToLower(),
                 sourceProtocol: this.GetSourceProtocolForDefaultRedirectSearchData(args));
 
-        protected virtual string GetSourceTermForDefaultRedirectSearchData(HttpRequestArgs args) =>
-            args.RequestUrl.PathAndQuery.Substring(args.RequestUrl.PathAndQuery.LastIndexOf(args.LocalPath, StringComparison.InvariantCultureIgnoreCase));
+        protected virtual string GetSourceTermForDefaultRedirectSearchData(HttpRequestArgs args)
+        {
+            var pathAndQuery = args?.RequestUrl?.PathAndQuery;
+            if (string.IsNullOrWhiteSpace(pathAndQuery))
+            {
+                return null;
+            }
+
+            var startIndex = pathAndQuery.LastIndexOf(args.LocalPath, StringComparison.InvariantCultureIgnoreCase);
+            return startIndex < 0 ? null : args.RequestUrl.PathAndQuery.Substring(startIndex);
+        }
 
         public virtual RedirectSearchData GetJssRedirectSearchData(HttpContextBase httpContext) =>
             new RedirectSearchData(
