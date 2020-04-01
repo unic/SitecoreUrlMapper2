@@ -117,13 +117,19 @@
             }
 
             var redirectItem = this.GetRedirectItem(redirect);
-            if (redirectItem == null)
+            if (redirectItem is null)
             {
                 this.logger.Error($"Failed to perform redirect. Item with ID {redirect.ItemId} could not be found", this);
                 return;
             }
 
             var targetUrl = this.GetTargetUrl(redirectItem, additionalTargetData);
+            if (string.IsNullOrWhiteSpace(targetUrl))
+            {
+                this.logger.Error($"Failed to determine target url for redirect item {redirectItem.ID}", this);
+                return;
+            }
+
             this.logger.Debug($"Performing {redirect.RedirectType} redirect to {targetUrl}", this);
 
             switch (redirect.RedirectType)
@@ -152,7 +158,10 @@
             switch (linkField.LinkType)
             {
                 case "internal":
-                    targetUrl = this.linkManager.GetItemUrl(linkField.TargetItem, this.GetUrlOptions());
+                    var internalTargetItem = linkField.TargetItem;
+                    if (internalTargetItem is null) return default;
+
+                    targetUrl = this.linkManager.GetItemUrl(internalTargetItem, this.GetUrlOptions());
                     break;
                 case "external":
                 case "mailto":
@@ -161,7 +170,10 @@
                     targetUrl = linkField.Url;
                     break;
                 case "media":
-                    var media = new MediaItem(linkField.TargetItem);
+                    var mediaTargetItem = linkField.TargetItem;
+                    if (mediaTargetItem is null) return default;
+
+                    var media = new MediaItem(mediaTargetItem);
                     targetUrl = Sitecore.StringUtil.EnsurePrefix('/', this.mediaManager.GetMediaUrl(media));
                     break;
                 case "":
