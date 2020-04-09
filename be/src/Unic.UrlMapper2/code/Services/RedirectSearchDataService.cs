@@ -117,9 +117,16 @@
             {
                 // Prepare proper relative path including query strings for further processing if original URL has been passed in a header
                 var originalUrl = httpContext.Request.Headers[headerName];
+
+                // ReSharper disable once InvertIf
                 if (!string.IsNullOrWhiteSpace(originalUrl))
                 {
-                    itemPath = originalUrl.Substring(originalUrl.IndexOf(itemPath, StringComparison.Ordinal));
+                    originalUrl = HttpUtility.UrlDecode(originalUrl);
+                    var startIndex = originalUrl.IndexOf(itemPath, StringComparison.Ordinal);
+                    if (startIndex >= 0)
+                    {
+                        itemPath = originalUrl.Substring(startIndex);
+                    }
                 }
             }
 
