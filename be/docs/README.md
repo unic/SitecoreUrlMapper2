@@ -143,7 +143,9 @@ The development environments ships with some pre-defined redirects you can use f
 
 ## Creating a release
 
-When you have made changes to the module and you want to disitribute those, there is a handy Sitecore PowerShell script you can use to generate the installation packages. The script can be found here: `/sitecore/system/Modules/PowerShell/Script Library/UrlMapper2/Development/Generate-DistributionPackage`
+Don't forget to update the `AssemblyVersion` and `AssemblyFileVersion` in `AssemblyInfo.cs` to reflect the current release number and trigger a build so the updated assemblies are used for the installation package.
+
+When you have made changes to the module and you want to disitribute those, there is a handy Sitecore PowerShell script you can use to generate the installation packages. The script can be found here: `/sitecore/system/Modules/PowerShell/Script Library/UrlMapper2/Development/Generate-DistributionPackage`. Don't forget to set the proper version in the `$version` variable.
 
 Once you execute this script, it will prompt you to download two separate files: One for the CM and one for the CD instance.
 
