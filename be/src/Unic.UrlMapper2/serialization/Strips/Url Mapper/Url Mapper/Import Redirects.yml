@@ -1,0 +1,25 @@
+﻿---
+ID: "51c21c2a-1a04-480d-9910-ad31c5ff9e88"
+Parent: "7bf03a3d-a717-40a7-9688-74f39d01a49e"
+Template: "3619f992-4177-4124-89dd-dabfc2baf6bb"
+Path: /sitecore/content/Applications/Content Editor/Ribbons/Strips/Url Mapper/Url Mapper/Import Redirects
+DB: core
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "c78d9b41-ffeb-402d-93e8-e1270d8bb787"
+  Hint: Type
+  Value: Spe.Client.Controls.ContentEditorRibbonPanel,Spe
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200319T075429Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
