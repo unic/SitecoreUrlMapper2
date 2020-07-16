@@ -2,7 +2,7 @@ trigger:
   branches:
     include:
       - feature/*
-      - master
+      - main
       - develop
       - release/*
       - hotfix/*
