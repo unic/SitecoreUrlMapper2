@@ -4,6 +4,8 @@
     {
         public string SourceTerm { get; set;  }
 
+        public string SourceTermOriginal { get; set;  }
+
         public string Language { get; set;  }
 
         public string SiteName { get; set;  }
@@ -12,11 +14,13 @@
 
         public RedirectSearchData(
             string sourceTerm,
+            string sourceTermOriginal,
             string language,
             string siteName,
             string sourceProtocol)
         {
             this.SourceTerm = sourceTerm;
+            this.SourceTermOriginal = sourceTermOriginal;
             this.Language = language;
             this.SiteName = siteName;
             this.SourceProtocol = sourceProtocol;

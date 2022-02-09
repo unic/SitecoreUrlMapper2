@@ -28,6 +28,7 @@
         public virtual RedirectSearchData GetDefaultRedirectSearchData(HttpRequestArgs args) =>
             new RedirectSearchData(
                 sourceTerm: this.GetSourceTermForDefaultRedirectSearchData(args),
+                sourceTermOriginal: this.GetSourceTermForDefaultRedirectSearchData(args),
                 language: this.context.Language?.Name,
                 siteName: this.context.Site?.Name?.ToLower(),
                 sourceProtocol: this.GetSourceProtocolForDefaultRedirectSearchData(args));
@@ -47,6 +48,7 @@
         public virtual RedirectSearchData GetJssRedirectSearchData(HttpContextBase httpContext) =>
             new RedirectSearchData(
                 sourceTerm: this.GetSourceTermForJssRedirectSearchData(httpContext),
+                sourceTermOriginal: this.GetSourceTermForJssRedirectSearchData(httpContext),
                 language: this.context.Language?.Name,
                 siteName: this.context.Site?.Name,
                 sourceProtocol: this.GetSourceProtocolForJssRedirectSearchData(httpContext));

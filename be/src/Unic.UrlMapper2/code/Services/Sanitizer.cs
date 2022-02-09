@@ -7,7 +7,8 @@
     {
         public virtual void SanitizeRedirectSearchData(RedirectSearchData redirectSearchData)
         {
-            redirectSearchData.SourceTerm = this.SanitizeTerm(redirectSearchData.SourceTerm);
+            redirectSearchData.SourceTerm = this.SanitizeTerm(redirectSearchData.SourceTerm)?.ToLower();
+            redirectSearchData.SourceTermOriginal = this.SanitizeTerm(redirectSearchData.SourceTermOriginal);
             redirectSearchData.SiteName = this.SanitizeSiteName(redirectSearchData.SiteName);
             redirectSearchData.SourceProtocol = this.SanitizeProtocol(redirectSearchData.SourceProtocol);
         }
@@ -16,7 +17,7 @@
         {
             if (string.IsNullOrWhiteSpace(value)) return default;
 
-            value = value.Trim().ToLower();
+            value = value.Trim();
 
             value = StringUtil.RemovePrefix('/', value);
             value = StringUtil.RemovePostfix('/', value);

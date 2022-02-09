@@ -51,16 +51,16 @@
             var redirect = this.FilterRedirects(redirects, redirectSearchData);
             if (redirect is null) return;
 
-            var additionalTargetData = this.GetAdditionalTargetUrlData(redirectSearchData, redirect);
+            var additionalTargetData = this.GetAdditionalTargetUrlData(redirectSearchData.SourceTermOriginal, redirect);
 
             this.PerformRedirect(redirect, httpContext, additionalTargetData);
         }
 
-        protected virtual string GetAdditionalTargetUrlData(RedirectSearchData redirectSearchData, Redirect redirect)
+        protected virtual string GetAdditionalTargetUrlData(string sourceTerm, Redirect redirect)
         {
             if (!redirect.RegexEnabled) return default;
 
-            var match = Regex.Match(redirectSearchData.SourceTerm, redirect.Term);
+            var match = Regex.Match(sourceTerm, redirect.Term, RegexOptions.IgnoreCase);
             if (match.Groups.Count <= 1) return default;
 
             string additionalTargetData = null;
