@@ -25,13 +25,17 @@
             this.logger = logger;
         }
 
-        public virtual RedirectSearchData GetDefaultRedirectSearchData(HttpRequestArgs args) =>
-            new RedirectSearchData(
-                sourceTerm: this.GetSourceTermForDefaultRedirectSearchData(args),
-                sourceTermOriginal: this.GetSourceTermForDefaultRedirectSearchData(args),
+        public virtual RedirectSearchData GetDefaultRedirectSearchData(HttpRequestArgs args)
+        {
+            var sourceTerm = this.GetSourceTermForDefaultRedirectSearchData(args);
+
+            return new RedirectSearchData(
+                sourceTerm: sourceTerm,
+                sourceTermOriginal: sourceTerm,
                 language: this.context.Language?.Name,
                 siteName: this.context.Site?.Name?.ToLower(),
                 sourceProtocol: this.GetSourceProtocolForDefaultRedirectSearchData(args));
+        }
 
         protected virtual string GetSourceTermForDefaultRedirectSearchData(HttpRequestArgs args)
         {
