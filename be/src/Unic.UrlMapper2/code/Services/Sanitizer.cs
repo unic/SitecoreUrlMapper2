@@ -7,13 +7,13 @@
     {
         public virtual void SanitizeRedirectSearchData(RedirectSearchData redirectSearchData)
         {
-            redirectSearchData.SourceTerm = this.SanitizeTerm(redirectSearchData.SourceTerm)?.ToLower();
-            redirectSearchData.SourceTermOriginal = this.SanitizeTerm(redirectSearchData.SourceTermOriginal);
+            redirectSearchData.SourceTerm = this.SanitizeTerm(redirectSearchData.SourceTerm);
+            redirectSearchData.SourceTermOriginal = this.SanitizeTerm(redirectSearchData.SourceTermOriginal, false);
             redirectSearchData.SiteName = this.SanitizeSiteName(redirectSearchData.SiteName);
             redirectSearchData.SourceProtocol = this.SanitizeProtocol(redirectSearchData.SourceProtocol);
         }
 
-        public virtual string SanitizeTerm(string value)
+        public virtual string SanitizeTerm(string value, bool withToLower = true)
         {
             if (string.IsNullOrWhiteSpace(value)) return default;
 
@@ -22,7 +22,7 @@
             value = StringUtil.RemovePrefix('/', value);
             value = StringUtil.RemovePostfix('/', value);
 
-            return value;
+            return withToLower ? value.ToLower() : value;
         }
 
         public virtual string SanitizeSiteName(string value) => value?.Trim().ToLower();
