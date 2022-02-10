@@ -23,7 +23,7 @@ jobs:
           runtime: "full"
           additionalArguments: "/updateassemblyinfo"
           useConfigFile: true
-          configFilePath: 'GitVersion.yml'
+          configFilePath: 'be/GitVersion.yml'
 
       # Install NuGet Tools
       - task: NuGetToolInstaller@1
