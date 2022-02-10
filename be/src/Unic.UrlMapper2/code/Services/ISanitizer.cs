@@ -6,7 +6,7 @@
     {
         void SanitizeRedirectSearchData(RedirectSearchData redirectSearchData);
 
-        string SanitizeTerm(string value, bool withToLower = true);
+        string SanitizeTerm(string value, bool convertToLower = true);
 
         string SanitizeSiteName(string value);
 

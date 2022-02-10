@@ -13,7 +13,7 @@
             redirectSearchData.SourceProtocol = this.SanitizeProtocol(redirectSearchData.SourceProtocol);
         }
 
-        public virtual string SanitizeTerm(string value, bool withToLower = true)
+        public virtual string SanitizeTerm(string value, bool convertToLower = true)
         {
             if (string.IsNullOrWhiteSpace(value)) return default;
 
@@ -22,7 +22,7 @@
             value = StringUtil.RemovePrefix('/', value);
             value = StringUtil.RemovePostfix('/', value);
 
-            return withToLower ? value.ToLower() : value;
+            return convertToLower ? value.ToLower() : value;
         }
 
         public virtual string SanitizeSiteName(string value) => value?.Trim().ToLower();
