@@ -49,13 +49,17 @@
             return startIndex < 0 ? default : args.RequestUrl.PathAndQuery.Substring(startIndex);
         }
 
-        public virtual RedirectSearchData GetJssRedirectSearchData(HttpContextBase httpContext) =>
-            new RedirectSearchData(
-                sourceTerm: this.GetSourceTermForJssRedirectSearchData(httpContext),
-                sourceTermOriginal: this.GetSourceTermForJssRedirectSearchData(httpContext),
+        public virtual RedirectSearchData GetJssRedirectSearchData(HttpContextBase httpContext)
+        {
+            var sourceTerm = this.GetSourceTermForJssRedirectSearchData(httpContext);
+
+            return new RedirectSearchData(
+                sourceTerm: sourceTerm,
+                sourceTermOriginal: sourceTerm,
                 language: this.context.Language?.Name,
                 siteName: this.context.Site?.Name,
                 sourceProtocol: this.GetSourceProtocolForJssRedirectSearchData(httpContext));
+        }
 
         protected virtual string GetSourceProtocolForDefaultRedirectSearchData(HttpRequestArgs args)
         {
