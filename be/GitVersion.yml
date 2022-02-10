@@ -1,4 +1,27 @@
-mode: ContinuousDelivery
-branches: {}
-ignore:
-  sha: []
+assembly-versioning-scheme: MajorMinorPatch
+mode: mainline
+continuous-delivery-fallback-tag: ''
+tag-prefix: '[vV]'
+major-version-bump-message: '\+semver:\s?(dotnotuse)'
+minor-version-bump-message: '\+semver:\s?(breaking|major)'
+patch-version-bump-message: '\+semver:\s?(feature|minor)'
+no-bump-message: '\+semver:\s?(none|skip)'
+branches:
+  main:
+    tag: ''
+    increment: Patch
+    prevent-increment-of-merged-branch-version: true
+    regex: ^main$
+    is-release-branch: true
+    is-mainline: true
+  feature:
+    tag: ft
+    tag-number-pattern: '[/-](?<number>\d+)[-/]'
+    increment: Inherit
+    source-branches:
+    - main
+    is-mainline: false
+  pull-request:
+    tag: pull
+    tag-number-pattern: '[/-](?<number>\d+)[-/]'
+merge-message-formats: {}

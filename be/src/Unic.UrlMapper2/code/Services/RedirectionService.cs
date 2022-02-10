@@ -60,7 +60,7 @@
         {
             if (!redirect.RegexEnabled) return default;
 
-            var match = Regex.Match(redirectSearchData.SourceTerm, redirect.Term);
+            var match = Regex.Match(redirectSearchData.SourceTermOriginal, redirect.Term, RegexOptions.IgnoreCase);
             if (match.Groups.Count <= 1) return default;
 
             string additionalTargetData = null;
