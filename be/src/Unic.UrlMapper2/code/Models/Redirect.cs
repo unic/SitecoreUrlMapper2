@@ -15,5 +15,7 @@
         public string Term { get; set; }
 
         public ID ItemId { get; set; }
+
+        public bool IgnoreQueryString { get; set; }
     }
 }
