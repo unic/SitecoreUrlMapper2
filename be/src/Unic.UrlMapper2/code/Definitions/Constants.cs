@@ -24,6 +24,8 @@
                 public const string SourceProtocol = "Source Protocol";
 
                 public const string RegexEnabled = "Regex enabled";
+
+                public const string IgnoreQueryString = "Ignore Query String";
             }
 
             public struct Specification
@@ -52,6 +54,11 @@
             public const string UseOriginalUrlHeaderForJssProcessor = "UrlMapper2.UseOriginalUrlHeaderForJssProcessor";
 
             public const string OriginalUrlHeaderForJssProcessor = "UrlMapper2.OriginalUrlHeaderForJssProcessor";
+        }
+
+        public struct RegexExpressions
+        {
+            public const string IgnoreQueryStringExpression = "([?].*)?";
         }
     }
 }

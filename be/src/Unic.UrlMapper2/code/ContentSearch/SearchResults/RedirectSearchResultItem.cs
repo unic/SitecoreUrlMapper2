@@ -48,5 +48,9 @@
         [IndexField("urlmapper_regex_enabled")]
         [DataMember]
         public virtual bool RegexEnabled { get; set; }
+
+        [IndexField("urlmapper_ignore_query_string")]
+        [DataMember]
+        public virtual bool IgnoreQueryString { get; set; }
     }
 }

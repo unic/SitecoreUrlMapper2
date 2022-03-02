@@ -63,15 +63,25 @@
                 this.logger.Error($"Failed to parse source protocol {redirectSearchResultItem.SourceProtocol}", this);
             }
 
-            return new Redirect
+            var redirect = new Redirect
             {
                 RedirectSearchData = redirectSearchData,
                 ItemId = redirectSearchResultItem.ItemId,
                 RedirectType = redirectType,
                 SourceProtocol = sourceProtocol,
                 RegexEnabled = redirectSearchResultItem.RegexEnabled,
+                IgnoreQueryString = redirectSearchResultItem.IgnoreQueryString,
                 Term = redirectSearchResultItem.SourceTerm
             };
+
+            if (!redirect.IgnoreQueryString) return redirect;
+
+            redirect.RegexEnabled = true;
+            if (!redirectSearchResultItem.SourceTerm.EndsWith(Constants.RegexExpressions.IgnoreQueryStringExpression))
+            {
+                redirect.Term = redirectSearchResultItem.SourceTerm + Constants.RegexExpressions.IgnoreQueryStringExpression;
+            }
+            return redirect;
         }
 
         protected virtual IQueryable<RedirectSearchResultItem> GetSearchQuery(IProviderSearchContext searchContext, RedirectSearchData redirectSearchData)
@@ -108,7 +118,7 @@
             // r.RegexEnabled && redirectSearchData.SourceTerm.Match(r.SourceTerm)
             // However, this seems to generate some really weird SolR queries, resulting in no matches.
             // Therefore we have to load all entries being a regex enabled redirect and then do the filtering in memory.
-            return r => !r.RegexEnabled && r.SourceTerm == redirectSearchData.SourceTerm || r.RegexEnabled;
+            return r => (!r.RegexEnabled && !r.IgnoreQueryString && r.SourceTerm == redirectSearchData.SourceTerm) || r.RegexEnabled || r.IgnoreQueryString;
         }
 
         protected virtual string GetIndexName() => this.settings.GetSetting(Constants.Settings.ActiveIndex);
