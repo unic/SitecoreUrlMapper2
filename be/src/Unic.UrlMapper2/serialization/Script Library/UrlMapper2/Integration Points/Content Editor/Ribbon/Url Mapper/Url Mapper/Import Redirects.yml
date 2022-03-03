@@ -148,6 +148,7 @@ SharedFields:
                 $languageVersion["Source Term"] = $itemInfo.Term
                 $languageVersion["Description"] = $itemInfo.Description
                 $languageVersion["Regex enabled"] = If ($itemInfo.Regex.ToLower() -eq "x") { 1 } Else { 0 }
+                $languageVersion["Ignore Query String"] = If ($itemInfo.QueryString.ToLower() -eq "x") { 1 } Else { 0 }
                 
                 # Set target (general link) field
                 [Sitecore.Data.Fields.LinkField]$targetField = $languageVersion.Fields['Target']
