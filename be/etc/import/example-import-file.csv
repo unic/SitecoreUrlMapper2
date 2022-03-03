@@ -1,4 +1,4 @@
-﻿Type;Name;Site;TargetSite;Permanent;Regex;Protocol;LanguageCode;Term;Target;Description;QueryString
+﻿Type;Name;Site;TargetSite;Permanent;Regex;Protocol;LanguageCode;Term;Target;Description;PreserveQueryString
 
 global;global redirect 1;;;;;any;en;global-redirect-one-en;https://www.google.com/?q=global-redirect-one-en;;
 global;global redirect 1;;;;;any;de-ch;global-redirect-one-de;https://www.google.com/?q=global-redirect-one-de;;

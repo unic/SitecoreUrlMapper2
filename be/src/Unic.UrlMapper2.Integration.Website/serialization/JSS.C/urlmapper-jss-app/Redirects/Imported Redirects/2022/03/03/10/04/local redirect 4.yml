@@ -1,18 +1,18 @@
 ﻿---
-ID: "1697848c-94b9-4138-ba01-3eca394d1825"
-Parent: "4af4a443-5407-43d2-9005-1492a9fafa55"
+ID: "0f5e7ed8-680c-479a-b717-a9347954c943"
+Parent: "ef90082f-4684-4b6d-8fc4-87be3d6bcbf6"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2022/03/03/08/56/local redirect 2"
+Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2022/03/03/10/04/local redirect 4"
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
   Hint: Regex enabled
   Type: Checkbox
-  Value: 0
+  Value: 1
 - ID: "a9d3d444-c009-4c90-b1a2-f8c25d28d084"
-  Hint: Ignore Query String
+  Hint: Preserve Query String
   Type: Checkbox
-  Value: 0
+  Value: 1
 Languages:
 - Language: "de-CH"
   Versions:
@@ -20,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220303T085610Z
+      Value: 20220303T100432Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -28,17 +28,17 @@ Languages:
     - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
       Hint: Target
       Value: |
-        <link text="local redirect 2" title="local redirect 2" linktype="external" url="https://www.google.com/?q=local-redirect-two-de" />
+        <link text="local redirect 4" title="local redirect 4" linktype="internal" id="{E5EC8117-BE5A-5A46-96A5-5EF69E3CFA98}" />
     - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
       Hint: Source Term
-      Value: "local-redirect-two-de"
+      Value: "local-redirect-four-de"
 - Language: en
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220303T085610Z
+      Value: 20220303T100432Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -46,7 +46,7 @@ Languages:
     - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
       Hint: Target
       Value: |
-        <link text="local redirect 2" title="local redirect 2" linktype="external" url="https://www.google.com/?q=local-redirect-two-en" />
+        <link text="local redirect 4" title="local redirect 4" linktype="internal" id="{C8831E8A-BD6F-5034-8FB5-9B2D3DCED70A}" />
     - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
       Hint: Source Term
-      Value: "local-redirect-two-en"
+      Value: "local-redirect-four-en"

@@ -5,11 +5,11 @@
     using Constants = Definitions.Constants;
 
     [Sitecore.Annotations.UsedImplicitly]
-    public class IgnoreQueryStringComputedField : UrlMapperComputedFieldBase
+    public class PreserveQueryStringComputedField : UrlMapperComputedFieldBase
     {
         protected override object Compute(IIndexable indexable)
         {
-            var value = indexable?.GetFieldByName(Constants.Fields.Redirect.IgnoreQueryString)?.Value;
+            var value = indexable?.GetFieldByName(Constants.Fields.Redirect.PreserveQueryString)?.Value;
             
             return MainUtil.GetBool(value, false);
         }

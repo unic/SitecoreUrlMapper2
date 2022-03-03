@@ -16,6 +16,6 @@
 
         public ID ItemId { get; set; }
 
-        public bool IgnoreQueryString { get; set; }
+        public bool PreserveQueryString { get; set; }
     }
 }

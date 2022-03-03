@@ -1,8 +1,8 @@
 ﻿---
-ID: "b26b042e-bb9b-46b0-8c9e-29448b164d7a"
-Parent: "812ce06d-d3ed-4367-96b2-aae22b55b7b7"
+ID: "7df3a685-fe22-4749-8f70-dd9fe52f432c"
+Parent: "883fc40a-259a-494a-a948-ad34b45b7957"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: /sitecore/content/Redirects/Imported Redirects/2022/03/03/08/56/global capture 1
+Path: /sitecore/content/Redirects/Imported Redirects/2022/03/03/10/04/global capture 1
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
@@ -10,7 +10,7 @@ SharedFields:
   Type: Checkbox
   Value: 1
 - ID: "a9d3d444-c009-4c90-b1a2-f8c25d28d084"
-  Hint: Ignore Query String
+  Hint: Preserve Query String
   Type: Checkbox
   Value: 0
 Languages:
@@ -20,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220303T085611Z
+      Value: 20220303T100432Z
     - ID: "51a833be-0259-46cb-ac5f-7fc9fbacd6ef"
       Hint: Description
       Value: Transfers all query strings to the target url

@@ -49,8 +49,8 @@
         [DataMember]
         public virtual bool RegexEnabled { get; set; }
 
-        [IndexField("urlmapper_ignore_query_string")]
+        [IndexField("urlmapper_preserve_query_string")]
         [DataMember]
-        public virtual bool IgnoreQueryString { get; set; }
+        public virtual bool PreserveQueryString { get; set; }
     }
 }

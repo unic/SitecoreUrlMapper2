@@ -2,7 +2,7 @@
 ID: "a9d3d444-c009-4c90-b1a2-f8c25d28d084"
 Parent: "aa0cf857-7540-4fca-830a-7370d9693d23"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Modules/UrlMapper2/Redirect/Redirect Configuration/Ignore Query String
+Path: /sitecore/templates/Modules/UrlMapper2/Redirect/Redirect Configuration/Preserve Query String
 DB: master
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"

@@ -25,7 +25,7 @@
 
                 public const string RegexEnabled = "Regex enabled";
 
-                public const string IgnoreQueryString = "Ignore Query String";
+                public const string PreserveQueryString = "Preserve Query String";
             }
 
             public struct Specification
@@ -58,7 +58,7 @@
 
         public struct RegexExpressions
         {
-            public const string IgnoreQueryStringExpression = "([?].*)?";
+            public const string QueryStringExpression = "([?].*)?";
         }
     }
 }

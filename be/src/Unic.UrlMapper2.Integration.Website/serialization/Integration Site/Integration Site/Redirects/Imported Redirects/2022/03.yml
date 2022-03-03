@@ -1,6 +1,6 @@
 ﻿---
-ID: "2174286a-f014-40e6-9a90-c59dd233f8b1"
-Parent: "861f15ca-d5b1-4b21-9c06-de97e14d89f8"
+ID: "7d884eb1-de06-4ce0-832b-d52518322531"
+Parent: "be213f9a-e475-43eb-a113-eb4246e401e5"
 Template: "adb6ca4f-03ef-4f47-b9ac-9ce2ba53ff97"
 Path: /sitecore/content/Integration Site/Redirects/Imported Redirects/2022/03
 DB: master
@@ -11,4 +11,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220303T085609Z
+      Value: 20220303T100431Z

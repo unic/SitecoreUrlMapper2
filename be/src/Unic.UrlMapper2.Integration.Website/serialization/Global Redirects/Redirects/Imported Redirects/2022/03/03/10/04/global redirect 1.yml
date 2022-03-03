@@ -1,16 +1,16 @@
 ﻿---
-ID: "ea057ea5-6e7e-40b2-880c-7d248bbfb123"
-Parent: "812ce06d-d3ed-4367-96b2-aae22b55b7b7"
+ID: "f300b2d1-29fd-447e-b0cc-649c67911c2d"
+Parent: "883fc40a-259a-494a-a948-ad34b45b7957"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: /sitecore/content/Redirects/Imported Redirects/2022/03/03/08/56/regex to internal
+Path: /sitecore/content/Redirects/Imported Redirects/2022/03/03/10/04/global redirect 1
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
   Hint: Regex enabled
   Type: Checkbox
-  Value: 1
+  Value: 0
 - ID: "a9d3d444-c009-4c90-b1a2-f8c25d28d084"
-  Hint: Ignore Query String
+  Hint: Preserve Query String
   Type: Checkbox
   Value: 0
 Languages:
@@ -20,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220303T085609Z
+      Value: 20220303T100431Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -28,17 +28,17 @@ Languages:
     - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
       Hint: Target
       Value: |
-        <link text="regex to internal" title="regex to internal" linktype="internal" id="{C83B74E8-0A16-4D0A-A1E7-CF3FBD3E44FB}" />
+        <link text="global redirect 1" title="global redirect 1" linktype="external" url="https://www.google.com/?q=global-redirect-one-de" />
     - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
       Hint: Source Term
-      Value: "^regex-to-internal-item"
+      Value: "global-redirect-one-de"
 - Language: en
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220303T085609Z
+      Value: 20220303T100431Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -46,7 +46,7 @@ Languages:
     - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
       Hint: Target
       Value: |
-        <link text="regex to internal" title="regex to internal" linktype="internal" id="{C83B74E8-0A16-4D0A-A1E7-CF3FBD3E44FB}" />
+        <link text="global redirect 1" title="global redirect 1" linktype="external" url="https://www.google.com/?q=global-redirect-one-en" />
     - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
       Hint: Source Term
-      Value: "^regex-to-internal-item"
+      Value: "global-redirect-one-en"

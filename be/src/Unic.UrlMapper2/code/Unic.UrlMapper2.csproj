@@ -61,7 +61,7 @@
   <ItemGroup>
     <Compile Include="Abstractions\UrlMapperContext.cs" />
     <Compile Include="Abstractions\IUrlMapperContext.cs" />
-    <Compile Include="ContentSearch\ComputedFields\IgnoreQueryStringComputedField.cs" />
+    <Compile Include="ContentSearch\ComputedFields\PreserveQueryStringComputedField.cs" />
     <Compile Include="ContentSearch\ComputedFields\UrlMapperComputedFieldBase.cs" />
     <Compile Include="ContentSearch\ComputedFields\SourceProtocolComputedField.cs" />
     <Compile Include="ContentSearch\ComputedFields\RedirectTypeComputedField.cs" />
