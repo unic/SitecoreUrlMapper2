@@ -1,8 +1,8 @@
 ﻿---
-ID: "7df3a685-fe22-4749-8f70-dd9fe52f432c"
-Parent: "883fc40a-259a-494a-a948-ad34b45b7957"
+ID: "aba08c80-14f1-4623-90e4-c2ad574c6559"
+Parent: "d5005fbe-c04c-4442-8dfe-154a87816d7f"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: /sitecore/content/Redirects/Imported Redirects/2022/03/03/10/04/global capture 1
+Path: /sitecore/content/Redirects/Imported Redirects/2022/03/03/11/21/global capture 1
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
@@ -20,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220303T100432Z
+      Value: 20220303T112127Z
     - ID: "51a833be-0259-46cb-ac5f-7fc9fbacd6ef"
       Hint: Description
       Value: Transfers all query strings to the target url

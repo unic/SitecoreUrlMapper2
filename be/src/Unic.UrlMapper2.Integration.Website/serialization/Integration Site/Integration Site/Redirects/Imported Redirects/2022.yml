@@ -1,5 +1,5 @@
 ﻿---
-ID: "be213f9a-e475-43eb-a113-eb4246e401e5"
+ID: "5b1443d6-97cd-4e7b-b2d7-781b48161f06"
 Parent: "5c604662-608f-4f3b-a6f9-6323b8b6533a"
 Template: "adb6ca4f-03ef-4f47-b9ac-9ce2ba53ff97"
 Path: /sitecore/content/Integration Site/Redirects/Imported Redirects/2022
@@ -11,4 +11,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220303T100431Z
+      Value: 20220303T112127Z

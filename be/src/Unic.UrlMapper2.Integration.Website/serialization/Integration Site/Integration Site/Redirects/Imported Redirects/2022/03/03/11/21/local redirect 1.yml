@@ -1,8 +1,8 @@
 ﻿---
-ID: "f300b2d1-29fd-447e-b0cc-649c67911c2d"
-Parent: "883fc40a-259a-494a-a948-ad34b45b7957"
+ID: "98e964b9-01a8-4346-90fd-bb05d52a1b73"
+Parent: "f94984c9-754a-4351-85ea-b2a5a7d57ad4"
 Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
-Path: /sitecore/content/Redirects/Imported Redirects/2022/03/03/10/04/global redirect 1
+Path: /sitecore/content/Integration Site/Redirects/Imported Redirects/2022/03/03/11/21/local redirect 1
 DB: master
 SharedFields:
 - ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
@@ -20,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220303T100431Z
+      Value: 20220303T112127Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -28,17 +28,17 @@ Languages:
     - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
       Hint: Target
       Value: |
-        <link text="global redirect 1" title="global redirect 1" linktype="external" url="https://www.google.com/?q=global-redirect-one-de" />
+        <link text="local redirect 1" title="local redirect 1" linktype="external" url="https://www.google.com/?q=local-redirect-one-de" />
     - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
       Hint: Source Term
-      Value: "global-redirect-one-de"
+      Value: "local-redirect-one-de"
 - Language: en
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220303T100431Z
+      Value: 20220303T112127Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -46,7 +46,7 @@ Languages:
     - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
       Hint: Target
       Value: |
-        <link text="global redirect 1" title="global redirect 1" linktype="external" url="https://www.google.com/?q=global-redirect-one-en" />
+        <link text="local redirect 1" title="local redirect 1" linktype="external" url="https://www.google.com/?q=local-redirect-one-en" />
     - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
       Hint: Source Term
-      Value: "global-redirect-one-en"
+      Value: "local-redirect-one-en"

@@ -74,14 +74,19 @@
                 Term = redirectSearchResultItem.SourceTerm
             };
 
-            if (!redirect.PreserveQueryString) return redirect;
+            this.HandlePreserveQueryString(redirect, redirectSearchResultItem);
+            return redirect;
+        }
+
+        protected virtual void HandlePreserveQueryString(Redirect redirect, RedirectSearchResultItem redirectSearchResultItem)
+        {
+            if (!redirect.PreserveQueryString) return;
 
             redirect.RegexEnabled = true;
             if (!redirectSearchResultItem.SourceTerm.EndsWith(Constants.RegexExpressions.QueryStringExpression))
             {
                 redirect.Term = redirectSearchResultItem.SourceTerm + Constants.RegexExpressions.QueryStringExpression;
             }
-            return redirect;
         }
 
         protected virtual IQueryable<RedirectSearchResultItem> GetSearchQuery(IProviderSearchContext searchContext, RedirectSearchData redirectSearchData)
