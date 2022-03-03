@@ -1,0 +1,37 @@
+﻿---
+ID: "b26b042e-bb9b-46b0-8c9e-29448b164d7a"
+Parent: "812ce06d-d3ed-4367-96b2-aae22b55b7b7"
+Template: "91b6672e-51a2-48db-9a17-d9e8744ee490"
+Path: /sitecore/content/Redirects/Imported Redirects/2022/03/03/08/56/global capture 1
+DB: master
+SharedFields:
+- ID: "a21daddf-e5b1-4134-b236-9515d9153ef6"
+  Hint: Regex enabled
+  Type: Checkbox
+  Value: 1
+- ID: "a9d3d444-c009-4c90-b1a2-f8c25d28d084"
+  Hint: Ignore Query String
+  Type: Checkbox
+  Value: 0
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220303T085611Z
+    - ID: "51a833be-0259-46cb-ac5f-7fc9fbacd6ef"
+      Hint: Description
+      Value: Transfers all query strings to the target url
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "b64e1624-9590-4cad-b3b6-802f4c794086"
+      Hint: Target
+      Value: |
+        <link text="global capture 1" title="global capture 1" linktype="external" url="https://www.google.com" />
+    - ID: "bf458d1e-59c8-4661-9ad0-67a95cb85785"
+      Hint: Source Term
+      Value: "^global-capture([?].*)?"
