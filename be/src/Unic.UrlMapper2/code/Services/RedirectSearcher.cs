@@ -83,9 +83,9 @@
             if (!redirect.PreserveQueryString) return;
 
             redirect.RegexEnabled = true;
-            if (!redirectSearchResultItem.SourceTerm.EndsWith(Constants.RegexExpressions.QueryStringExpression))
+            if (!redirectSearchResultItem.SourceTerm.EndsWith(Constants.RegularExpressions.QueryStringExpression))
             {
-                redirect.Term = redirectSearchResultItem.SourceTerm + Constants.RegexExpressions.QueryStringExpression;
+                redirect.Term = redirectSearchResultItem.SourceTerm + Constants.RegularExpressions.QueryStringExpression;
             }
         }
 

@@ -56,7 +56,7 @@
             public const string OriginalUrlHeaderForJssProcessor = "UrlMapper2.OriginalUrlHeaderForJssProcessor";
         }
 
-        public struct RegexExpressions
+        public struct RegularExpressions
         {
             public const string QueryStringExpression = "([?].*)?";
         }

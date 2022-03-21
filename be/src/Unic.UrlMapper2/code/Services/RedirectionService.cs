@@ -102,7 +102,7 @@
             if (string.IsNullOrWhiteSpace(sourceTerm)) return default;
 
             // We are going to take the one regex redirect which has the longest match within the term
-            var regexMatches = enumerableRedirects.Where(r => (r.RegexEnabled) && Regex.IsMatch(input: sourceTerm, pattern: r.Term));
+            var regexMatches = enumerableRedirects.Where(r => r.RegexEnabled && Regex.IsMatch(input: sourceTerm, pattern: r.Term));
             var regexMatch = regexMatches.OrderByDescending(r => r.Term.Length).FirstOrDefault();
 
             return regexMatch;
