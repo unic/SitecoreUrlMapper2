@@ -1,20 +1,21 @@
-Type;Name;Site;TargetSite;Permanent;Regex;Protocol;LanguageCode;Term;Target;Description
+﻿Type;Name;Site;TargetSite;Permanent;Regex;Protocol;LanguageCode;Term;Target;Description;PreserveQueryString
 
-global;global redirect 1;;;;;any;en;global-redirect-one-en;https://www.google.com/?q=global-redirect-one-en;
-global;global redirect 1;;;;;any;de-ch;global-redirect-one-de;https://www.google.com/?q=global-redirect-one-de;
+global;global redirect 1;;;;;any;en;global-redirect-one-en;https://www.google.com/?q=global-redirect-one-en;;
+global;global redirect 1;;;;;any;de-ch;global-redirect-one-de;https://www.google.com/?q=global-redirect-one-de;;
 
-global;regex to internal;integration-site;integration-site;;x;any;en;^regex-to-internal-item;/sample item en/sub sample item en;
-global;regex to internal;integration-site;integration-site;;x;any;de-ch;^regex-to-internal-item;/sample item de/sub sample item de;
+global;regex to internal;integration-site;integration-site;;x;any;en;^regex-to-internal-item;/sample item en/sub sample item en;;
+global;regex to internal;integration-site;integration-site;;x;any;de-ch;^regex-to-internal-item;/sample item de/sub sample item de;;
 
-site;local redirect 1;integration-site;integration-site;;;any;en;local-redirect-one-en;https://www.google.com/?q=local-redirect-one-en;
-site;local redirect 1;integration-site;integration-site;;;any;de-ch;local-redirect-one-de;https://www.google.com/?q=local-redirect-one-de;
+site;local redirect 1;integration-site;integration-site;;;any;en;local-redirect-one-en;https://www.google.com/?q=local-redirect-one-en;;
+site;local redirect 1;integration-site;integration-site;;;any;de-ch;local-redirect-one-de;https://www.google.com/?q=local-redirect-one-de;;
 
-site;local redirect 2;urlmapper-jss-app;;;;any;en;local-redirect-two-en;https://www.google.com/?q=local-redirect-two-en;
-site;local redirect 2;urlmapper-jss-app;;;;any;de-ch;local-redirect-two-de;https://www.google.com/?q=local-redirect-two-de;
+site;local redirect 2;urlmapper-jss-app;;;;any;en;local-redirect-two-en;https://www.google.com/?q=local-redirect-two-en;;
+site;local redirect 2;urlmapper-jss-app;;;;any;de-ch;local-redirect-two-de;https://www.google.com/?q=local-redirect-two-de;;
 
-site;local redirect 3;urlmapper-jss-app;urlmapper-jss-app;;;any;en;local-redirect-three-en;/graphql/sample-1;
-site;local redirect 3;urlmapper-jss-app;urlmapper-jss-app;;;any;de-ch;local-redirect-three-de;/graphql/sample-2;
+site;local redirect 3;urlmapper-jss-app;urlmapper-jss-app;;;any;en;local-redirect-three-en;/graphql/sample-1;;
+site;local redirect 3;urlmapper-jss-app;urlmapper-jss-app;;;any;de-ch;local-redirect-three-de;/graphql/sample-2;;
 
-site;local redirect to different site 1;integration-site;urlmapper-jss-app;;;any;de-ch;local-redirect-to-different-site-one-de;/graphql/sample-1;
+site;local redirect 4;urlmapper-jss-app;urlmapper-jss-app;;x;any;en;local-redirect-four-en;/graphql/sample-1;;x
+site;local redirect 4;urlmapper-jss-app;urlmapper-jss-app;;x;any;de-ch;local-redirect-four-de;/graphql/sample-2;;x
 
-global;global capture 1;;;;x;any;en;^global-capture([?].*)?;https://www.google.com;Transfers all query strings to the target url;
+global;global capture 1;;;;x;any;en;^global-capture([?].*)?;https://www.google.com;Transfers all query strings to the target url;;

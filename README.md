@@ -49,6 +49,7 @@ The csv format looks as follows: `Type;Name;Site;TargetSite;Permanent;Regex;Prot
 |Term|Defines the term that should be matched|
 |Target|Defines the target of the redirect. This can be either an external URL (eg. `https://google.com`), or the path to an item. Please note that the path shall not include any language code or site name (if you are using virtual paths). Example: `/products/super-product`|
 |Description|An optional description of the redirect. This will be fed into the `Description` field on the created redirect item|
+|PreserveQueryString|Set to `x` to handle and pass along query string from the requested URL|
 
 A set of example csv records can be found here: `be\etc\import\example-import-file.csv`
 

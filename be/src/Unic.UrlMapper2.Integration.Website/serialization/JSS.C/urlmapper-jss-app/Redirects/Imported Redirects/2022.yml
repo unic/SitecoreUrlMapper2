@@ -1,0 +1,14 @@
+﻿---
+ID: "24d0e682-2470-4bf9-9e23-a3907c05c778"
+Parent: "f3058f06-a2d6-4ba6-b502-49e4c6c75a46"
+Template: "adb6ca4f-03ef-4f47-b9ac-9ce2ba53ff97"
+Path: "/sitecore/content/urlmapper-jss-app/Redirects/Imported Redirects/2022"
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220303T112127Z
