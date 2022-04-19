@@ -63,6 +63,7 @@
                 this.logger.Error($"Failed to parse source protocol {redirectSearchResultItem.SourceProtocol}", this);
             }
 
+            var sourceTerm = redirectSearchResultItem.SourceTerm;
             var redirect = new Redirect
             {
                 RedirectSearchData = redirectSearchData,
@@ -71,21 +72,22 @@
                 SourceProtocol = sourceProtocol,
                 RegexEnabled = redirectSearchResultItem.RegexEnabled,
                 PreserveQueryString = redirectSearchResultItem.PreserveQueryString,
-                Term = redirectSearchResultItem.SourceTerm
+                Term = sourceTerm
             };
 
-            this.HandlePreserveQueryString(redirect, redirectSearchResultItem);
+            this.HandlePreserveQueryString(redirect, sourceTerm);
             return redirect;
         }
 
-        protected virtual void HandlePreserveQueryString(Redirect redirect, RedirectSearchResultItem redirectSearchResultItem)
+        protected virtual void HandlePreserveQueryString(Redirect redirect, string sourceTerm)
         {
             if (!redirect.PreserveQueryString) return;
 
             redirect.RegexEnabled = true;
-            if (!redirectSearchResultItem.SourceTerm.EndsWith(Constants.RegularExpressions.QueryStringExpression))
+            if (!string.IsNullOrWhiteSpace(sourceTerm) 
+                && !sourceTerm.EndsWith(Constants.RegularExpressions.QueryStringExpression))
             {
-                redirect.Term = redirectSearchResultItem.SourceTerm + Constants.RegularExpressions.QueryStringExpression;
+                redirect.Term = sourceTerm + Constants.RegularExpressions.QueryStringExpression;
             }
         }
 
