@@ -58,7 +58,8 @@
 
         public struct RegularExpressions
         {
-            public const string QueryStringExpression = "([?].*)?";
+            public const string QueryStringPattern = "([?].*)?";
+            public const string PartialQueryStringPattern = "([&].*)?";
         }
     }
 }
