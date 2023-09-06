@@ -30,6 +30,13 @@ Capture groups can be defined when the regex feature has been enabled for a redi
 
 The following term definition matches incoming terms for `global-capture` and transfers all query strings to the target (if any have been provided): `^global-capture([?].*)?`
 
+### Preserve Query String
+
+When this checkbox is checked, the query string from the original request will be passed on to the redirect location. When `Regex enabled` is unchecked, the request url path (excluding the query) has to be an exact match for the `Source term`. If `Source Term` contains a query, then the request url's query string has to start with the query from the `Source Term`.
+
+For example, when `Preserve Query String` is checked, `Regex enabled` is unchecked, and `Source Term` is set to `test`, then this request: `https://mysite.com/test?a=b` will be redirected to the target with the query string included.
+If the `Source Term` would be `test?a=b` then this request: `https://mysite.com/test?a=b&c=d` will be a match and redirected to the target with the whole query string included, but this request: `https://mysite.com/test?c=d&a=b` will not be a match.
+
 ### Bulk Import
 
 A Sitecore PowerShell script is included allowing Authors to upload a CSV containing redirect definitions.
