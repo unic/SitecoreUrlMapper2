@@ -96,7 +96,7 @@
             redirect.RegexEnabled = true;
             if (!sourceTerm.Contains("?"))
             {
-                redirect.Term = $"{sourceTerm}{Constants.RegularExpressions.QueryStringPattern}$";
+                redirect.Term = $"^{sourceTerm}{Constants.RegularExpressions.QueryStringPattern}$";
                 return;
             }
 
@@ -104,7 +104,7 @@
             var addSourceTermQuery = !sourceTerm.EndsWith("?");
             var sourceTermQuery = addSourceTermQuery ? sourceTerm.Substring(sourceTerm.IndexOf("?", StringComparison.InvariantCultureIgnoreCase) + 1) : string.Empty;
 
-            redirect.Term = $"{sourceTermPath}{(addSourceTermQuery ? $"([?]{sourceTermQuery}{Constants.RegularExpressions.PartialQueryStringPattern})" : Constants.RegularExpressions.QueryStringPattern)}$";
+            redirect.Term = $"^{sourceTermPath}{(addSourceTermQuery ? $"([?]{sourceTermQuery}{Constants.RegularExpressions.PartialQueryStringPattern})" : Constants.RegularExpressions.QueryStringPattern)}$";
         }
 
         protected virtual IQueryable<RedirectSearchResultItem> GetSearchQuery(IProviderSearchContext searchContext, RedirectSearchData redirectSearchData)
