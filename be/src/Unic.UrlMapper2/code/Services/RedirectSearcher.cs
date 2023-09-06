@@ -81,14 +81,30 @@
 
         protected virtual void HandlePreserveQueryString(Redirect redirect, string sourceTerm)
         {
-            if (!redirect.PreserveQueryString) return;
-
-            redirect.RegexEnabled = true;
-            if (!string.IsNullOrWhiteSpace(sourceTerm) 
-                && !sourceTerm.EndsWith(Constants.RegularExpressions.QueryStringExpression))
+            if (!redirect.PreserveQueryString || string.IsNullOrWhiteSpace(sourceTerm)) return;
+            if (redirect.RegexEnabled)
             {
-                redirect.Term = sourceTerm + Constants.RegularExpressions.QueryStringExpression;
+                if (!sourceTerm.EndsWith(Constants.RegularExpressions.QueryStringPattern))
+                {
+                    redirect.Term = sourceTerm + Constants.RegularExpressions.QueryStringPattern;
+                }
+
+                return;
             }
+
+            // if regex was not enabled we need to make sure that with Preserve Query string we match the exact source term and a query
+            redirect.RegexEnabled = true;
+            if (!sourceTerm.Contains("?"))
+            {
+                redirect.Term = $"^{sourceTerm}{Constants.RegularExpressions.QueryStringPattern}$";
+                return;
+            }
+
+            var sourceTermPath = sourceTerm.Substring(0, sourceTerm.IndexOf("?", StringComparison.InvariantCultureIgnoreCase));
+            var addSourceTermQuery = !sourceTerm.EndsWith("?");
+            var sourceTermQuery = addSourceTermQuery ? sourceTerm.Substring(sourceTerm.IndexOf("?", StringComparison.InvariantCultureIgnoreCase) + 1) : string.Empty;
+
+            redirect.Term = $"^{sourceTermPath}{(addSourceTermQuery ? $"([?]{sourceTermQuery}{Constants.RegularExpressions.PartialQueryStringPattern})" : Constants.RegularExpressions.QueryStringPattern)}$";
         }
 
         protected virtual IQueryable<RedirectSearchResultItem> GetSearchQuery(IProviderSearchContext searchContext, RedirectSearchData redirectSearchData)
