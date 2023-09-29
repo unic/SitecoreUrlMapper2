@@ -39,7 +39,7 @@
             using (var searchContext = ContentSearchManager.GetIndex(indexName).CreateSearchContext())
             {
                 var queryable = this.GetSearchQuery(searchContext, redirectSearchData);
-                results = queryable.ToList().DistinctBy(r => r.ItemId)?.ToList();
+                results = queryable.ToList().Where(r => !string.IsNullOrWhiteSpace(r.SourceTerm) && !string.IsNullOrWhiteSpace(r.TargetUrl)).DistinctBy(r => r.ItemId)?.ToList();
             }
 
             if (results != null && results.Any())
