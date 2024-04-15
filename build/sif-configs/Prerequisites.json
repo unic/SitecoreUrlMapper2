@@ -24,7 +24,7 @@
         "WebPlatformDownload": {
             "Type": "String",
             "Description": "Download location of Microsoft Web Platform Installer 5.0",
-            "DefaultValue": "https://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi"
+            "DefaultValue": "https://download.microsoft.com/download/8/4/9/849DBCF2-DFD9-49F5-9A19-9AEE5B29341A/WebPlatformInstaller_x64_en-US.msi"
         },
         "SQLClrTypesx86Download": {
             "Type": "String",

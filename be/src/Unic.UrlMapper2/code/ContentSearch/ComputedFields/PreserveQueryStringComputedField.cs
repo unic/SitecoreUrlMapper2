@@ -9,7 +9,7 @@
     {
         protected override object Compute(IIndexable indexable)
         {
-            var value = indexable?.GetFieldByName(Constants.Fields.Redirect.PreserveQueryString)?.Value;
+            var value = indexable?.GetFieldById(Constants.Fields.Redirect.PreserveQueryString)?.Value;
             
             return MainUtil.GetBool(value, false);
         }

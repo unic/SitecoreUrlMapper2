@@ -15,7 +15,7 @@
         {
             var item = (Item)(indexable as SitecoreIndexableItem);
 
-            var value = indexable?.GetFieldByName(Constants.Fields.Redirect.RedirectType)?.Value;
+            var value = indexable?.GetFieldById(Constants.Fields.Redirect.RedirectType)?.Value;
             if (ID.TryParse(value, out var specificationId))
             {
                 return this.ResolveDependency<ISpecificationService>().GetSharedSpecification(item.Database, specificationId);

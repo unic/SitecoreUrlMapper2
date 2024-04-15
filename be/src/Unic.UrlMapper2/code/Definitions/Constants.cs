@@ -15,17 +15,17 @@
         {
             public struct Redirect
             {
-                public const string SourceTerm = "Source Term";
+                public static readonly ID SourceTerm = ID.Parse("{BF458D1E-59C8-4661-9AD0-67A95CB85785}");
 
-                public const string Target = "Target";
+                public static readonly ID Target = ID.Parse("{B64E1624-9590-4CAD-B3B6-802F4C794086}");
 
-                public const string RedirectType = "Redirect Type";
+                public static readonly ID RedirectType = ID.Parse("{BB67D28D-EFF1-4A65-BD01-DE64AC6E9DA4}");
 
-                public const string SourceProtocol = "Source Protocol";
+                public static readonly ID SourceProtocol = ID.Parse("{E453D759-43E3-4033-ADA8-245DDB56980D}");
 
-                public const string RegexEnabled = "Regex enabled";
+                public static readonly ID RegexEnabled = ID.Parse("{A21DADDF-E5B1-4134-B236-9515D9153EF6}");
 
-                public const string PreserveQueryString = "Preserve Query String";
+                public static readonly ID PreserveQueryString = ID.Parse("{A9D3D444-C009-4C90-B1A2-F8C25D28D084}");
             }
 
             public struct Specification
