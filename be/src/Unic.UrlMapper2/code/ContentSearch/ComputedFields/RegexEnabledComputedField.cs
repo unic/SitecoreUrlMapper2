@@ -9,7 +9,7 @@
     {
         protected override object Compute(IIndexable indexable)
         {
-            var value = indexable?.GetFieldByName(Constants.Fields.Redirect.RegexEnabled)?.Value;
+            var value = indexable?.GetFieldById(Constants.Fields.Redirect.RegexEnabled)?.Value;
             return MainUtil.GetBool(value, false);
         }
     }

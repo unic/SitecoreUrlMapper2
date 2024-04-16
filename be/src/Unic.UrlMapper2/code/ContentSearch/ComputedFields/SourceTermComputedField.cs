@@ -10,7 +10,7 @@
     {
         protected override object Compute(IIndexable indexable)
         {
-            var value = indexable?.GetFieldByName(Constants.Fields.Redirect.SourceTerm)?.Value as string;
+            var value = indexable?.GetFieldById(Constants.Fields.Redirect.SourceTerm)?.Value as string;
 
             return string.IsNullOrWhiteSpace(value)
                 ? default

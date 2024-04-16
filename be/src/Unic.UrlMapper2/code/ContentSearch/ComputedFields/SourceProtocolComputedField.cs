@@ -15,7 +15,7 @@
         {
             var item = (Item)(indexable as SitecoreIndexableItem);
 
-            var value = indexable?.GetFieldByName(Constants.Fields.Redirect.SourceProtocol)?.Value;
+            var value = indexable?.GetFieldById(Constants.Fields.Redirect.SourceProtocol)?.Value;
             if (ID.TryParse(value, out var specificationId))
             {
                 var protocol = this.ResolveDependency<ISpecificationService>().GetSharedSpecification(item.Database, specificationId);
