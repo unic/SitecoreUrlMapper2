@@ -1,0 +1,31 @@
+version: "2.4"
+
+services:
+  solution:
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}-${EXTERNAL_IMAGE_TAG_SUFFIX}
+    build:
+      context: .
+      args:
+        BUILD_CONFIGURATION: ${BUILD_CONFIGURATION}
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${EXTERNAL_IMAGE_TAG_SUFFIX}
+    scale: 0
+
+  cd:
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}:cd-${VERSION:-latest}-${EXTERNAL_IMAGE_TAG_SUFFIX}
+    build:
+      context: ./docker/build/cd
+      args:
+        PARENT_IMAGE: mcr.microsoft.com/windows/servercore:${EXTERNAL_IMAGE_TAG_SUFFIX}
+        SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}-${EXTERNAL_IMAGE_TAG_SUFFIX}
+    depends_on:
+      - solution
+
+  cm:
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}:cm-${VERSION:-latest}-${EXTERNAL_IMAGE_TAG_SUFFIX}
+    build:
+      context: ./docker/build/cm
+      args:
+        PARENT_IMAGE: mcr.microsoft.com/windows/servercore:${EXTERNAL_IMAGE_TAG_SUFFIX}
+        SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}-${EXTERNAL_IMAGE_TAG_SUFFIX}
+    depends_on:
+      - solution
