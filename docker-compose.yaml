@@ -13,7 +13,7 @@ services:
   cd:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}:cd-${VERSION:-latest}-${EXTERNAL_IMAGE_TAG_SUFFIX}
     build:
-      context: ./docker/build/cm
+      context: ./docker/build/cd
       args:
         PARENT_IMAGE: mcr.microsoft.com/windows/servercore:${EXTERNAL_IMAGE_TAG_SUFFIX}
         SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}-${EXTERNAL_IMAGE_TAG_SUFFIX}
@@ -23,7 +23,7 @@ services:
   cm:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}:cm-${VERSION:-latest}-${EXTERNAL_IMAGE_TAG_SUFFIX}
     build:
-      context: ./docker/build/cd
+      context: ./docker/build/cm
       args:
         PARENT_IMAGE: mcr.microsoft.com/windows/servercore:${EXTERNAL_IMAGE_TAG_SUFFIX}
         SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}-${EXTERNAL_IMAGE_TAG_SUFFIX}

@@ -7,8 +7,9 @@ FROM ${SOLUTION_IMAGE} as solution
 FROM ${PARENT_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-WORKDIR c:\module\cd\content
+WORKDIR /module/cd/content
 
-COPY --from=solution artifacts/module ./
+COPY --from=solution artifacts/module/ ./
 
 COPY App_Data/ ./
+
