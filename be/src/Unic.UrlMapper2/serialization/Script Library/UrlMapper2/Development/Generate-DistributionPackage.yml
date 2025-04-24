@@ -11,12 +11,12 @@ SharedFields:
     # Inspired by https://github.com/SitecorePowerShell/Console/blob/b751ee62351290b955d750c7c71aed6b210d788b/Spe/Data/Unicorn/SPE/Scripts/SPE/SPE/Core/Platform/Development/PowerShell%20Extensions%20Maintena/Prepare%20Console%20Distribution.yml
     
     #TODO during release process: Update the $version variable
-    $version = "1.0"
+    $version = "1.4.0"
         
     $package = New-Package "UrlMapper2"
     $package.Sources.Clear()
     
-    $package.Metadata.Author = "David Szöke, Tobias Studer, Christian Hahnloser"
+    $package.Metadata.Author = "Unic AG"
     $package.Metadata.Publisher = "Unic AG"
     $package.Metadata.Version = $version
     

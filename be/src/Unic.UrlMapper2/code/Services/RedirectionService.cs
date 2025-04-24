@@ -20,6 +20,7 @@
         private readonly IUrlMapperContext context;
         private readonly BaseLinkManager linkManager;
         private readonly BaseMediaManager mediaManager;
+        private readonly BaseSettings baseSettings;
 
         public RedirectionService(
             IRedirectSearcher redirectSearcher,
@@ -27,7 +28,8 @@
             BaseLog logger,
             IUrlMapperContext context,
             BaseLinkManager linkManager,
-            BaseMediaManager mediaManager)
+            BaseMediaManager mediaManager,
+            BaseSettings baseSettings)
         {
             this.redirectSearcher = redirectSearcher;
             this.sanitizer = sanitizer;
@@ -35,6 +37,7 @@
             this.context = context;
             this.linkManager = linkManager;
             this.mediaManager = mediaManager;
+            this.baseSettings = baseSettings;
         }
 
         public virtual void PerformRedirect(RedirectSearchData redirectSearchData, HttpContextBase httpContext)
@@ -130,6 +133,18 @@
                 return;
             }
 
+            var setNoCache = this.baseSettings.GetBoolSetting(Constants.Settings.CacheControlHeaderSetNoCache, false);
+            var setNoStore = this.baseSettings.GetBoolSetting(Constants.Settings.CacheControlHeaderSetNoStore, false);
+            if (setNoCache)
+            {
+                httpContext.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            }
+
+            if (setNoStore)
+            {
+                httpContext.Response.Cache.SetNoStore();
+            }
+           
             this.logger.Debug($"Performing {redirect.RedirectType} redirect to {targetUrl}", this);
 
             switch (redirect.RedirectType)

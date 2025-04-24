@@ -54,6 +54,10 @@
             public const string UseOriginalUrlHeaderForJssProcessor = "UrlMapper2.UseOriginalUrlHeaderForJssProcessor";
 
             public const string OriginalUrlHeaderForJssProcessor = "UrlMapper2.OriginalUrlHeaderForJssProcessor";
+
+            public const string CacheControlHeaderSetNoCache = "UrlMapper2.CacheControl.SetNoCache";
+
+            public const string CacheControlHeaderSetNoStore = "UrlMapper2.CacheControl.SetNoStore";
         }
 
         public struct RegularExpressions
