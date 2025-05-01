@@ -1,12 +1,12 @@
 name: Build and Push Docker Image
 
 on:
+  workflow_dispatch:  # 👈 allows manual trigger
   push:
     branches: [ main ]
 
 jobs:
   build:
-    workflow_dispatch:  # 👈 allows manual trigger
     runs-on: windows-latest
 
     steps:
