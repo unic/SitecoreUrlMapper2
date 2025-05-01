@@ -1,0 +1,26 @@
+name: Build and Push Docker Image
+
+on:
+  workflow_dispatch:  # 👈 allows manual trigger
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Log in to Docker Hub
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build with Docker Compose
+      run: docker-compose build
+
+    - name: Tag Image
+      run: docker tag sitecore-url-mapper yourdockerhubusername/sitecore-url-mapper:latest
+
+    - name: Push Image
+      run: docker push yourdockerhubusername/sitecore-url-mapper:latest
