@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    workflow_dispatch:  # 👈 allows manual trigger
     runs-on: windows-latest
 
     steps:
